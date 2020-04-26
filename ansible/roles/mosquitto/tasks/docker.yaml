@@ -2,16 +2,18 @@
   docker_network:
     name: "{{ docker_bridge_name }}"
 
-- name: "Run Traefik container"
+- name: "Run Mosquitto container"
   docker_container:
-    image: "traefik:v2.2"
-    name: "traefik"
+    image: "eclipse-mosquitto"
+    name: "mosquitto"
     restart_policy: "unless-stopped"
     recreate: true
     detach: true
     pull: true
     network_mode: "{{ docker_bridge_name }}"
     volumes:
-      - "/etc/docker/traefik:/etc/traefik"
+      - "/etc/docker/mosquitto:/mosquitto"
+      - "mosquitto-data:/mosquitto/data"
+      - "mosquitto-log:/mosquitto/log"
     ports:
-      - "443:443"
+      - "8883:8883"

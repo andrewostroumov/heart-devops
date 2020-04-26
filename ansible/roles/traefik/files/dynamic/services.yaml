@@ -1,5 +1,9 @@
 http:
   services:
+    traefik-router:
+      loadBalancer:
+        servers:
+          - url: "http://traefik:8080"
     home-assistant:
       loadBalancer:
         servers:

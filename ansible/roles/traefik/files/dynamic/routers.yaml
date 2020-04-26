@@ -1,5 +1,9 @@
 http:
   routers:
+    traefik-router:
+      rule: "Host(`router.heart`)"
+      service: "traefik-router"
+      tls: {}
     home-assistant:
       rule: "Host(`haas.heart`)"
       service: "home-assistant"
