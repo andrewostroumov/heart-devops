@@ -1,0 +1,26 @@
+http:
+  routers:
+    home-assistant:
+      rule: "Host(`haas.heart`)"
+      service: "home-assistant"
+      tls: {}
+    grafana:
+      rule: "Host(`grafana.heart`)"
+      service: "grafana"
+      tls: {}
+    motioneye:
+      rule: "Host(`motioneye.heart`)"
+      service: "motioneye"
+      tls: {}
+    utorrent:
+      rule: "Host(`utorrent.heart`)"
+      service: "utorrent"
+      tls: {}
+    kibana:
+      rule: "Host(`kibana.heart`)"
+      service: "kibana"
+      tls: {}
+    plex:
+      rule: "Host(`plex.heart`)"
+      service: "plex"
+      tls: {}

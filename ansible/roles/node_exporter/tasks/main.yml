@@ -1,0 +1,40 @@
+- name: download node exporter build
+  unarchive:
+    src: https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-0.18.1.linux-amd64.tar.gz
+    dest: /tmp
+    remote_src: true
+
+- name: copy node exporter to bin
+  become: true
+  copy:
+    src: /tmp/node_exporter-0.18.1.linux-amd64/node_exporter
+    dest: /usr/local/bin/node_exporter
+    remote_src: true
+    owner: root
+    group: root
+
+- name: remove node exporter archive
+  file:
+    path: /tmp/node_exporter-0.18.1.linux-amd64.tar.gz
+    state: absent
+
+- name: remove node exporter folder
+  file:
+    path: /tmp/node_exporter-0.18.1.linux-amd64
+    state: absent
+
+- name: add node exporter service
+  become: true
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+    owner: root
+    group: root
+
+- name: restart node exporter service
+  become: true
+  systemd:
+    name: node_exporter
+    state: restarted
+    daemon_reload: true
+    enabled: true

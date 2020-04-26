@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /etc/traefik/secure/live.crt
+      keyFile: /etc/traefik/secure/live.key

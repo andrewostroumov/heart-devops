@@ -1,0 +1,14 @@
+entryPoints:
+  traefik:
+    address: ":8080"
+  websecure:
+    address: ":443"
+providers:
+  file:
+    directory: "/etc/traefik/dynamic"
+
+api:
+  insecure: true
+
+log:
+  level: "info"

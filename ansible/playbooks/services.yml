@@ -1,0 +1,6 @@
+- name: Heart Xeon Services
+  hosts: heart.xeon
+  gather_facts: false
+  become: true
+  roles:
+    - node_exporter
