@@ -4,7 +4,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://traefik:8080"
-    home-assistant:
+    hass:
       loadBalancer:
         servers:
           - url: "http://172.17.0.1:8123"

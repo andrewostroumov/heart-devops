@@ -1,20 +1,20 @@
-- name: "Copy traefik config"
+- name: "copy traefik config"
   copy:
     src: "files/traefik.yaml"
     dest: "/etc/docker/traefik/"
 
-- name: "Copy traefik dynamic config"
+- name: "copy traefik dynamic config"
   copy:
     src: "files/dynamic"
     dest: "/etc/docker/traefik/dynamic/"
 
-- name: "Copy traefik secure key"
+- name: "copy traefik secure key"
   copy:
     src: "../.secrets/ca/traefik/live.key"
     dest: "/etc/docker/traefik/secure/"
     mode: "600"
 
-- name: "Copy traefik secure certificate"
+- name: "copy traefik secure certificate"
   copy:
     src: "../.secrets/ca/traefik/live.crt"
     dest: "/etc/docker/traefik/secure/"

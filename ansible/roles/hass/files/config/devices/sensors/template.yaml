@@ -1,0 +1,14 @@
+- platform: template
+  sensors:
+    fb0dd915_free_heap_size:
+      value_template: "{{ state_attr('sensor.fb0dd915_quality', 'free_heap_size') }}"
+      unit_of_measurement: "b"
+    0e8b9f4c_free_heap_size:
+      value_template: "{{ state_attr('sensor.0e8b9f4c_quality', 'free_heap_size') }}"
+      unit_of_measurement: "b"
+    fb47da6e_aqi:
+      value_template: "{{ state_attr('fan.fb47da6e_purifier', 'aqi') }}"
+      unit_of_measurement: "ppm"
+    fb47da6e_illuminance:
+      value_template: "{{ state_attr('fan.fb47da6e_purifier', 'illuminance') }}"
+      unit_of_measurement: "lux"

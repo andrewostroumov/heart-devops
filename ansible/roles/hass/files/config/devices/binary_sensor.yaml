@@ -1,0 +1,5 @@
+- platform: mqtt
+  name: 3e565972_automation_purifier
+  state_topic: "homeassistant/automation/purifier/3e565972"
+  payload_on: "active"
+  payload_off: "inactive"

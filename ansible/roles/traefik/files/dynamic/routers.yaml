@@ -4,9 +4,9 @@ http:
       rule: "Host(`router.heart`)"
       service: "traefik-router"
       tls: {}
-    home-assistant:
-      rule: "Host(`haas.heart`)"
-      service: "home-assistant"
+    hass:
+      rule: "Host(`hass.heart`)"
+      service: "hass"
       tls: {}
     grafana:
       rule: "Host(`grafana.heart`)"

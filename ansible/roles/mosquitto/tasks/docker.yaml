@@ -1,8 +1,8 @@
-- name: "Create iot network"
+- name: "create iot network"
   docker_network:
     name: "{{ docker_bridge_name }}"
 
-- name: "Run Mosquitto container"
+- name: "run mosquitto container"
   docker_container:
     image: "eclipse-mosquitto"
     name: "mosquitto"
@@ -10,7 +10,8 @@
     recreate: true
     detach: true
     pull: true
-    network_mode: "{{ docker_bridge_name }}"
+    networks:
+      - name: "{{ docker_bridge_name }}"
     volumes:
       - "/etc/docker/mosquitto:/mosquitto"
       - "mosquitto-data:/mosquitto/data"

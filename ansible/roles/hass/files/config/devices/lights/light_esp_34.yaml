@@ -1,0 +1,14 @@
+- platform: mqtt
+  schema: json
+  name: Bad Led Strip
+  unique_id: 34e0134a53921bb0
+  state_topic: "discovery/light/esp32_rgb_cct_led_strip/state"
+  command_topic: "discovery/light/esp32_rgb_cct_led_strip/set"
+  availability_topic: "discovery/light/esp32_rgb_cct_led_strip/status"
+  json_attributes_topic: "discovery/light/esp32_rgb_cct_led_strip/attributes"
+  brightness: true
+  color_temp: true
+  white_value: true
+  rgb: true
+  effect: false
+  retain: false

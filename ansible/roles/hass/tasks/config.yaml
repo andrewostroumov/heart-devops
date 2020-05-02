@@ -1,0 +1,34 @@
+- name: "copy hass files"
+  copy:
+    src: "files/config/"
+    dest: "/etc/docker/hass/"
+
+- name: "copy hass components"
+  copy:
+    src: "files/components/"
+    dest: "/etc/docker/hass/www/components/"
+
+- name: "copy hass plugins"
+  copy:
+    src: "files/plugins/"
+    dest: "/etc/docker/hass/www/plugins/"
+
+- name: "copy ca certificate"
+  copy:
+    src: "../.secrets/ca/mosquitto/ca.crt"
+    dest: "/etc/docker/hass/secure/"
+    mode: "644"
+
+- name: "clone google dark theme"
+  git:
+    repo: "git@github.com:JuanMTech/google_dark_theme.git"
+    dest: "/etc/docker/hass/themes/google_dark_theme"
+    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+    force: true
+
+- name: "clone google light theme"
+  git:
+    repo: "git@github.com:JuanMTech/google_light_theme.git"
+    dest: "/etc/docker/hass/themes/google_light_theme"
+    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+    force: true

@@ -1,0 +1,3 @@
+- platform: mqtt_json
+  devices:
+    7c199d31_device: discovery/location/espressif/256e636eae3b2852

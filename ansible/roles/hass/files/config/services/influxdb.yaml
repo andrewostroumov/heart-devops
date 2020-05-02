@@ -1,0 +1,30 @@
+include:
+  entities:
+    - sensor.10037c21_mi_battery
+    - sensor.10037c21_mi_temperature
+    - sensor.10037c21_mi_humidity
+    - sensor.fb0dd915_temperature
+    - sensor.fb0dd915_humidity
+    - sensor.fb0dd915_pressure
+    - sensor.fb0dd915_resistance
+    - sensor.fb0dd915_quality
+    - sensor.fb0dd915_quality_accuracy
+    - sensor.fb0dd915_quality_index
+    - sensor.fb0dd915_co
+    - sensor.fb0dd915_co2
+    - sensor.fb0dd915_co2_index
+    - sensor.0e8b9f4c_temperature
+    - sensor.0e8b9f4c_humidity
+    - sensor.0e8b9f4c_pressure
+    - sensor.0e8b9f4c_resistance
+    - sensor.0e8b9f4c_quality
+    - sensor.0e8b9f4c_quality_accuracy
+    - sensor.0e8b9f4c_quality_index
+    - sensor.0e8b9f4c_co2
+    - sensor.0e8b9f4c_co2_index
+    - sensor.fb47da6e_aqi
+    - sensor.fb47da6e_illuminance
+    - sensor.temperature_and_humidity_sensor_b370_temperature
+    - sensor.temperature_and_humidity_sensor_b370_humidity
+    - sensor.temperature_and_humidity_sensor_6ea2_temperature
+    - sensor.temperature_and_humidity_sensor_6ea2_humidity

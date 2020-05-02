@@ -1,0 +1,37 @@
+default_config:
+homekit:
+mobile_app:
+
+lovelace:
+  mode: yaml
+
+discovery:
+  ignore:
+    - yeelight
+
+automation: !include automations.yaml
+frontend: !include frontend.yaml
+notify: !include notify.yaml
+scene: !include scenes.yaml
+telegram_bot: !include telegram.yaml
+zone: !include zone.yaml
+
+light: !include_dir_merge_list devices/lights
+sensor: !include_dir_merge_list devices/sensors
+
+fan: !include devices/fan.yaml
+switch: !include devices/switch.yaml
+yeelight: !include devices/yeelight.yaml
+binary_sensor: !include devices/binary_sensor.yaml
+device_tracker: !include devices/device_tracker.yaml
+
+recorder: !include services/recorder.yaml
+mqtt: !include services/mqtt.yaml
+influxdb: !include services/influxdb.yaml
+
+stream:
+
+camera:
+  - platform: ffmpeg
+    name: 0e8b9f4c_cctv
+    input: !secret camera_0e8b9f4c_cctv_input

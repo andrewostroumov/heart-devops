@@ -1,0 +1,5 @@
+- platform: xiaomi_miio
+  host: !secret fan_fb47da6e_purifier_host
+  token: !secret fan_fb47da6e_purifier_token
+  name: fb47da6e_purifier
+  model: zhimi.airpurifier.v7

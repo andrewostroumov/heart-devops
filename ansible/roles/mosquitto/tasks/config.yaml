@@ -1,21 +1,21 @@
-- name: "Copy mosquitto config"
+- name: "copy mosquitto config"
   copy:
     src: "files/mosquitto.conf"
     dest: "/etc/docker/mosquitto/config/"
 
-- name: "Copy ca certificate"
+- name: "copy ca certificate"
   copy:
     src: "../.secrets/ca/mosquitto/ca.crt"
     dest: "/etc/docker/mosquitto/secure/"
     mode: "644"
 
-- name: "Copy server key"
+- name: "copy server key"
   copy:
     src: "../.secrets/ca/mosquitto/server.key"
     dest: "/etc/docker/mosquitto/secure/"
     mode: "600"
 
-- name: "Copy server certificate"
+- name: "copy server certificate"
   copy:
     src: "../.secrets/ca/mosquitto/server.crt"
     dest: "/etc/docker/mosquitto/secure/"

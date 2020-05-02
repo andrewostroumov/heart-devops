@@ -1,0 +1,45 @@
+title: Bedroom
+path: bedroom
+badges:
+  - entity: sensor.fb0dd915_temperature
+    name: Air Temperature
+  - entity: sensor.fb0dd915_humidity
+    name: Air Humidity
+  - entity: sensor.fb0dd915_pressure
+    name: Air Pressure
+  - entity: sensor.fb0dd915_resistance
+    name: Air Resistance
+  - entity: sensor.fb0dd915_quality
+    name: Air Quality
+  - entity: sensor.fb0dd915_quality_accuracy
+    name: Air Quality Accuracy
+  - entity: sensor.fb0dd915_quality_index
+    name: Air Quality Index
+  - entity: sensor.fb0dd915_co
+    name: Air CO
+  - entity: sensor.fb0dd915_co2
+    name: Air CO2
+  - entity: sensor.fb0dd915_co2_index
+    name: Air CO2 Index
+  - entity: sensor.fb0dd915_free_heap_size
+    name: Air Heap Size
+  - entity: sensor.fb47da6e_aqi
+    name: Air AQI 2.5
+  - entity: sensor.fb47da6e_illuminance
+    name: Illuminance
+cards:
+  - entities:
+      - entity: light.bad_led_strip
+    title: Light
+    type: entities
+  - entities:
+      - entity: switch.1d42d23a_plug
+        name: Unicorn
+    title: Switch
+    type: entities
+  - type: custom:air-purifier-card
+    entity: fan.fb47da6e_purifier
+  - type: sensor
+    entity: sensor.fb47da6e_aqi
+    name: Air AQI 2.5
+    graph: line

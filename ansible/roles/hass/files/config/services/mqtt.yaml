@@ -1,0 +1,6 @@
+discovery: true
+discovery_prefix: discovery
+broker: localhost
+port: 8883
+tls_insecure: true
+certificate: /config/secure/ca.crt

@@ -1,0 +1,8 @@
+title: Outside
+path: outside
+badges:
+  - entity: sun.sun
+  - entity: sensor.temperature_and_humidity_sensor_b370_temperature
+    name: Air Temperature
+  - entity: sensor.temperature_and_humidity_sensor_b370_humidity
+    name: Air Humidity

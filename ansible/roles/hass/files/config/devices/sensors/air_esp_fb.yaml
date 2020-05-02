@@ -1,0 +1,96 @@
+- platform: mqtt
+  name: "fb0dd915 Temperature"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "°C"
+  value_template: "{{ value_json.temperature }}"
+- platform: mqtt
+  name: "fb0dd915 Humidity"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.humidity }}"
+- platform: mqtt
+  name: "fb0dd915 Pressure"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "hPa"
+  value_template: "{{ value_json.pressure }}"
+- platform: mqtt
+  name: "fb0dd915 Resistance"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "Ohm"
+  value_template: "{{ value_json.gas }}"
+- platform: mqtt
+  name: "fb0dd915 Quality"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.iaq }}"
+- platform: mqtt
+  name: "fb0dd915 Quality Accuracy"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.iaq_accuracy }}"
+- platform: mqtt
+  name: "fb0dd915 Quality Index"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.iaq_index }}"
+- platform: mqtt
+  name: "fb0dd915 CO2 Qquivalent"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.co2_equivalent }}"
+- platform: mqtt
+  name: "fb0dd915 breath VOC Equivalent"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.breath_voc_equivalent }}"
+- platform: mqtt
+  name: "fb0dd915 CO"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "ppm"
+  value_template: "{{ value_json.co }}"
+- platform: mqtt
+  name: "fb0dd915 CO2"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "ppm"
+  value_template: "{{ value_json.co2 }}"
+- platform: mqtt
+  name: "fb0dd915 CO2 Index"
+  state_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/state"
+  availability_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.co2_index }}"

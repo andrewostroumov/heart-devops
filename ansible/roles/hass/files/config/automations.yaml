@@ -1,0 +1,158 @@
+- id: "1580657732450"
+  alias: Turn on aqara light when motion is detected
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.motion_sensor_6469
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: light.aqara_hub_fed8
+      state: "off"
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+  action:
+    - data:
+        brightness: 255
+        entity_id: light.aqara_hub_fed8
+        rgb_color:
+          - 255
+          - 255
+          - 255
+      service: light.turn_on
+- id: "1580659530371"
+  alias: Turn off aqara light when motion is clear
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.motion_sensor_6469
+      for: 00:01:00
+      platform: state
+      to: "off"
+  condition:
+    - condition: state
+      entity_id: light.aqara_hub_fed8
+      state: "on"
+  action:
+    - data:
+        entity_id: light.aqara_hub_fed8
+      service: light.turn_off
+- id: "1580662281241"
+  alias: Notify entrance motion is detected
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.motion_sensor_6469
+      from: "off"
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.aqara_hub_fed8
+      state: armed_away
+  action:
+    - service: notify.heart_live_tg
+      data:
+        message: Motion detector is entrance sensor
+        title: "*Motion is detected*"
+- id: "1584462735212"
+  alias: Turn on UV Flower lamp
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.motion_sensor_6469
+      for: 00:30:00
+      platform: state
+      to: "off"
+  condition:
+    - condition: state
+      entity_id: switch.7edae7d6_plug
+      state: "off"
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+  action:
+    - data:
+        entity_id: switch.7edae7d6_plug
+      service: switch.turn_on
+- id: "1584463271926"
+  alias: Turn off UV Flower lamp
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.motion_sensor_6469
+      from: "off"
+      platform: state
+      to: "on"
+    - entity_id: binary_sensor.motion_sensor_1132
+      from: "off"
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.7edae7d6_plug
+      state: "on"
+  action:
+    - data:
+        entity_id: switch.7edae7d6_plug
+      service: switch.turn_off
+- id: "1587144286634"
+  alias: Purifier MAX Speed
+  description: ""
+  trigger:
+    - above: "30"
+      entity_id: sensor.fb47da6e_aqi
+      for: 00:00:30
+      platform: numeric_state
+  condition:
+    - condition: state
+      entity_id: fan.fb47da6e_purifier
+      state: "on"
+    - condition: state
+      entity_id: binary_sensor.3e565972_automation_purifier
+      state: "off"
+    - condition: state
+      entity_id: sun.sun
+      state: "above_horizon"
+  action:
+    - data:
+        entity_id: fan.fb47da6e_purifier
+        speed: favorite
+      service: fan.set_speed
+    - data:
+        entity_id: fan.fb47da6e_purifier
+        level: 17
+      service: fan.xiaomi_miio_set_favorite_level
+    - data:
+        payload: active
+        qos: 0
+        retain: true
+        topic: homeassistant/automation/purifier/3e565972
+      service: mqtt.publish
+- id: "1587145945339"
+  alias: Purifier MIN Speed
+  description: ""
+  trigger:
+    - below: "15"
+      entity_id: sensor.fb47da6e_aqi
+      for: 00:00:30
+      platform: numeric_state
+  condition:
+    - condition: state
+      entity_id: fan.fb47da6e_purifier
+      state: "on"
+    - condition: state
+      entity_id: binary_sensor.3e565972_automation_purifier
+      state: "on"
+  action:
+    - data:
+        entity_id: fan.fb47da6e_purifier
+        speed: favorite
+      service: fan.set_speed
+    - data:
+        entity_id: fan.fb47da6e_purifier
+        level: 8
+      service: fan.xiaomi_miio_set_favorite_level
+    - data:
+        payload: inactive
+        qos: 0
+        retain: true
+        topic: homeassistant/automation/purifier/3e565972
+      service: mqtt.publish

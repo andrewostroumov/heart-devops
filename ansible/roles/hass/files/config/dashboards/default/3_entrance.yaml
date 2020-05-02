@@ -1,0 +1,16 @@
+title: Entrance
+path: entrance
+badges:
+  - entity: binary_sensor.motion_sensor_6469
+    name: Motion Sensor
+cards:
+  - type: light
+    entity: light.aqara_hub_fed8
+    name: Aquara Light
+  - type: alarm-panel
+    entity: alarm_control_panel.aqara_hub_fed8
+    name: Alarm Control
+    states:
+      - arm_home
+      - arm_away
+      - arm_night

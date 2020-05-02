@@ -1,0 +1,5 @@
+title: Kitchen
+path: kitchen
+badges:
+  - entity: binary_sensor.motion_sensor_1132
+    name: Motion Sensor

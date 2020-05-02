@@ -1,8 +1,8 @@
-- name: "Create iot network"
+- name: "create iot network"
   docker_network:
     name: "{{ docker_bridge_name }}"
 
-- name: "Run Traefik container"
+- name: "run traefik container"
   docker_container:
     image: "traefik:v2.2"
     name: "traefik"
@@ -10,7 +10,8 @@
     recreate: true
     detach: true
     pull: true
-    network_mode: "{{ docker_bridge_name }}"
+    networks:
+      - name: "{{ docker_bridge_name }}"
     volumes:
       - "/etc/docker/traefik:/etc/traefik"
     ports:

@@ -1,0 +1,7 @@
+title: Bathroom
+path: bathroom
+badges:
+  - entity: sensor.temperature_and_humidity_sensor_6ea2_temperature
+    name: Air Temperature
+  - entity: sensor.temperature_and_humidity_sensor_6ea2_humidity
+    name: Air Humidity

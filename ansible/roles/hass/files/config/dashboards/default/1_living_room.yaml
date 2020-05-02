@@ -1,0 +1,59 @@
+title: Living room
+path: living_room
+badges:
+  - entity: sensor.10037c21_mi_battery
+    name: Xiaomi Air Battery
+  - entity: sensor.10037c21_mi_temperature
+    name: Xiaomi Air Temperature
+  - entity: sensor.10037c21_mi_humidity
+    name: Xiaomi Air Humidity
+  - entity: sensor.0e8b9f4c_temperature
+    name: Air Temperature
+  - entity: sensor.0e8b9f4c_humidity
+    name: Air Humidity
+  - entity: sensor.0e8b9f4c_pressure
+    name: Air Pressure
+  - entity: sensor.0e8b9f4c_resistance
+    name: Air Resistance
+  - entity: sensor.0e8b9f4c_quality
+    name: Air Quality
+  - entity: sensor.0e8b9f4c_quality_accuracy
+    name: Air Quality Accuracy
+  - entity: sensor.0e8b9f4c_quality_index
+    name: Air Quality Index
+  - entity: sensor.0e8b9f4c_co2
+    name: Air CO2
+  - entity: sensor.0e8b9f4c_co2_index
+    name: Air CO2 Index
+  - entity: sensor.0e8b9f4c_free_heap_size
+    name: Air Heap Size
+cards:
+  - type: vertical-stack
+    cards:
+      - entities:
+          - entity: light.lv_color_all
+            name: Yeelight Lights
+          - entity: light.7b61e1dc_color_strip
+            name: Sofa Color Strip
+          - entity: light.32ebdcdd_color_bulb
+            name: Floor Color Bulb
+          - entity: light.33b24d3c_color_bulb
+            name: Window Color Bulb
+        show_header_toggle: false
+        title: Lights
+        type: entities
+      - entities:
+          - entity: switch.7edae7d6_plug
+            name: UV Flower Lamp
+        title: Switch
+        type: entities
+  - type: vertical-stack
+    cards:
+      - type: iframe
+        url: "https://embed.windy.com/embed2.html?lat=50.403&lon=30.505&zoom=8&level=surface&overlay=cosc&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=50.454&detailLon=30.525&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
+      - type: picture-glance
+        title: Outdoor CCTV
+        entities:
+          - entity: sensor.temperature_and_humidity_sensor_b370_temperature
+          - entity: sensor.temperature_and_humidity_sensor_b370_humidity
+        camera_image: camera.0e8b9f4c_cctv
