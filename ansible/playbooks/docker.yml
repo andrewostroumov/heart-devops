@@ -3,5 +3,7 @@
   gather_facts: false
   become: true
   roles:
+    - filebeat
     - traefik
     - mosquitto
+    - hass
