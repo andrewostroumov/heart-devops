@@ -1,6 +1,8 @@
 views: !include_dir_list dashboards/default
 
 resources:
+  - url: /local/components/zigbee-network/zigbee-network.js
+    type: module
   - url: /local/components/air-purifier/card.js
     type: module
   - url: /local/plugins/custom-header/custom-header.js

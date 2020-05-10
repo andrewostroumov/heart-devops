@@ -1,0 +1,6 @@
+- platform: mqtt
+  name: zigbee_network
+  state_topic: zigbee/bridge/networkmap/raw
+  value_template: >-
+    {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+  json_attributes_topic: zigbee/bridge/networkmap/raw

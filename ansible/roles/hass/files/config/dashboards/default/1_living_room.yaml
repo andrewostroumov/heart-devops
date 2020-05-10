@@ -47,6 +47,14 @@ cards:
             name: UV Flower Lamp
         title: Switch
         type: entities
+      - type: custom:zigbee2mqtt-networkmap
+        entity: sensor.zigbee_network
+        mqtt_base_topic: zigbee
+        force: 3000
+        node_size: 16
+        font_size: 12
+        link_width: 2
+        height: 400
   - type: vertical-stack
     cards:
       - type: iframe
