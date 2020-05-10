@@ -1,0 +1,10 @@
+- name: "copy zigbee bridge files"
+  copy:
+    src: "files/bridge/"
+    dest: "/etc/docker/zigbee/"
+
+- name: "copy ca certificate"
+  copy:
+    src: "../.secrets/ca/ca.crt"
+    dest: "/etc/docker/zigbee/secure/"
+    mode: "644"

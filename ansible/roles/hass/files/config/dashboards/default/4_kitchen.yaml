@@ -1,5 +1,9 @@
 title: Kitchen
 path: kitchen
 badges:
-  - entity: binary_sensor.motion_sensor_1132
+  - entity: binary_sensor.0x00158d00044b1132_occupancy
     name: Motion Sensor
+  - entity: sensor.0x00158d00044b1132_illuminance
+    name: Motion Illuminance
+  - entity: sensor.0x00158d00044b1132_battery
+    name: Motion Battery

@@ -24,7 +24,9 @@ include:
     - sensor.0e8b9f4c_co2_index
     - sensor.fb47da6e_aqi
     - sensor.fb47da6e_illuminance
-    - sensor.temperature_and_humidity_sensor_b370_temperature
-    - sensor.temperature_and_humidity_sensor_b370_humidity
-    - sensor.temperature_and_humidity_sensor_6ea2_temperature
-    - sensor.temperature_and_humidity_sensor_6ea2_humidity
+    - sensor.0x00158d0004216ea2_temperature
+    - sensor.0x00158d0004216ea2_humidity
+    - sensor.0x00158d0004216ea2_pressure
+    - sensor.0x00158d000410b370_temperature
+    - sensor.0x00158d000410b370_humidity
+    - sensor.0x00158d000410b370_pressure

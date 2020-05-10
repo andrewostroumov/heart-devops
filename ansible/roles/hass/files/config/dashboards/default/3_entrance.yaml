@@ -1,8 +1,12 @@
 title: Entrance
 path: entrance
 badges:
-  - entity: binary_sensor.motion_sensor_6469
+  - entity: binary_sensor.0x00158d0003f36469_occupancy
     name: Motion Sensor
+  - entity: sensor.0x00158d0003f36469_illuminance
+    name: Motion Illuminance
+  - entity: sensor.0x00158d0003f36469_battery
+    name: Motion Battery
 cards:
   - type: light
     entity: light.aqara_hub_fed8

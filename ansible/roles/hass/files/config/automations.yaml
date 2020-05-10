@@ -2,16 +2,16 @@
   alias: Turn on aqara light when motion is detected
   description: ""
   trigger:
-    - entity_id: binary_sensor.motion_sensor_6469
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
       platform: state
       to: "on"
   condition:
     - condition: state
       entity_id: light.aqara_hub_fed8
       state: "off"
-    - condition: state
-      entity_id: sun.sun
-      state: "below_horizon"
+    - condition: numeric_state
+      entity_id: sensor.0x00158d0003f36469_illuminance
+      below: 25
   action:
     - data:
         brightness: 255
@@ -25,7 +25,7 @@
   alias: Turn off aqara light when motion is clear
   description: ""
   trigger:
-    - entity_id: binary_sensor.motion_sensor_6469
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
       for: 00:01:00
       platform: state
       to: "off"
@@ -41,7 +41,7 @@
   alias: Notify entrance motion is detected
   description: ""
   trigger:
-    - entity_id: binary_sensor.motion_sensor_6469
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
       from: "off"
       platform: state
       to: "on"
@@ -58,7 +58,7 @@
   alias: Turn on UV Flower lamp
   description: ""
   trigger:
-    - entity_id: binary_sensor.motion_sensor_6469
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
       for: 00:30:00
       platform: state
       to: "off"
@@ -77,11 +77,11 @@
   alias: Turn off UV Flower lamp
   description: ""
   trigger:
-    - entity_id: binary_sensor.motion_sensor_6469
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
       from: "off"
       platform: state
       to: "on"
-    - entity_id: binary_sensor.motion_sensor_1132
+    - entity_id: binary_sensor.0x00158d00044b1132_occupancy
       from: "off"
       platform: state
       to: "on"

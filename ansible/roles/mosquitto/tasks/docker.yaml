@@ -2,6 +2,19 @@
   docker_network:
     name: "{{ docker_bridge_name }}"
 
+
+- name: "encrypt mosquitto passwd"
+  docker_container:
+    image: "eclipse-mosquitto"
+    name: "mosquitto-passwd"
+    auto_remove: true
+    pull: true
+    command: "mosquitto_passwd -U /mosquitto/config/passwd"
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/etc/docker/mosquitto:/mosquitto"
+
 - name: "run mosquitto container"
   docker_container:
     image: "eclipse-mosquitto"

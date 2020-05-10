@@ -1,6 +1,14 @@
 discovery: true
-discovery_prefix: discovery
+discovery_prefix: "discovery"
 broker: localhost
 port: 8883
+username: !secret mqtt_username
+password: !secret mqtt_password
 tls_insecure: true
-certificate: /config/secure/ca.crt
+certificate: "/config/secure/ca.crt"
+birth_message:
+  topic: "hass/status"
+  payload: "online"
+will_message:
+  topic: "hass/status"
+  payload: "offline"

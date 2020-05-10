@@ -1,0 +1,35 @@
+homeassistant: true
+permit_join: true
+
+mqtt:
+  base_topic: "zigbee"
+  server: "mqtts://mosquitto:8883"
+  ca: "/app/data/secure/ca.crt"
+  client_id: "ZIGBEE_BRIDGE"
+  user: "!secret mqtt_user"
+  password: "!secret mqtt_password"
+  reject_unauthorized: false
+  include_device_information: true
+  keepalive: 60
+  version: 4
+
+serial:
+  port: "/dev/ttyACM0"
+  disable_led: false
+
+advanced:
+  cache_state: true
+  log_level: "info"
+  log_output:
+    - "console"
+  baudrate: 115200
+  rtscts: true
+  network_key: "!secret zigbee_network_key"
+  last_seen: "ISO_8601"
+  elapsed: false
+  availability_timeout: 0
+  report: true
+  homeassistant_discovery_topic: "discovery"
+  homeassistant_status_topic: "hass/status"
+
+device_options: {}

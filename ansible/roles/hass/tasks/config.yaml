@@ -15,7 +15,7 @@
 
 - name: "copy ca certificate"
   copy:
-    src: "../.secrets/ca/mosquitto/ca.crt"
+    src: "../.secrets/ca/ca.crt"
     dest: "/etc/docker/hass/secure/"
     mode: "644"
 

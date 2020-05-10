@@ -1,7 +1,11 @@
 title: Bathroom
 path: bathroom
 badges:
-  - entity: sensor.temperature_and_humidity_sensor_6ea2_temperature
+  - entity: sensor.0x00158d0004216ea2_temperature
     name: Air Temperature
-  - entity: sensor.temperature_and_humidity_sensor_6ea2_humidity
+  - entity: sensor.0x00158d0004216ea2_humidity
     name: Air Humidity
+  - entity: sensor.0x00158d0004216ea2_pressure
+    name: Air Pressure
+  - entity: sensor.0x00158d0004216ea2_battery
+    name: Air Battery

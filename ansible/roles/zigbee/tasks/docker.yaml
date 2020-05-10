@@ -1,0 +1,39 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run zigbee bridge container"
+  docker_container:
+    image: "koenkk/zigbee2mqtt"
+    name: "zigbee-bridge"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    devices:
+      - "/dev/ttyACM0:/dev/ttyACM0"
+    volumes:
+      - "/etc/docker/zigbee:/app/data"
+      - "/etc/timezone:/etc/timezone:ro"
+
+# https://github.com/yllibed/Zigbee2MqttAssistant/issues/260
+#- name: "run zigbee assistant container"
+#  docker_container:
+#    image: "carldebilly/zigbee2mqttassistant"
+#    name: "zigbee-assistant"
+#    restart_policy: "unless-stopped"
+#    recreate: true
+#    detach: true
+#    pull: true
+#    networks:
+#      - name: "{{ docker_bridge_name }}"
+#    ports:
+#      - "8880:80"
+#    env:
+#      Z2MA_SETTINGS__BASETOPIC: "zigbee"
+#      Z2MA_SETTINGS__HOMEASSISTANTDISCOVERYBASETOPIC: "discovery"
+#      Z2MA_SETTINGS__MQTTSERVER: "mosquitto"
+#      Z2MA_SETTINGS__MQTTPORT: "8883"
+#      Z2MA_SETTINGS__MQTTSECURE: "insecure"
