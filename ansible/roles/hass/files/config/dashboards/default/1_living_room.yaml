@@ -54,7 +54,7 @@ cards:
         node_size: 16
         font_size: 12
         link_width: 2
-        height: 400
+        height: 200
   - type: vertical-stack
     cards:
       - type: iframe
