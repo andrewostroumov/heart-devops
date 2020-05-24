@@ -1,0 +1,22 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run nginx container"
+  docker_container:
+    image: "nginx"
+    name: "nginx"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/etc/docker/nginx/conf.d:/etc/nginx/conf.d:ro"
+      - "/etc/docker/nginx/htpasswd:/etc/nginx/htpasswd:ro"
+      - "/etc/docker/nginx/ssl:/etc/nginx/ssl:ro"
+      - "/etc/docker/nginx/espressif:/app/espressif:ro"
+    ports:
+      - "3004:3004"
+      - "3011:3011"

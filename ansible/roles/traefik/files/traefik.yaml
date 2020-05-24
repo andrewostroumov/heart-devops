@@ -11,4 +11,7 @@ api:
   insecure: true
 
 log:
-  level: "info"
+  level: "debug"
+
+#serversTransport:
+#  insecureSkipVerify: true

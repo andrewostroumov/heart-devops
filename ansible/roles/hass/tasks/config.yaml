@@ -19,6 +19,18 @@
     dest: "/etc/docker/hass/secure/"
     mode: "644"
 
+- name: "copy server certificate"
+  copy:
+    src: "../.secrets/ca/hass/server.crt"
+    dest: "/etc/docker/hass/secure/"
+    mode: "644"
+
+- name: "copy server key"
+  copy:
+    src: "../.secrets/ca/hass/server.key"
+    dest: "/etc/docker/hass/secure/"
+    mode: "600"
+
 - name: "clone google dark theme"
   git:
     repo: "git@github.com:JuanMTech/google_dark_theme.git"

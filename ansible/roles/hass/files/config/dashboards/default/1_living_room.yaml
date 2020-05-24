@@ -33,6 +33,8 @@ cards:
       - entities:
           - entity: light.lv_color_all
             name: Yeelight Lights
+          - entity: light.449274945c6e3209
+            name: Dev Color Strip
           - entity: light.7b61e1dc_color_strip
             name: Sofa Color Strip
           - entity: light.32ebdcdd_color_bulb
@@ -62,6 +64,6 @@ cards:
       - type: picture-glance
         title: Outdoor CCTV
         entities:
-          - entity: sensor.temperature_and_humidity_sensor_b370_temperature
-          - entity: sensor.temperature_and_humidity_sensor_b370_humidity
+          - entity: sensor.0x00158d000410b370_temperature
+          - entity: sensor.0x00158d000410b370_humidity
         camera_image: camera.0e8b9f4c_cctv

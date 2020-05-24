@@ -11,7 +11,7 @@ http:
     grafana:
       loadBalancer:
         servers:
-          - url: "http://172.17.0.1:3010"
+          - url: "http://grafana:3000"
     motioneye:
       loadBalancer:
         servers:
