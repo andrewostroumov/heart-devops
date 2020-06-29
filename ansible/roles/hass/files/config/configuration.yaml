@@ -10,6 +10,7 @@ discovery:
     - yeelight
 
 automation: !include automations.yaml
+script: !include scripts.yaml
 frontend: !include frontend.yaml
 notify: !include notify.yaml
 scene: !include scenes.yaml
@@ -19,6 +20,7 @@ zone: !include zone.yaml
 light: !include_dir_merge_list devices/lights
 sensor: !include_dir_merge_list devices/sensors
 
+remote: !include devices/remote.yaml
 fan: !include devices/fan.yaml
 switch: !include devices/switch.yaml
 yeelight: !include devices/yeelight.yaml

@@ -1,0 +1,39 @@
+b11f96a0_disable:
+  sequence:
+    - service: remote.send_command
+      data:
+        command: b11f96a0_disable
+        entity_id: remote.742b64ae_ir
+    - service: mqtt.publish
+      data:
+        topic: hass/sensor/ir/b11f96a0
+        retain: true
+        qos: 0
+        payload: 0
+
+b11f96a0_freeze:
+  sequence:
+    - service: remote.send_command
+      data:
+        command: b11f96a0_freeze
+        entity_id: remote.742b64ae_ir
+    - service: mqtt.publish
+      data:
+        topic: hass/sensor/ir/b11f96a0
+        retain: true
+        qos: 0
+        payload: 1
+
+b11f96a0_heat:
+  sequence:
+    - service: remote.send_command
+      data:
+        command: b11f96a0_heat
+        entity_id: remote.742b64ae_ir
+    - service: mqtt.publish
+      data:
+        topic: hass/sensor/ir/b11f96a0
+        retain: true
+        qos: 0
+        payload: 2
+

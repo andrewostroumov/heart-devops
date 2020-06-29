@@ -1,5 +1,5 @@
 homeassistant: true
-permit_join: true
+permit_join: false
 
 mqtt:
   base_topic: "zigbee"
@@ -31,5 +31,3 @@ advanced:
   report: true
   homeassistant_discovery_topic: "discovery"
   homeassistant_status_topic: "hass/status"
-
-device_options: {}

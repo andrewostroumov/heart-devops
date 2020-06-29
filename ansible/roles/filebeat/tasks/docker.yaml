@@ -24,6 +24,8 @@
     user: root
     networks:
       - name: "{{ docker_bridge_name }}"
+    ports:
+      "8089:8080/udp"
     volumes:
       - "/etc/docker/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"

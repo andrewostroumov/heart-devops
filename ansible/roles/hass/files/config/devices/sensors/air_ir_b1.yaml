@@ -1,0 +1,3 @@
+- platform: mqtt
+  name: b11f96a0_ir
+  state_topic: "hass/sensor/ir/b11f96a0"

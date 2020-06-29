@@ -1,7 +1,7 @@
 - platform: group
   name: lv_color_all
   entities:
-    - light.8cceb792339e8f5d
+    - light.449274945c6e3209
     - light.7b61e1dc_color_strip
     - light.32ebdcdd_color_bulb
     - light.33b24d3c_color_bulb

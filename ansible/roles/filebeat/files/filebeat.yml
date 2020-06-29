@@ -8,10 +8,27 @@ filebeat.inputs:
     format: docker
     paths:
       - /var/lib/docker/containers/*/*.log
+  - type: udp
+    max_message_size: 10KiB
+    host: "0.0.0.0:8080"
 
 processors:
   - add_docker_metadata:
+      when.equals:
+        input.type: "container"
       host: "unix:///var/run/docker.sock"
+  - decode_json_fields:
+      when.equals:
+        input.type: "udp"
+      fields: "message"
+      max_depth: 3
 
 output.elasticsearch:
   hosts: "es:9200"
+  indices:
+    - index: "docker-containers"
+      when.equals:
+        input.type: "container"
+    - index: "diameter-events"
+      when.equals:
+        input.type: "udp"

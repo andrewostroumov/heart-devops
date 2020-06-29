@@ -5,8 +5,8 @@
 
 - name: "copy nginx htpasswd"
   copy:
-    src: "files/htpasswd"
-    dest: "/etc/docker/nginx/"
+    src: "files/htpasswd/"
+    dest: "/etc/docker/nginx/htpasswd/"
 
 - name: "copy server key"
   copy:

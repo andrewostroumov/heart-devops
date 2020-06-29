@@ -1,5 +1,10 @@
 - platform: mqtt
   name: 3e565972_automation_purifier
-  state_topic: "homeassistant/automation/purifier/3e565972"
+  state_topic: "hass/automation/purifier/3e565972"
+  payload_on: "active"
+  payload_off: "inactive"
+- platform: mqtt
+  name: c7b6ed93_automation_light
+  state_topic: "hass/automation/light/c7b6ed93"
   payload_on: "active"
   payload_off: "inactive"

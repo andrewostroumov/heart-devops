@@ -30,6 +30,49 @@ badges:
 cards:
   - type: vertical-stack
     cards:
+      - type: horizontal-stack
+        title: Air Conditioner
+        cards:
+          - type: custom:button-card
+            entity: sensor.b11f96a0_ir
+            icon: mdi:close-circle-outline
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.b11f96a0_disable
+            state:
+              - value: 0
+                color: rgb(81, 84, 89)
+          - type: custom:button-card
+            entity: sensor.b11f96a0_ir
+            icon: mdi:fan
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.b11f96a0_freeze
+            state:
+              - value: 1
+                color: rgb(81, 144, 232)
+                spin: true
+          - type: custom:button-card
+            entity: sensor.b11f96a0_ir
+            icon: mdi:fire
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.b11f96a0_heat
+            state:
+              - value: 2
+                color: red
+                styles:
+                  icon:
+                    - animation: blink 2s ease infinite
       - entities:
           - entity: light.lv_color_all
             name: Yeelight Lights
