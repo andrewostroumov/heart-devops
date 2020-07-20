@@ -9,9 +9,14 @@
     - condition: state
       entity_id: light.aqara_hub_fed8
       state: "off"
-    - condition: numeric_state
-      entity_id: sensor.0x00158d0003f36469_illuminance
-      below: 25
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d0003f36469_illuminance
+          below: 25
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
   action:
     - data:
         brightness: 255
@@ -48,12 +53,17 @@
     - condition: state
       entity_id: light.0x00124b002113a5b2_light_cct
       state: "off"
-    - condition: numeric_state
-      entity_id: sensor.0x00158d00044b1132_illuminance
-      below: 25
     - condition: state
       entity_id: binary_sensor.c7b6ed93_automation_light
       state: "off"
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d00044b1132_illuminance
+          below: 25
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
   action:
     - data:
         brightness: 30
@@ -84,9 +94,6 @@
       to: "off"
   condition:
     - condition: state
-      entity_id: light.0x00124b002113a5b2_light_cct
-      state: "on"
-    - condition: state
       entity_id: binary_sensor.c7b6ed93_automation_light
       state: "on"
   action:
@@ -103,22 +110,44 @@
         topic: hass/automation/light/c7b6ed93
       service: mqtt.publish
 - id: "1580662281241"
-  alias: Notify entrance motion is detected
+  alias: "Alarm trigger"
   description: ""
   trigger:
     - entity_id: binary_sensor.0x00158d0003f36469_occupancy
-      from: "off"
+      platform: state
+      to: "on"
+    - entity_id: binary_sensor.0x00158d00044b1132_occupancy
       platform: state
       to: "on"
   condition:
     - condition: state
-      entity_id: alarm_control_panel.aqara_hub_fed8
+      entity_id: alarm_control_panel.f36e737f
       state: armed_away
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.f36e737f
+- id: "1580662281252"
+  alias: "Send notification when alarm pending"
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.f36e737f
+      to: "pending"
   action:
     - service: notify.heart_live_tg
       data:
-        message: Motion detector is entrance sensor
-        title: "*Motion is detected*"
+        message: "The alarm pending"
+        title: "Pending!"
+- id: "1580662281251"
+  alias: "Send notification when alarm triggered"
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.f36e737f
+      to: "triggered"
+  action:
+    - service: notify.heart_live_tg
+      data:
+        message: "The alarm has been triggered"
+        title: "Alarm!"
 - id: "1584462735212"
   alias: Turn on UV Flower lamp
   description: ""

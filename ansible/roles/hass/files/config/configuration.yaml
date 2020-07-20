@@ -26,6 +26,7 @@ switch: !include devices/switch.yaml
 yeelight: !include devices/yeelight.yaml
 binary_sensor: !include devices/binary_sensor.yaml
 device_tracker: !include devices/device_tracker.yaml
+alarm_control_panel: !include devices/alarm.yaml
 
 recorder: !include services/recorder.yaml
 mqtt: !include services/mqtt.yaml

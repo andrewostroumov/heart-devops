@@ -18,3 +18,9 @@ cards:
       - arm_home
       - arm_away
       - arm_night
+  - type: alarm-panel
+    entity: alarm_control_panel.f36e737f
+    name: Manual Alarm
+    states:
+      - arm_away
+      - arm_night
