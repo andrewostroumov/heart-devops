@@ -3,9 +3,9 @@
   gather_facts: false
   become: true
   roles:
-    - nginx
-    - traefik
-#    - hass
-#    - zigbee
-#    - mosquitto
+    - hass
 #    - filebeat
+#    - zigbee
+#    - nginx
+#    - traefik
+#    - mosquitto
