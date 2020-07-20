@@ -30,5 +30,16 @@ output.elasticsearch:
       when.equals:
         input.type: "container"
     - index: "diameter-events"
-      when.equals:
-        input.type: "udp"
+      when:
+        and:
+          - equals:
+              input.type: "udp"
+          - equals:
+              message.app: "goameter"
+    - index: "wireless-events"
+      when:
+        and:
+          - equals:
+              input.type: "udp"
+          - equals:
+              message.app: "wireless-processor"

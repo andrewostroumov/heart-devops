@@ -7,8 +7,8 @@ resources:
     type: module
   - url: /local/components/button-card/button-card.js
     type: module
-#  - url: /local/plugins/custom-header/custom-header.js
-#    type: module
+  - url: /local/plugins/custom-header/custom-header.js
+    type: module
 
 custom_header:
   compact_mode: true
