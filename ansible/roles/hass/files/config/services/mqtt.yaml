@@ -1,5 +1,5 @@
 discovery: true
-discovery_prefix: "discovery"
+discovery_prefix: "zigbee"
 broker: localhost
 port: 8883
 username: !secret mqtt_username

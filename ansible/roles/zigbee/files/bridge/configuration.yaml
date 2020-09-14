@@ -18,6 +18,7 @@ serial:
   disable_led: false
 
 advanced:
+  channel: 25
   cache_state: true
   log_level: "info"
   log_output:
@@ -26,8 +27,8 @@ advanced:
   rtscts: true
   network_key: "!secret zigbee_network_key"
   last_seen: "ISO_8601"
-  elapsed: false
+  elapsed: true
   availability_timeout: 0
   report: true
-  homeassistant_discovery_topic: "discovery"
+  homeassistant_discovery_topic: "zigbee"
   homeassistant_status_topic: "hass/status"

@@ -1,5 +1,8 @@
 default_config:
 homekit:
+  auto_start: true
+  port: 51829
+
 mobile_app:
 
 lovelace:
@@ -27,6 +30,7 @@ yeelight: !include devices/yeelight.yaml
 binary_sensor: !include devices/binary_sensor.yaml
 device_tracker: !include devices/device_tracker.yaml
 alarm_control_panel: !include devices/alarm.yaml
+climate: !include devices/climate.yaml
 
 recorder: !include services/recorder.yaml
 mqtt: !include services/mqtt.yaml

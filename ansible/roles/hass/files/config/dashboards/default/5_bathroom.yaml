@@ -9,3 +9,17 @@ badges:
     name: Air Pressure
   - entity: sensor.0x00158d0004216ea2_battery
     name: Air Battery
+  - entity: sensor.0x04cf8cdf3c75a326_power
+    name: Aqara Boiler Power
+  - entity: sensor.0x04cf8cdf3c75a326_voltage
+    name: Aqara Boiler Voltage
+  - entity: sensor.0x04cf8cdf3c75a326_current
+    name: Aqara Boiler Current
+  - entity: sensor.0x04cf8cdf3c75a326_consumption
+    name: Aqara Boiler Consumption
+cards:
+  - entities:
+      - entity: switch.0x04cf8cdf3c75a326_switch
+        name: Aqara Boiler
+    title: Switch
+    type: entities

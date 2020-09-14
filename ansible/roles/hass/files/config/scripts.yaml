@@ -10,12 +10,18 @@ b11f96a0_disable:
         retain: true
         qos: 0
         payload: 0
+    - service: mqtt.publish
+      data:
+        topic: hass/script/climate/93ad2a47
+        retain: true
+        qos: 0
+        payload: "off"
 
-b11f96a0_freeze:
+b11f96a0_cool:
   sequence:
     - service: remote.send_command
       data:
-        command: b11f96a0_freeze
+        command: b11f96a0_cool
         entity_id: remote.742b64ae_ir
     - service: mqtt.publish
       data:
@@ -23,6 +29,12 @@ b11f96a0_freeze:
         retain: true
         qos: 0
         payload: 1
+    - service: mqtt.publish
+      data:
+        topic: hass/script/climate/93ad2a47
+        retain: true
+        qos: 0
+        payload: "cool"
 
 b11f96a0_heat:
   sequence:
@@ -36,4 +48,9 @@ b11f96a0_heat:
         retain: true
         qos: 0
         payload: 2
-
+    - service: mqtt.publish
+      data:
+        topic: hass/script/climate/93ad2a47
+        retain: true
+        qos: 0
+        payload: "heat"

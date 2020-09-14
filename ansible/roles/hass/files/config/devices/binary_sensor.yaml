@@ -8,3 +8,13 @@
   state_topic: "hass/automation/light/c7b6ed93"
   payload_on: "active"
   payload_off: "inactive"
+- platform: mqtt
+  name: 93ad2a47_climate_cool
+  state_topic: "hass/script/climate/93ad2a47"
+  payload_on: "cool"
+  payload_off: "off"
+- platform: mqtt
+  name: 93ad2a47_climate_heat
+  state_topic: "hass/script/climate/93ad2a47"
+  payload_on: "heat"
+  payload_off: "off"

@@ -1,0 +1,22 @@
+- platform: generic_thermostat
+  name: 3eb6df05_air_cool
+  heater: switch.43e64ad8_air_cool
+  target_sensor: sensor.10037c21_mi_temperature
+  min_temp: 16
+  max_temp: 35
+  ac_mode: true
+  target_temp: 23
+  initial_hvac_mode: "off"
+  keep_alive:
+    minutes: 30
+- platform: generic_thermostat
+  name: 3eb6df05_air_heat
+  heater: switch.43e64ad8_air_heat
+  target_sensor: sensor.10037c21_mi_temperature
+  min_temp: 16
+  max_temp: 35
+  ac_mode: false
+  target_temp: 23
+  initial_hvac_mode: "off"
+  keep_alive:
+    minutes: 30

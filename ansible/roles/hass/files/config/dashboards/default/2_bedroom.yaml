@@ -27,10 +27,6 @@ badges:
     name: Air AQI 2.5
   - entity: sensor.fb47da6e_illuminance
     name: Illuminance
-  - entity: sensor.0x04cf8cdf3c75a326_power
-    name: Aqara Switch Power 0x00
-  - entity: sensor.0x04cf8cdf3c75a785_power
-    name: Aqara Switch Power 0x01
 cards:
   - entities:
       - entity: light.bad_led_strip
@@ -43,10 +39,6 @@ cards:
   - entities:
       - entity: switch.1d42d23a_plug
         name: Unicorn
-      - entity: switch.0x04cf8cdf3c75a326_switch
-        name: Aqara Switch 0x00
-      - entity: switch.0x04cf8cdf3c75a785_switch
-        name: Aqara Switch 0x01
     title: Switch
     type: entities
   - type: custom:air-purifier-card
