@@ -325,6 +325,42 @@
     - data:
         entity_id: light.aqara_hub_fed8
       service: light.turn_off
+- id: "1580662281290"
+  alias: "Process smoke detection"
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0004855eef_smoke
+      platform: state
+      to: "on"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "Smoke has been detected"
+        title: "Smoke 💨"
+- id: "1580662281201"
+  alias: "Process water leak detection"
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d00047b37e9_water_leak
+      platform: state
+      to: "on"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "Water leak on boiler"
+        title: "Water 🌊"
+- id: "1580662281202"
+  alias: "Process water leak detection"
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0004843b1c_water_leak
+      platform: state
+      to: "on"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "Water leak on kitchen"
+        title: "Water 🌊"
 - id: "1584462735212"
   alias: Turn on UV Flower lamp
   description: ""

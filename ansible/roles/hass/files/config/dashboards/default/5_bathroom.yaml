@@ -1,6 +1,8 @@
 title: Bathroom
 path: bathroom
 badges:
+  - entity: binary_sensor.0x00158d00047b37e9_water_leak
+    name: Water Leak
   - entity: sensor.0x00158d0004216ea2_temperature
     name: Air Temperature
   - entity: sensor.0x00158d0004216ea2_humidity

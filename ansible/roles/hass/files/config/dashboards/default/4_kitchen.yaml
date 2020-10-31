@@ -1,6 +1,8 @@
 title: Kitchen
 path: kitchen
 badges:
+  - entity: binary_sensor.0x00158d0004843b1c_water_leak
+    name: Water Leak
   - entity: binary_sensor.0x00158d00044b1132_occupancy
     name: Motion Sensor
   - entity: sensor.0x00158d00044b1132_illuminance

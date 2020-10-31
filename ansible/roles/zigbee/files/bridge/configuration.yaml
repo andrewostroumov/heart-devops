@@ -1,5 +1,10 @@
 homeassistant: true
-permit_join: false
+permit_join: true
+
+frontend:
+  port: 8080
+experimental:
+  new_api: true
 
 mqtt:
   base_topic: "zigbee"
@@ -32,3 +37,6 @@ advanced:
   report: true
   homeassistant_discovery_topic: "zigbee"
   homeassistant_status_topic: "hass/status"
+
+#external_converters:
+#  - devices/tuya/ts011f.js

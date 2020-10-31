@@ -98,6 +98,8 @@ cards:
             name: Floor Color Bulb
           - entity: light.33b24d3c_color_bulb
             name: Window Color Bulb
+          - entity: light.27e18cda_light
+            name: Rainbow Strip
         show_header_toggle: false
         title: Lights
         type: entities
@@ -106,6 +108,8 @@ cards:
             name: UV Flower Lamp
           - entity: switch.295943c3_siren
             name: Siren Alarm
+          - entity: switch.0x680ae2fffeb17be2_switch
+            name: LoraTap exp
         title: Switch
         type: entities
       - type: custom:zigbee2mqtt-networkmap

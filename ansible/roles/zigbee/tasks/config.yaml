@@ -8,3 +8,8 @@
     src: "../.secrets/ca/ca.crt"
     dest: "/etc/docker/zigbee/secure/"
     mode: "644"
+
+- name: "copy devices"
+  copy:
+    src: "files/devices"
+    dest: "/etc/docker/zigbee/"

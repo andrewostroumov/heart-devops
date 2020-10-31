@@ -1,7 +1,7 @@
 - platform: generic_thermostat
   name: 3eb6df05_air_cool
   heater: switch.43e64ad8_air_cool
-  target_sensor: sensor.10037c21_mi_temperature
+  target_sensor: sensor.0xec1bbdfffe871f0b_temperature
   min_temp: 16
   max_temp: 35
   ac_mode: true
@@ -12,7 +12,7 @@
 - platform: generic_thermostat
   name: 3eb6df05_air_heat
   heater: switch.43e64ad8_air_heat
-  target_sensor: sensor.10037c21_mi_temperature
+  target_sensor: sensor.0xec1bbdfffe871f0b_temperature
   min_temp: 16
   max_temp: 35
   ac_mode: false

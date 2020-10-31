@@ -4,8 +4,9 @@
   become: true
   roles:
     - hass
-    - filebeat
-    - zigbee
-    - nginx
-    - traefik
-    - mosquitto
+#    - zigbee
+#    - hass
+#    - mosquitto
+#    - nginx
+#    - filebeat
+#    - traefik

@@ -44,3 +44,10 @@
     dest: "/etc/docker/hass/themes/google_light_theme"
     key_file: "{{ ansible_dir }}/.ssh/id_rsa"
     force: true
+
+- name: "clone sp108e component"
+  git:
+    repo: "git@github.com:samhstein/sp108e_ws2815.git"
+    dest: "/etc/docker/hass/custom_components/sp108e_ws2815"
+    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+    force: true
