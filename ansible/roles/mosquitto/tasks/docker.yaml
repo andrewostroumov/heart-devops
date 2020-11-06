@@ -5,7 +5,7 @@
 
 - name: "encrypt mosquitto passwd"
   docker_container:
-    image: "eclipse-mosquitto"
+    image: "eclipse-mosquitto:1.6.12"
     name: "mosquitto-passwd"
     auto_remove: true
     pull: true
@@ -17,7 +17,7 @@
 
 - name: "run mosquitto container"
   docker_container:
-    image: "eclipse-mosquitto"
+    image: "eclipse-mosquitto:1.6.12"
     name: "mosquitto"
     restart_policy: "unless-stopped"
     recreate: true
@@ -31,3 +31,4 @@
       - "mosquitto-log:/mosquitto/log"
     ports:
       - "8883:8883"
+      - "1883:1883"

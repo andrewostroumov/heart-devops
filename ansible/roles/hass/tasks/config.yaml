@@ -47,7 +47,7 @@
 
 - name: "clone sp108e component"
   git:
-    repo: "git@github.com:samhstein/sp108e_ws2815.git"
+    repo: "git@github.com:andrewostroumov/sp108e_ws2815.git"
     dest: "/etc/docker/hass/custom_components/sp108e_ws2815"
     key_file: "{{ ansible_dir }}/.ssh/id_rsa"
     force: true

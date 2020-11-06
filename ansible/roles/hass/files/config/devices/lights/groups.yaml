@@ -2,6 +2,7 @@
   name: lv_color_all
   entities:
     - light.0xd74d40c9abfc8a14
-    - light.7b61e1dc_color_strip
-    - light.32ebdcdd_color_bulb
-    - light.33b24d3c_color_bulb
+    - light.7b61e1dc_color_strip_2
+    - light.32ebdcdd_color_bulb_2
+    - light.33b24d3c_color_bulb_2
+    - light.27e18cda_light

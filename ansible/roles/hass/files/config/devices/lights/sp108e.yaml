@@ -1,3 +1,3 @@
 - platform: sp108e_ws2815
-  host: 192.168.31.115
+  host: !secret light_27e18cda_light_host
   name: 27e18cda_light

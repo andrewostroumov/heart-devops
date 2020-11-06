@@ -4,7 +4,7 @@
 
 - name: "run hass container"
   docker_container:
-    image: "homeassistant/home-assistant:0.112.4"
+    image: "homeassistant/home-assistant:0.118.0.dev20201106"
     name: "hass"
     restart_policy: "unless-stopped"
     recreate: true

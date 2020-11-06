@@ -92,11 +92,11 @@ cards:
             name: Yeelight Lights
           - entity: light.0xd74d40c9abfc8a14
             name: Dev Color Strip
-          - entity: light.7b61e1dc_color_strip
+          - entity: light.7b61e1dc_color_strip_2
             name: Sofa Color Strip
-          - entity: light.32ebdcdd_color_bulb
+          - entity: light.32ebdcdd_color_bulb_2
             name: Floor Color Bulb
-          - entity: light.33b24d3c_color_bulb
+          - entity: light.33b24d3c_color_bulb_2
             name: Window Color Bulb
           - entity: light.27e18cda_light
             name: Rainbow Strip
@@ -104,12 +104,10 @@ cards:
         title: Lights
         type: entities
       - entities:
-          - entity: switch.7edae7d6_plug
-            name: UV Flower Lamp
+          - entity: switch.0x04cf8cdf3c75a785_switch
+            name: Aqara Dev
           - entity: switch.295943c3_siren
             name: Siren Alarm
-          - entity: switch.0x680ae2fffeb17be2_switch
-            name: LoraTap exp
         title: Switch
         type: entities
       - type: custom:zigbee2mqtt-networkmap

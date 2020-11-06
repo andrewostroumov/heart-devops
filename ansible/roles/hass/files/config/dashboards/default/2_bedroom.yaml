@@ -29,11 +29,8 @@ badges:
     name: Illuminance
 cards:
   - entities:
-      - entity: light.bad_led_strip
       - entity: light.9783ccd4_bulb
         name: Me Desk Bulb
-      - entity: light.8e5ab312_bulb
-        name: Wife Desk Bulb
     title: Light
     type: entities
   - entities:
