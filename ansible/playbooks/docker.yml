@@ -4,7 +4,7 @@
   become: true
   roles:
     - hass
-#    - zigbee
+    - zigbee
 #    - hass
 #    - mosquitto
 #    - nginx

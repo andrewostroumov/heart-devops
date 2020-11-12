@@ -1,5 +1,5 @@
 discovery: true
-discovery_prefix: "zigbee"
+discovery_prefix: "homeassistant"
 broker: localhost
 port: 8883
 username: !secret mqtt_username

@@ -33,6 +33,8 @@ badges:
     name: Air CO2 Index
   - entity: sensor.0e8b9f4c_free_heap_size
     name: Air Heap Size
+  - entity: sensor.0x04cf8cdf3c75a785_power
+    name: Aqara Dev Power
 cards:
   - type: vertical-stack
     cards:
@@ -92,11 +94,11 @@ cards:
             name: Yeelight Lights
           - entity: light.0xd74d40c9abfc8a14
             name: Dev Color Strip
-          - entity: light.7b61e1dc_color_strip_2
+          - entity: light.7b61e1d1_color_strip
             name: Sofa Color Strip
-          - entity: light.32ebdcdd_color_bulb_2
+          - entity: light.32ebdcd1_color_bulb
             name: Floor Color Bulb
-          - entity: light.33b24d3c_color_bulb_2
+          - entity: light.33b24d31_color_bulb
             name: Window Color Bulb
           - entity: light.27e18cda_light
             name: Rainbow Strip

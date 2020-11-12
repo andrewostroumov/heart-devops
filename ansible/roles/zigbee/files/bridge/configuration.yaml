@@ -1,5 +1,5 @@
 homeassistant: true
-permit_join: false
+permit_join: true
 
 frontend:
   port: 8080
@@ -35,7 +35,7 @@ advanced:
   elapsed: true
   availability_timeout: 0
   report: true
-  homeassistant_discovery_topic: "zigbee"
+  homeassistant_discovery_topic: "homeassistant"
   homeassistant_status_topic: "hass/status"
 
 #external_converters:
