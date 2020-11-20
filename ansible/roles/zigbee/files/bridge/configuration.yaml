@@ -33,7 +33,7 @@ advanced:
   network_key: "!secret zigbee_network_key"
   last_seen: "ISO_8601"
   elapsed: true
-  availability_timeout: 0
+  availability_timeout: 60
   report: true
   homeassistant_discovery_topic: "homeassistant"
   homeassistant_status_topic: "hass/status"

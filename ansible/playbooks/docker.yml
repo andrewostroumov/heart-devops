@@ -3,7 +3,7 @@
   gather_facts: false
   become: true
   roles:
-    - hass
+#    - hass
     - zigbee
 #    - hass
 #    - mosquitto
