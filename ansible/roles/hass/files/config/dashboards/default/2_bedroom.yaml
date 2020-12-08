@@ -29,8 +29,14 @@ badges:
     name: Illuminance
 cards:
   - entities:
+      - entity: light.br_color_all
+        name: Philips Lights
       - entity: light.9783ccd4_bulb
-        name: Me Desk Bulb
+        name: Philips Light 1
+      - entity: light.8e5ab312_bulb
+        name: Philips Light 2
+      - entity: light.33b24d31_color_bulb
+        name: Yeelight Color Bulb
     title: Light
     type: entities
   - entities:

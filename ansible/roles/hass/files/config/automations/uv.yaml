@@ -1,0 +1,39 @@
+- id: "1584462735212"
+  alias: Turn on UV Flower lamp
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
+      for: 00:30:00
+      platform: state
+      to: "off"
+  condition:
+    - condition: state
+      entity_id: switch.7edae7d6_plug
+      state: "off"
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+  action:
+    - data:
+        entity_id: switch.7edae7d6_plug
+      service: switch.turn_on
+- id: "1584463271926"
+  alias: Turn off UV Flower lamp
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
+      from: "off"
+      platform: state
+      to: "on"
+    - entity_id: binary_sensor.0x00158d00044b1132_occupancy
+      from: "off"
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.7edae7d6_plug
+      state: "on"
+  action:
+    - data:
+        entity_id: switch.7edae7d6_plug
+      service: switch.turn_off

@@ -1,0 +1,25 @@
+- id: "1580662281201"
+  alias: "Process water leak detection"
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d00047b37e9_water_leak
+      platform: state
+      to: "on"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "Water leak on boiler"
+        title: "Water 🌊"
+
+- id: "1580662281202"
+  alias: "Process water leak detection"
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0004843b1c_water_leak
+      platform: state
+      to: "on"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "Water leak on kitchen"
+        title: "Water 🌊"

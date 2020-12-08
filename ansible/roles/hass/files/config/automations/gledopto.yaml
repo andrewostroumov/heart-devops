@@ -1,0 +1,57 @@
+- id: "1580657732451"
+  alias: Turn on gledopto light when motion is detected
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d00044b1132_occupancy
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: light.0x00124b002113a5b2_light_cct
+      state: "off"
+    - condition: state
+      entity_id: binary_sensor.c7b6ed93_automation_light
+      state: "off"
+    - condition: or
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d00044b1132_illuminance
+          below: 25
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
+  action:
+    - data:
+        brightness: 30
+        entity_id: light.0x00124b002113a5b2_light_cct
+        kelvin: 3500
+      service: light.turn_on
+    - data:
+        payload: active
+        qos: 0
+        retain: true
+        topic: hass/automation/light/c7b6ed93
+      service: mqtt.publish
+
+- id: "1580659530372"
+  alias: Turn off gledopto light when motion is clear
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d00044b1132_occupancy
+      for: 00:05:00
+      platform: state
+      to: "off"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.c7b6ed93_automation_light
+      state: "on"
+  action:
+    - data:
+        entity_id: light.0x00124b002113a5b2_light_cct
+      service: light.turn_off
+    - data:
+        payload: inactive
+        qos: 0
+        retain: true
+        topic: hass/automation/light/c7b6ed93
+      service: mqtt.publish

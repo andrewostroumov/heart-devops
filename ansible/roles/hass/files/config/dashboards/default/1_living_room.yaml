@@ -46,6 +46,9 @@ cards:
           - type: thermostat
             entity: climate.3eb6df05_air_heat
             name: Air Heat
+          - type: thermostat
+            entity: climate.a8d57175_ground_heat
+            name: Ground Heat
 #      - type: horizontal-stack
 #        title: Air Conditioner
 #        cards:
@@ -98,8 +101,6 @@ cards:
             name: Sofa Color Strip
           - entity: light.32ebdcd1_color_bulb
             name: Floor Color Bulb
-          - entity: light.33b24d31_color_bulb
-            name: Window Color Bulb
           - entity: light.27e18cda_light
             name: Rainbow Strip
         show_header_toggle: false

@@ -6,3 +6,9 @@
     - light.32ebdcd1_color_bulb
     - light.33b24d31_color_bulb
     - light.27e18cda_light
+
+- platform: group
+  name: br_color_all
+  entities:
+    - light.9783ccd4_bulb
+    - light.8e5ab312_bulb
