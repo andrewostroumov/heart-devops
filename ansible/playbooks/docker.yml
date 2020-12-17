@@ -3,7 +3,8 @@
   gather_facts: false
   become: true
   roles:
-    - hass
+    - prometheus
+#    - hass
 #    - zigbee
 #    - hass
 #    - mosquitto

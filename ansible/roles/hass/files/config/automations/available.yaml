@@ -1,5 +1,5 @@
-- id: "1580662282000"
-  alias: "Watch unavailable devices"
+- id: "1580662282001"
+  alias: "Watch available devices"
   mode: queued
   trigger:
     - platform: state
@@ -61,11 +61,11 @@
         - switch.1d42d23a_plug
         # Purifier
         - fan.fb47da6e_purifier
-      to: "unavailable"
+      from: "unavailable"
       for: "00:05:00"
   action:
     - service: notify.heart_security_tg
       data:
-        title: "Unavailable 💡"
+        title: "Available ⭐️"
         message: >
-          {{ trigger.entity_id | replace("_", "\\_") }} unavailable for {{ relative_time(trigger.to_state.last_changed) }}
+          {{ trigger.entity_id | replace("_", "\\_") }} available

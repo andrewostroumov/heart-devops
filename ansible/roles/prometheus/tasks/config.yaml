@@ -1,0 +1,4 @@
+- name: "copy prometheus file"
+  copy:
+    src: "files/prometheus.yml"
+    dest: "/etc/docker/prometheus/"
