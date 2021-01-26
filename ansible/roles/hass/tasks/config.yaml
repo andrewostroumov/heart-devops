@@ -3,51 +3,78 @@
     src: "files/config/"
     dest: "/etc/docker/hass/"
 
-- name: "copy hass components"
-  copy:
-    src: "files/components/"
-    dest: "/etc/docker/hass/www/components/"
+#- name: "copy hass components"
+#  copy:
+#    src: "files/components/"
+#    dest: "/etc/docker/hass/www/components/"
+#
+#- name: "copy hass plugins"
+#  copy:
+#    src: "files/plugins/"
+#    dest: "/etc/docker/hass/www/plugins/"
+#
+#- name: "copy ca certificate"
+#  copy:
+#    src: "../.secrets/ca/ca.crt"
+#    dest: "/etc/docker/hass/secure/"
+#    mode: "644"
+#
+#- name: "copy server certificate"
+#  copy:
+#    src: "../.secrets/ca/hass/server.crt"
+#    dest: "/etc/docker/hass/secure/"
+#    mode: "644"
+#
+#- name: "copy server key"
+#  copy:
+#    src: "../.secrets/ca/hass/server.key"
+#    dest: "/etc/docker/hass/secure/"
+#    mode: "600"
+#
+#- name: "clone google dark theme"
+#  git:
+#    repo: "git@github.com:JuanMTech/google_dark_theme.git"
+#    dest: "/etc/docker/hass/themes/google_dark_theme"
+#    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+#    force: true
+#
+#- name: "clone google light theme"
+#  git:
+#    repo: "git@github.com:JuanMTech/google_light_theme.git"
+#    dest: "/etc/docker/hass/themes/google_light_theme"
+#    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+#    force: true
+#
+#- name: "clone sp108e component"
+#  git:
+#    repo: "git@github.com:andrewostroumov/sp108e_ws2815.git"
+#    dest: "/etc/docker/hass/custom_components/sp108e_ws2815"
+#    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+#    force: true
+#
+#- name: "clone xiaomi_airpurifier component"
+#  git:
+#    repo: "git@github.com:syssi/xiaomi_airpurifier.git"
+#    dest: "/etc/docker/hass/repo/xiaomi_airpurifier"
+#    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+#    force: true
+#
+#- name: "move xiaomi_airpurifier custom components folder"
+#  copy:
+#    src: "/etc/docker/hass/repo/xiaomi_airpurifier/custom_components/xiaomi_miio_airpurifier"
+#    dest: "/etc/docker/hass/custom_components"
+#    remote_src: true
 
-- name: "copy hass plugins"
-  copy:
-    src: "files/plugins/"
-    dest: "/etc/docker/hass/www/plugins/"
-
-- name: "copy ca certificate"
-  copy:
-    src: "../.secrets/ca/ca.crt"
-    dest: "/etc/docker/hass/secure/"
-    mode: "644"
-
-- name: "copy server certificate"
-  copy:
-    src: "../.secrets/ca/hass/server.crt"
-    dest: "/etc/docker/hass/secure/"
-    mode: "644"
-
-- name: "copy server key"
-  copy:
-    src: "../.secrets/ca/hass/server.key"
-    dest: "/etc/docker/hass/secure/"
-    mode: "600"
-
-- name: "clone google dark theme"
-  git:
-    repo: "git@github.com:JuanMTech/google_dark_theme.git"
-    dest: "/etc/docker/hass/themes/google_dark_theme"
-    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
-    force: true
-
-- name: "clone google light theme"
-  git:
-    repo: "git@github.com:JuanMTech/google_light_theme.git"
-    dest: "/etc/docker/hass/themes/google_light_theme"
-    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
-    force: true
-
-- name: "clone sp108e component"
-  git:
-    repo: "git@github.com:andrewostroumov/sp108e_ws2815.git"
-    dest: "/etc/docker/hass/custom_components/sp108e_ws2815"
-    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
-    force: true
+#- name: "clone SonoffLAN component"
+#  git:
+#    repo: "git@github.com:AlexxIT/SonoffLAN.git"
+#    version: "v2.3.2"
+#    dest: "/etc/docker/hass/repo/SonoffLAN"
+#    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+#    force: true
+#
+#- name: "move SonoffLAN custom components folder"
+#  copy:
+#    src: "/etc/docker/hass/repo/SonoffLAN/custom_components/sonoff"
+#    dest: "/etc/docker/hass/custom_components"
+#    remote_src: true

@@ -1,0 +1,11 @@
+global:
+  instanceName: bedroom
+  integrations:
+    - homeAssistant
+    - bluetoothClassic
+    - bluetoothClassic
+homeAssistant:
+  mqttUrl: "mqtt://localhost:1883"
+  mqttOptions:
+    username: homeassistant
+    password: y9M73JpTk3CaAb7BewXurZHpr9pGq33j

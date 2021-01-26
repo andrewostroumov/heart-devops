@@ -1,15 +1,20 @@
 - name: "copy zigbee bridge files"
-  copy:
-    src: "files/bridge/"
-    dest: "/etc/docker/zigbee/"
+  template:
+    src: "templates/bridge/configuration.j2"
+    dest: "/etc/docker/zigbee/configuration.yaml"
 
-- name: "copy ca certificate"
+- name: "copy zigbee secret file"
   copy:
-    src: "../.secrets/ca/ca.crt"
-    dest: "/etc/docker/zigbee/secure/"
-    mode: "644"
+    src: "files/secret/{{ inventory_hostname }}.yaml"
+    dest: "/etc/docker/zigbee/secret.yaml"
 
-- name: "copy devices"
-  copy:
-    src: "files/devices"
-    dest: "/etc/docker/zigbee/"
+#- name: "copy ca certificate"
+#  copy:
+#    src: "../.secrets/ca/ca.crt"
+#    dest: "/etc/docker/zigbee/secure/"
+#    mode: "644"
+
+#- name: "copy devices"
+#  copy:
+#    src: "files/devices"
+#    dest: "/etc/docker/zigbee/"

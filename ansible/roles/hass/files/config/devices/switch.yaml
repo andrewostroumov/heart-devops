@@ -3,11 +3,13 @@
   token: !secret switch_1d42d23a_plug_token
   name: 1d42d23a_plug
   model: chuangmi.plug.m1
+
 - platform: xiaomi_miio
   host: !secret switch_7edae7d6_plug_host
   token: !secret switch_7edae7d6_plug_token
   name: 7edae7d6_plug
   model: chuangmi.plug.m1
+
 - platform: mqtt
   name: 295943c3_siren
   state_topic: "zigbee/0x000d6f0014f82b49/set"

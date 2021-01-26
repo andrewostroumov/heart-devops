@@ -1,13 +1,4 @@
 - platform: group
-  name: lv_color_all
-  entities:
-    - light.0xd74d40c9abfc8a14
-    - light.7b61e1d1_color_strip
-    - light.32ebdcd1_color_bulb
-    - light.33b24d31_color_bulb
-    - light.27e18cda_light
-
-- platform: group
   name: br_color_all
   entities:
     - light.9783ccd4_bulb

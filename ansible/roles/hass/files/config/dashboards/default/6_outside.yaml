@@ -2,11 +2,11 @@ title: Outside
 path: outside
 badges:
   - entity: sun.sun
-  - entity: sensor.0x00158d000410b370_temperature
+  - entity: sensor.0x00158d0004216ea2_temperature
     name: Air Temperature
-  - entity: sensor.0x00158d000410b370_humidity
+  - entity: sensor.0x00158d0004216ea2_humidity
     name: Air Humidity
-  - entity: sensor.0x00158d000410b370_pressure
+  - entity: sensor.0x00158d0004216ea2_pressure
     name: Air Pressure
-  - entity: sensor.0x00158d000410b370_battery
+  - entity: sensor.0x00158d0004216ea2_battery
     name: Air Battery

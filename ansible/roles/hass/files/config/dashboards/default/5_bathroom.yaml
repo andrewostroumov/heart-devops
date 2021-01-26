@@ -3,25 +3,34 @@ path: bathroom
 badges:
   - entity: binary_sensor.0x00158d00047b37e9_water_leak
     name: Water Leak
-  - entity: sensor.0x00158d0004216ea2_temperature
+  - entity: binary_sensor.0x00158d0003f36469_occupancy
+    name: Motion Sensor
+  - entity: sensor.0x00158d0003f36469_illuminance
+    name: Motion Illuminance
+  - entity: sensor.0x00158d0003f36469_battery
+    name: Motion Battery
+  - entity: sensor.0x00158d000410b370_temperature
     name: Air Temperature
-  - entity: sensor.0x00158d0004216ea2_humidity
+  - entity: sensor.0x00158d000410b370_humidity
     name: Air Humidity
-  - entity: sensor.0x00158d0004216ea2_pressure
+  - entity: sensor.0x00158d000410b370_pressure
     name: Air Pressure
-  - entity: sensor.0x00158d0004216ea2_battery
+  - entity: sensor.0x00158d000410b370_battery
     name: Air Battery
   - entity: sensor.0x04cf8cdf3c75a326_power
-    name: Aqara Boiler Power
+    name: Aqara Warmer Power
   - entity: sensor.0x04cf8cdf3c75a326_voltage
-    name: Aqara Boiler Voltage
+    name: Aqara Warmer Voltage
   - entity: sensor.0x04cf8cdf3c75a326_current
-    name: Aqara Boiler Current
+    name: Aqara Warmer Current
   - entity: sensor.0x04cf8cdf3c75a326_energy
-    name: Aqara Boiler Energy
+    name: Aqara Warmer Energy
 cards:
   - entities:
+      - entity: light.8e5ab312_bulb
+        name: Philips Light
       - entity: switch.0x04cf8cdf3c75a326_switch
-        name: Aqara Boiler
-    title: Switch
+        name: Aqara Warmer
+    show_header_toggle: false
+    title: Light & Switch
     type: entities

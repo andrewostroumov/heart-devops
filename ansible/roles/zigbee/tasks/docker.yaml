@@ -4,7 +4,7 @@
 
 - name: "run zigbee bridge container"
   docker_container:
-    image: "koenkk/zigbee2mqtt:1.16.0"
+    image: "koenkk/zigbee2mqtt:1.17.0"
     name: "zigbee-bridge"
     restart_policy: "unless-stopped"
     recreate: true
@@ -13,7 +13,7 @@
     networks:
       - name: "{{ docker_bridge_name }}"
     devices:
-      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "{{ zigbee_serial_port }}:{{ zigbee_serial_port }}"
     ports:
       - "8099:8080"
     volumes:

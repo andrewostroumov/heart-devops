@@ -1,0 +1,4 @@
+- name: "copy rass files"
+  copy:
+    src: "files/config/"
+    dest: "/etc/docker/rass/"

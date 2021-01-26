@@ -1,18 +1,12 @@
 title: Living room
 path: living_room
 badges:
-  - entity: sensor.10037c21_mi_battery
-    name: Xiaomi Air Battery
   - entity: sensor.10037c21_mi_temperature
     name: Xiaomi Air Temperature
   - entity: sensor.10037c21_mi_humidity
     name: Xiaomi Air Humidity
-  - entity: sensor.0xec1bbdfffe871f0b_battery
-    name: Dev Air Battery
-  - entity: sensor.0xec1bbdfffe871f0b_temperature
-    name: Dev Air Temperature
-  - entity: sensor.0xec1bbdfffe871f0b_humidity
-    name: Dev Air Humidity
+  - entity: sensor.10037c21_mi_battery
+    name: Xiaomi Air Battery
   - entity: sensor.0e8b9f4c_temperature
     name: Air Temperature
   - entity: sensor.0e8b9f4c_humidity
@@ -38,17 +32,17 @@ badges:
 cards:
   - type: vertical-stack
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: thermostat
-            entity: climate.3eb6df05_air_cool
-            name: Air Cool
-          - type: thermostat
-            entity: climate.3eb6df05_air_heat
-            name: Air Heat
-          - type: thermostat
-            entity: climate.a8d57175_ground_heat
-            name: Ground Heat
+#      - type: horizontal-stack
+#        cards:
+#          - type: thermostat
+#            entity: climate.3eb6df05_air_cool
+#            name: Air Cool
+#          - type: thermostat
+#            entity: climate.3eb6df05_air_heat
+#            name: Air Heat
+#          - type: thermostat
+#            entity: climate.a8d57175_ground_heat
+#            name: Ground Heat
 #      - type: horizontal-stack
 #        title: Air Conditioner
 #        cards:
@@ -92,42 +86,31 @@ cards:
 #                styles:
 #                  icon:
 #                    - animation: blink 2s ease infinite
-      - entities:
-          - entity: light.lv_color_all
-            name: Yeelight Lights
-          - entity: light.0xd74d40c9abfc8a14
-            name: Dev Color Strip
-          - entity: light.7b61e1d1_color_strip
-            name: Sofa Color Strip
-          - entity: light.32ebdcd1_color_bulb
-            name: Floor Color Bulb
-          - entity: light.27e18cda_light
-            name: Rainbow Strip
+      - type: entities
+        title: Light & Switch
         show_header_toggle: false
-        title: Lights
-        type: entities
-      - entities:
-          - entity: switch.0x04cf8cdf3c75a785_switch
-            name: Aqara Dev
-          - entity: switch.295943c3_siren
-            name: Siren Alarm
-        title: Switch
-        type: entities
-      - type: custom:zigbee2mqtt-networkmap
-        entity: sensor.zigbee_network
-        mqtt_base_topic: zigbee
-        force: 3000
-        node_size: 16
-        font_size: 12
-        link_width: 2
-        height: 200
-  - type: vertical-stack
-    cards:
-      - type: iframe
-        url: "https://embed.windy.com/embed2.html?lat=50.403&lon=30.505&zoom=8&level=surface&overlay=cosc&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=50.454&detailLon=30.525&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
-      - type: picture-glance
-        title: Outdoor CCTV
         entities:
-          - entity: sensor.0x00158d000410b370_temperature
-          - entity: sensor.0x00158d000410b370_humidity
-        camera_image: camera.0e8b9f4c_cctv
+          - entity: light.7b61e1d1_color_strip
+            name: Yeelight Color Strip
+          - entity: switch.7edae7d6_plug
+            name: Gem Light
+          - entity: fan.f2fac8f1_humidifier
+            name: Humidifier
+#      - type: custom:zigbee2mqtt-networkmap
+#        entity: sensor.zigbee_network
+#        mqtt_base_topic: zigbee
+#        force: 3000
+#        node_size: 16
+#        font_size: 12
+#        link_width: 2
+#        height: 200
+#  - type: vertical-stack
+#    cards:
+#      - type: iframe
+#        url: "https://embed.windy.com/embed2.html?lat=50.403&lon=30.505&zoom=8&level=surface&overlay=cosc&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=50.454&detailLon=30.525&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
+#      - type: picture-glance
+#        title: Outdoor CCTV
+#        entities:
+#          - entity: sensor.0x00158d000410b370_temperature
+#          - entity: sensor.0x00158d000410b370_humidity
+#        camera_image: camera.0e8b9f4c_cctv

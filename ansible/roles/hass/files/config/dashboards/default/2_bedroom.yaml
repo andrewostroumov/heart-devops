@@ -1,6 +1,12 @@
 title: Bedroom
 path: bedroom
 badges:
+  - entity: sensor.0xec1bbdfffe871f0b_temperature
+    name: Dev Air Temperature
+  - entity: sensor.0xec1bbdfffe871f0b_humidity
+    name: Dev Air Humidity
+  - entity: sensor.0xec1bbdfffe871f0b_battery
+    name: Dev Air Battery
   - entity: sensor.fb0dd915_temperature
     name: Air Temperature
   - entity: sensor.fb0dd915_humidity
@@ -28,22 +34,23 @@ badges:
   - entity: sensor.fb47da6e_illuminance
     name: Illuminance
 cards:
-  - entities:
-      - entity: light.br_color_all
-        name: Philips Lights
-      - entity: light.9783ccd4_bulb
-        name: Philips Light 1
-      - entity: light.8e5ab312_bulb
-        name: Philips Light 2
+  - type: entities
+    title: Light & Switch
+    show_header_toggle: false
+    entities:
       - entity: light.33b24d31_color_bulb
-        name: Yeelight Color Bulb
-    title: Light
-    type: entities
-  - entities:
+        name: Yeelight Dev
+      - entity: switch.0x04cf8cdf3c75a785_switch
+        name: Aqara Dev
       - entity: switch.1d42d23a_plug
-        name: Unicorn
-    title: Switch
-    type: entities
+        name: Unicorn Plug
+      - entity: fan.050ecc97_humidifier
+        name: Humidifier
+#      - entity: light.9783ccd4_bulb
+#        name: Philips Light 1
+#      - entity: light.27e18cda_light
+#        name: Rainbow Strip
+
   - type: custom:air-purifier-card
     entity: fan.fb47da6e_purifier
   - type: sensor

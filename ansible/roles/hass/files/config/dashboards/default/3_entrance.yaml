@@ -1,25 +1,24 @@
 title: Entrance
 path: entrance
 badges:
-  - entity: binary_sensor.0x00158d0003f36469_occupancy
+  - entity: binary_sensor.0x00158d00044b1132_occupancy
     name: Motion Sensor
-  - entity: sensor.0x00158d0003f36469_illuminance
+  - entity: sensor.0x00158d00044b1132_illuminance
     name: Motion Illuminance
-  - entity: sensor.0x00158d0003f36469_battery
+  - entity: sensor.0x00158d00044b1132_battery
     name: Motion Battery
 cards:
-  - type: light
-    entity: light.aqara_hub_fed8
-    name: Aquara Light
+  - type: entities
+    title: Light & Switch
+    show_header_toggle: false
+    entities:
+      - entity: light.aqara_hub_fed8
+        name: Aquara Light
+      - entity: switch.295943c3_siren
+        name: Siren Alarm
 #  - type: alarm-panel
 #    entity: alarm_control_panel.aqara_hub_fed8
 #    name: Alarm Control
 #    states:
 #      - arm_away
 #      - arm_night
-  - type: alarm-panel
-    entity: alarm_control_panel.f36e737f
-    name: Manual Alarm
-    states:
-      - arm_away
-      - arm_night

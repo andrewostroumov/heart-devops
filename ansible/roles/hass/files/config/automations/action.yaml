@@ -1,5 +1,5 @@
-- id: "1580657732440"
-  alias: "Turn on floor color light"
+- id: "1000000000010"
+  alias: "Turn on cooking"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -11,8 +11,9 @@
         kelvin: 5000
         entity_id: light.32ebdcd1_color_bulb
       service: light.turn_on
-- id: "1580657732441"
-  alias: "Turn on floor color dark"
+
+- id: "1000000000011"
+  alias: "Turn on cooking dark"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -24,8 +25,9 @@
         kelvin: 4000
         entity_id: light.32ebdcd1_color_bulb
       service: light.turn_on
-- id: "1580657732442"
-  alias: "Turn off floor color"
+
+- id: "1000000000012"
+  alias: "Turn off cooking"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -35,8 +37,9 @@
     - data:
         entity_id: light.32ebdcd1_color_bulb
       service: light.turn_off
-- id: "1580657732430"
-  alias: "Turn on dev color green"
+
+- id: "1000000000020"
+  alias: "Turn on strip green"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -45,14 +48,12 @@
   action:
     - data:
         brightness: 255
-        rgb_color:
-          - 71
-          - 255
-          - 117
-        entity_id: light.0xd74d40c9abfc8a14
+        rgb_color: [0, 255, 0]
+        entity_id: light.7b61e1d1_color_strip
       service: light.turn_on
-- id: "1580657732431"
-  alias: "Turn on dev color light"
+
+- id: "1000000000021"
+  alias: "Turn on strip warm"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -62,10 +63,12 @@
     - data:
         brightness: 255
         kelvin: 4000
-        entity_id: light.0xd74d40c9abfc8a14
+        entity_id: light.7b61e1d1_color_strip
       service: light.turn_on
-- id: "1580657732432"
-  alias: "Turn off dev color"
+
+
+- id: "1000000000022"
+  alias: "Turn off strip"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -73,10 +76,11 @@
       to: "button_2_hold"
   action:
     - data:
-        entity_id: light.0xd74d40c9abfc8a14
+        entity_id: light.7b61e1d1_color_strip
       service: light.turn_off
-- id: "1580657732420"
-  alias: "Turn on all color"
+
+- id: "1000000000030"
+  alias: "Toggle gem light"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -84,21 +88,11 @@
       to: "button_3_single"
   action:
     - data:
-        entity_id: light.lv_color_all
-      service: light.turn_on
-- id: "1580657732422"
-  alias: "Turn off all color"
-  description: ""
-  trigger:
-    - entity_id: sensor.0x04cf8cdf3c79818a_action
-      platform: state
-      to: "button_3_hold"
-  action:
-    - data:
-        entity_id: light.lv_color_all
-      service: light.turn_off
-- id: "1580657732460"
-  alias: "Turn on rainbow effect"
+        entity_id: switch.7edae7d6_plug
+      service: switch.toggle
+
+- id: "1000000000040"
+  alias: "Turn on bathroom"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -106,22 +100,13 @@
       to: "button_4_single"
   action:
     - data:
-        entity_id: light.27e18cda_light
-      service: light.turn_on
-    - data:
         brightness: 255
-        entity_id: light.27e18cda_light
+        kelvin: 4500
+        entity_id: light.8e5ab312_bulb
       service: light.turn_on
-    - data:
-        white_value: 255
-        entity_id: light.27e18cda_light
-      service: light.turn_on
-    - data:
-        effect: Rainbow
-        entity_id: light.27e18cda_light
-      service: light.turn_on
-- id: "1580657732461"
-  alias: "Turn on blinking color"
+
+- id: "1000000000041"
+  alias: "Turn on bathroom dark"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -129,22 +114,13 @@
       to: "button_4_double"
   action:
     - data:
-        entity_id: light.27e18cda_light
+        brightness: 31
+        kelvin: 4500
+        entity_id: light.8e5ab312_bulb
       service: light.turn_on
-    - data:
-        brightness: 50
-        entity_id: light.27e18cda_light
-      service: light.turn_on
-    - data:
-        white_value: 50
-        entity_id: light.27e18cda_light
-      service: light.turn_on
-    - data:
-        effect: Purple blinking
-        entity_id: light.27e18cda_light
-      service: light.turn_on
-- id: "1580657732462"
-  alias: "Turn off dev color"
+
+- id: "1000000000042"
+  alias: "Turn off bathroom"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -152,10 +128,11 @@
       to: "button_4_hold"
   action:
     - data:
-        entity_id: light.27e18cda_light
+        entity_id: light.8e5ab312_bulb
       service: light.turn_off
-- id: "1580657732470"
-  alias: "Turn on bedroom"
+
+- id: "1000000000061"
+  alias: "Turn on lv color group"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -163,25 +140,11 @@
       to: "button_6_single"
   action:
     - data:
-        brightness: 255
-        kelvin: 4000
-        entity_id: light.br_color_all
-      service: light.turn_on
-- id: "1580657732471"
-  alias: "Turn on bedroom"
-  description: ""
-  trigger:
-    - entity_id: sensor.0x04cf8cdf3c79818a_action
-      platform: state
-      to: "button_6_double"
-  action:
-    - data:
-        brightness: 63
-        kelvin: 3000
-        entity_id: light.br_color_all
-      service: light.turn_on
-- id: "1580657732472"
-  alias: "Turn off bedroom"
+        entity_id: group.lv_color_all
+      service: homeassistant.turn_on
+
+- id: "1000000000062"
+  alias: "Turn off lv color group"
   description: ""
   trigger:
     - entity_id: sensor.0x04cf8cdf3c79818a_action
@@ -189,5 +152,89 @@
       to: "button_6_hold"
   action:
     - data:
-        entity_id: light.br_color_all
-      service: light.turn_off
+        entity_id: group.lv_color_all
+      service: homeassistant.turn_off
+
+#- id: "1580657732420"
+#  alias: "Turn on all color"
+#  description: ""
+#  trigger:
+#    - entity_id: sensor.0x04cf8cdf3c79818a_action
+#      platform: state
+#      to: "button_3_single"
+#  action:
+#    - data:
+#        entity_id: light.lv_color_all
+#      service: light.turn_on
+
+#- id: "1580657732422"
+#  alias: "Turn off all color"
+#  description: ""
+#  trigger:
+#    - entity_id: sensor.0x04cf8cdf3c79818a_action
+#      platform: state
+#      to: "button_3_hold"
+#  action:
+#    - data:
+#        entity_id: light.lv_color_all
+#      service: light.turn_off
+
+#- id: "1580657732460"
+#  alias: "Turn on rainbow effect"
+#  description: ""
+#  trigger:
+#    - entity_id: sensor.0x04cf8cdf3c79818a_action
+#      platform: state
+#      to: "button_4_single"
+#  action:
+#    - data:
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+#    - data:
+#        brightness: 255
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+#    - data:
+#        white_value: 255
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+#    - data:
+#        effect: Rainbow
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+
+#- id: "1580657732461"
+#  alias: "Turn on blinking color"
+#  description: ""
+#  trigger:
+#    - entity_id: sensor.0x04cf8cdf3c79818a_action
+#      platform: state
+#      to: "button_4_double"
+#  action:
+#    - data:
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+#    - data:
+#        brightness: 50
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+#    - data:
+#        white_value: 50
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+#    - data:
+#        effect: Purple blinking
+#        entity_id: light.27e18cda_light
+#      service: light.turn_on
+
+#- id: "1580657732462"
+#  alias: "Turn off dev color"
+#  description: ""
+#  trigger:
+#    - entity_id: sensor.0x04cf8cdf3c79818a_action
+#      platform: state
+#      to: "button_4_hold"
+#  action:
+#    - data:
+#        entity_id: light.27e18cda_light
+#      service: light.turn_off

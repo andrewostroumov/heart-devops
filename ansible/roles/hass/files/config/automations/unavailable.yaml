@@ -62,7 +62,7 @@
         # Purifier
         - fan.fb47da6e_purifier
       to: "unavailable"
-      for: "00:05:00"
+      for: "00:30:00"
   action:
     - service: notify.heart_security_tg
       data:

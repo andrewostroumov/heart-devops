@@ -3,13 +3,11 @@ permit_join: true
 
 frontend:
   port: 8080
-experimental:
-  new_api: true
 
 mqtt:
   base_topic: "zigbee"
-  server: "mqtts://mosquitto:8883"
-  ca: "/app/data/secure/ca.crt"
+  server: "mqtt://mosquitto:1883"
+#  ca: "/app/data/secure/ca.crt"
   client_id: "ZIGBEE_BRIDGE"
   user: "!secret mqtt_user"
   password: "!secret mqtt_password"
@@ -19,11 +17,12 @@ mqtt:
   version: 4
 
 serial:
-  port: "/dev/ttyACM0"
+  port: "{{ zigbee_serial_port }}"
   disable_led: false
 
 advanced:
-  channel: 25
+  pan_id: {{ zigbee_pan_id }}
+  channel: {{ zigbee_channel }}
   cache_state: true
   log_level: "info"
   log_output:

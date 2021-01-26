@@ -1,10 +1,13 @@
-- name: Heart Xeon Docker
-  hosts: heart.xeon
+- name: Heart Docker
+  hosts:
+    - heart.xeon
+#    - heart.nano3
   gather_facts: false
   become: true
   roles:
-    - prometheus
-#    - hass
+#    - prometheus
+    - hass
+#    - rass
 #    - zigbee
 #    - hass
 #    - mosquitto
