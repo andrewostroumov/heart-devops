@@ -15,4 +15,5 @@
     volumes:
       - "/etc/docker/traefik:/etc/traefik"
     ports:
+      - "80:80"
       - "443:443"

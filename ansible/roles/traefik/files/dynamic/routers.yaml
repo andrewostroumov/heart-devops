@@ -12,10 +12,6 @@ http:
       rule: "Host(`grafana.heart`)"
       service: "grafana"
       tls: {}
-    motioneye:
-      rule: "Host(`motioneye.heart`)"
-      service: "motioneye"
-      tls: {}
     utorrent:
       rule: "Host(`utorrent.heart`)"
       service: "utorrent"
@@ -28,3 +24,6 @@ http:
       rule: "Host(`plex.heart`)"
       service: "plex"
       tls: {}
+    kerberos-1:
+      rule: "Host(`kerberos-1.heart`)"
+      service: "kerberos-1"

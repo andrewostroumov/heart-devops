@@ -12,14 +12,10 @@ http:
       loadBalancer:
         servers:
           - url: "http://grafana:3000"
-    motioneye:
-      loadBalancer:
-        servers:
-          - url: "http://172.17.0.1:8765"
     utorrent:
       loadBalancer:
         servers:
-          - url: "http://172.17.0.1:8080"
+          - url: "http://172.17.0.1:8070"
     kibana:
       loadBalancer:
         servers:
@@ -28,3 +24,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://172.17.0.1:32400"
+    kerberos-1:
+      loadBalancer:
+        servers:
+          - url: "http://kerberos-1"
