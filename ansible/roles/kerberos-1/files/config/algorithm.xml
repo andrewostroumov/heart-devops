@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<algorithms>
+  <DifferentialCollins>
+    <erode type="number">15</erode>
+    <threshold type="number">30</threshold>
+  </DifferentialCollins>
+
+  <BackgroundSubtraction>
+    <shadows type="text">false</shadows>
+    <history type="number">15</history>
+    <nmixtures type="number">5</nmixtures>
+    <ratio type="number">1</ratio>
+    <erode type="number">5</erode>
+    <dilate type="number">7</dilate>
+    <threshold type="number">10</threshold>
+  </BackgroundSubtraction>
+</algorithms>
