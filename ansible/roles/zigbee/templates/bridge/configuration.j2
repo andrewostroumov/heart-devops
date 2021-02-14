@@ -1,14 +1,14 @@
 homeassistant: true
-permit_join: true
+permit_join: false
 
 frontend:
   port: 8080
 
 mqtt:
-  base_topic: "zigbee"
-  server: "mqtt://mosquitto:1883"
+  base_topic: "{{ zigbee_base_topic }}"
+  server: "{{ zigbee_mqtt_server }}"
 #  ca: "/app/data/secure/ca.crt"
-  client_id: "ZIGBEE_BRIDGE"
+  client_id: "{{ zigbee_client_id }}"
   user: "!secret mqtt_user"
   password: "!secret mqtt_password"
   reject_unauthorized: false
@@ -24,7 +24,7 @@ advanced:
   pan_id: {{ zigbee_pan_id }}
   channel: {{ zigbee_channel }}
   cache_state: true
-  log_level: "info"
+  log_level: "debug"
   log_output:
     - "console"
   baudrate: 115200
@@ -33,9 +33,13 @@ advanced:
   last_seen: "ISO_8601"
   elapsed: true
   availability_timeout: 60
+  availability_lag: 10
   report: true
   homeassistant_discovery_topic: "homeassistant"
   homeassistant_status_topic: "hass/status"
+
+experimental:
+  transmit_power: 20
 
 #external_converters:
 #  - devices/tuya/ts011f.js

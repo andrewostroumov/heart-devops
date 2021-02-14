@@ -4,7 +4,7 @@
 
 - name: "run zigbee bridge container"
   docker_container:
-    image: "koenkk/zigbee2mqtt:1.17.0"
+    image: "koenkk/zigbee2mqtt"
     name: "zigbee-bridge"
     restart_policy: "unless-stopped"
     recreate: true
