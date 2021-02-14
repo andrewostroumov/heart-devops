@@ -99,12 +99,12 @@ cards:
     cards:
       - type: iframe
         url: "https://embed.windy.com/embed2.html?lat=50.403&lon=30.505&zoom=8&level=surface&overlay=cosc&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=50.454&detailLon=30.525&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
-#      - type: picture-glance
-#        title: Outdoor CCTV
-#        entities:
-#          - entity: sensor.0x00158d000410b370_temperature
-#          - entity: sensor.0x00158d000410b370_humidity
-#        camera_image: camera.0e8b9f4c_cctv
+      - type: picture-glance
+        title: Lana CCTV
+        camera_image: camera.0e8b9f4c_cctv
+        entities:
+          - sensor.0e8b9f4c_temperature
+          - sensor.0e8b9f4c_humidity
       - type: alarm-panel
         entity: alarm_control_panel.f36e737f
         name: Security

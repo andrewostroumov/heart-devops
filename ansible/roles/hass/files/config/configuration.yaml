@@ -39,10 +39,7 @@ influxdb: !include services/influxdb.yaml
 
 stream:
 
-camera:
-  - platform: ffmpeg
-    name: 0e8b9f4c_cctv
-    input: !secret camera_0e8b9f4c_cctv_input
+camera: !include devices/camera.yaml
 
 sonoff:
   username: !secret sonoff_username

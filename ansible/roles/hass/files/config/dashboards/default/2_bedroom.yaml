@@ -33,6 +33,8 @@ badges:
     name: Air AQI 2.5
   - entity: sensor.fb47da6e_illuminance
     name: Illuminance
+  - entity: sensor.0x04cf8cdf3c75a785_power
+    name: Aqara Dev Power
 cards:
   - type: entities
     title: Light & Switch
@@ -40,7 +42,7 @@ cards:
     entities:
       - entity: light.33b24d31_color_bulb
         name: Yeelight Dev
-      - entity: switch.0x04cf8cdf3c75a785_switch
+      - entity: switch.0x04cf8cdf3c75a785
         name: Aqara Dev
       - entity: switch.1d42d23a_plug
         name: Unicorn Plug

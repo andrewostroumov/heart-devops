@@ -1,0 +1,6 @@
+- platform: mjpeg
+  name: 0e8b9f4c_cctv
+  mjpeg_url: !secret camera_0e8b9f4c_mjpeg_url
+  username: !secret camera_0e8b9f4c_mjpeg_username
+  password: !secret camera_0e8b9f4c_mjpeg_password
+  authentication: basic

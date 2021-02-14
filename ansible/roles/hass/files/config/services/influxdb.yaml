@@ -30,7 +30,7 @@ include:
     - sensor.0x00158d000410b370_temperature
     - sensor.0x00158d000410b370_humidity
     - sensor.0x00158d000410b370_pressure
-    - sensor.0x04cf8cdf3c75a326_power
+    - sensor.0x04cf8cdf3c75a326_power_2
     - sensor.0x04cf8cdf3c75a785_power
     - sensor.0x00158d0004855eef_smoke
     - sensor.0x00158d0004855eef_smoke_density

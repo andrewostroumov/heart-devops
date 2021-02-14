@@ -5,10 +5,12 @@
   gather_facts: false
   become: true
   roles:
+#    - kerberos-1
 #    - prometheus
     - hass
 #    - rass
 #    - zigbee
+#    - utorrent
 #    - hass
 #    - mosquitto
 #    - nginx
