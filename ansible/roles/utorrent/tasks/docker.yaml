@@ -1,0 +1,23 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run utorrent container"
+  docker_container:
+    image: "ekho/utorrent"
+    name: "utorrent-new"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/mnt/data/torrents:/data"
+      - "/etc/docker/utorrent/settings:/utorrent/settings"
+    ports:
+      - "8070:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
+    env:
+      webui: "ng"

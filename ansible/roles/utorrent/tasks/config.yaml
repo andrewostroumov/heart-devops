@@ -1,0 +1,4 @@
+- name: "copy utorrent config"
+  copy:
+    src: "files/utserver.conf"
+    dest: "/etc/docker/utorrent/settings"
