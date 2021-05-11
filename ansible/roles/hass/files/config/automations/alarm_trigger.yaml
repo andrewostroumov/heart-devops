@@ -1,3 +1,27 @@
+- id: "1580662281200"
+  alias: "Arm Away"
+  trigger:
+    - entity_id: sensor.0x04cf8cdf3c79818a_action
+      platform: state
+      to: "button_5_triple"
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.f36e737f
+        code: !secret alarm_f36e737f_code
+
+- id: "1580662281299"
+  alias: "Disarm Home"
+  trigger:
+    - entity_id: sensor.0x04cf8cdf3c79818a_action
+      platform: state
+      to: "button_6_triple"
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.f36e737f
+        code: !secret alarm_f36e737f_code
+
 - id: "1580662281241"
   alias: "Alarm trigger"
   trigger:
@@ -38,12 +62,9 @@
       data:
         message: "The alarm has been triggered"
         title: "Alarm!"
-    - service: mqtt.publish
+    - service: switch.turn_on
       data:
-        payload: '{"warning":{"duration":120,"mode":"emergency","strobe":true}}'
-        qos: 0
-        retain: true
-        topic: zigbee/0x000d6f0014f82b49/set
+        entity_id: switch.295943c3_siren
 
 - id: "1580662281253"
   alias: "Process disarmed alarm"
@@ -57,9 +78,6 @@
       data:
         message: "The alarm has been disarmed after triggered"
         title: "Disarmed!"
-    - service: mqtt.publish
+    - service: switch.turn_off
       data:
-        payload: '{"warning":{"duration":0,"mode":"stop","strobe":false}}'
-        qos: 0
-        retain: true
-        topic: zigbee/0x000d6f0014f82b49/set
+        entity_id: switch.295943c3_siren

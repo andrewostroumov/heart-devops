@@ -12,13 +12,5 @@ cards:
     title: Light & Switch
     show_header_toggle: false
     entities:
-      - entity: light.aqara_hub_fed8
-        name: Aquara Light
       - entity: switch.295943c3_siren
         name: Siren Alarm
-#  - type: alarm-panel
-#    entity: alarm_control_panel.aqara_hub_fed8
-#    name: Alarm Control
-#    states:
-#      - arm_away
-#      - arm_night

@@ -7,11 +7,12 @@
   roles:
 #    - kerberos-1
 #    - prometheus
-    - hass
+#    - hass
+#     - postgres
 #    - rass
 #    - zigbee
 #    - utorrent
-#    - hass
+    - hass
 #    - mosquitto
 #    - nginx
 #    - filebeat

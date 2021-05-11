@@ -245,10 +245,10 @@ class AirPurifierCard extends LitElement {
   setFavorite(level) {
     this.callService('fan', 'turn_on')
     setTimeout(() => {
-      this.callService('fan', 'set_speed', { speed: 'Favorite' })
-    }, 500)
+      this.callService('fan', 'set_preset_mode', { preset_mode: 'favorite' })
+    }, 1000)
     setTimeout(() => {
-      this.callService('xiaomi_miio', 'fan_set_favorite_level', { level })
+      this.callService('xiaomi_miio_airpurifier', 'fan_set_favorite_level', { level })
     }, 1000)
   }
 
@@ -267,7 +267,7 @@ class AirPurifierCard extends LitElement {
         <paper-icon-button  icon="mdi:weather-night"
                             title="Sleep"
                             class="toolbar-item ${mode == 'silent' && 'toolbar-item-on'}"
-                            @click='${(e) => this.callService('fan', 'set_speed', { speed: 'Silent' })}'>
+                            @click='${(e) => this.callService('fan', 'set_preset_mode', { preset_mode: 'silent' })}'>
         </paper-icon-button>
 
         <paper-icon-button  icon="mdi:circle-slice-3"
@@ -288,13 +288,13 @@ class AirPurifierCard extends LitElement {
         </paper-icon-button>
         <paper-icon-button  icon="mdi:circle-slice-8"
                             title="100%"
-                            class="toolbar-item ${mode == 'favorite' && favorite_level == 17 && 'toolbar-item-on'}"
-                            @click='${(e) => this.setFavorite(17)}'>
+                            class="toolbar-item ${mode == 'favorite' && favorite_level == 16 && 'toolbar-item-on'}"
+                            @click='${(e) => this.setFavorite(16)}'>
         </paper-icon-button>
         <paper-icon-button  icon="mdi:brightness-auto"
                             title="Auto"
                             class="toolbar-item ${mode == 'auto' && 'toolbar-item-on'}"
-                            @click='${(e) => this.callService('fan', 'set_speed', { speed: 'Auto' })}'>
+                            @click='${(e) => this.callService('fan', 'set_preset_mode', { preset_mode: 'auto' })}'>
         </paper-icon-button>
       </div>
     `

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "application": "holo.app",
   "effects": [
     {
@@ -38,7 +38,7 @@
           "green": 255,
           "blue": 0,
           "brightness": 255,
-          "fade": 0,
+          "fade": 200,
           "delay": 50
         },
         {

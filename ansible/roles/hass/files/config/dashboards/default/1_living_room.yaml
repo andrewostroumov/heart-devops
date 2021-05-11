@@ -30,85 +30,23 @@ badges:
 cards:
   - type: vertical-stack
     cards:
-#      - type: horizontal-stack
-#        cards:
-#          - type: thermostat
-#            entity: climate.3eb6df05_air_cool
-#            name: Air Cool
-#          - type: thermostat
-#            entity: climate.3eb6df05_air_heat
-#            name: Air Heat
-#          - type: thermostat
-#            entity: climate.a8d57175_ground_heat
-#            name: Ground Heat
-#      - type: horizontal-stack
-#        title: Air Conditioner
-#        cards:
-#          - type: custom:button-card
-#            entity: sensor.b11f96a0_ir
-#            icon: mdi:close-circle-outline
-#            show_name: false
-#            tap_action:
-#              action: call-service
-#              service: script.turn_on
-#              service_data:
-#                entity_id: script.b11f96a0_disable
-#            state:
-#              - value: 0
-#                color: rgb(81, 84, 89)
-#          - type: custom:button-card
-#            entity: sensor.b11f96a0_ir
-#            icon: mdi:fan
-#            show_name: false
-#            tap_action:
-#              action: call-service
-#              service: script.turn_on
-#              service_data:
-#                entity_id: script.b11f96a0_cool
-#            state:
-#              - value: 1
-#                color: rgb(81, 144, 232)
-#                spin: true
-#          - type: custom:button-card
-#            entity: sensor.b11f96a0_ir
-#            icon: mdi:fire
-#            show_name: false
-#            tap_action:
-#              action: call-service
-#              service: script.turn_on
-#              service_data:
-#                entity_id: script.b11f96a0_heat
-#            state:
-#              - value: 2
-#                color: red
-#                styles:
-#                  icon:
-#                    - animation: blink 2s ease infinite
-      - type: entities
-        title: Light & Switch
-        show_header_toggle: false
-        entities:
-          - entity: light.7b61e1d1_color_strip
-            name: Yeelight Color Strip
-          - entity: switch.7edae7d6_plug
-            name: Gem Light
-          - entity: fan.f2fac8f1_humidifier
-            name: Humidifier
-#      - type: custom:zigbee2mqtt-networkmap
-#        entity: sensor.zigbee_network
-#        mqtt_base_topic: zigbee
-#        force: 3000
-#        node_size: 16
-#        font_size: 12
-#        link_width: 2
-#        height: 200
-#  - type: vertical-stack
-#    cards:
-#      - type: iframe
-#        url: "https://embed.windy.com/embed2.html?lat=50.403&lon=30.505&zoom=8&level=surface&overlay=cosc&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=50.454&detailLon=30.525&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
-#      - type: picture-glance
-#        title: Outdoor CCTV
-#        entities:
-#          - entity: sensor.0x00158d000410b370_temperature
-#          - entity: sensor.0x00158d000410b370_humidity
-#        camera_image: camera.0e8b9f4c_cctv
+      - type: horizontal-stack
+        cards:
+          - type: thermostat
+            entity: climate.0x5c0272fffec36252
+            name: Battery 1
+          - type: thermostat
+            entity: climate.0x5c0272fffec4eec7
+            name: Battery 2
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            title: Light & Switch
+            show_header_toggle: false
+            entities:
+              - entity: light.7b61e1d1_color_strip
+                name: Yeelight Color Strip
+              - entity: switch.7edae7d6_plug
+                name: Gem Light
+              - entity: fan.050ecc97_humidifier
+                name: Humidifier

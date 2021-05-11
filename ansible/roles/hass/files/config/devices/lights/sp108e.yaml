@@ -1,3 +1,0 @@
-- platform: sp108e_ws2815
-  host: !secret light_27e18cda_light_host
-  name: 27e18cda_light

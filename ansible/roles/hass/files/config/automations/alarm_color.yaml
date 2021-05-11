@@ -7,7 +7,7 @@
   action:
     - data:
         brightness: 255
-        entity_id: light.aqara_hub_fed8
+        entity_id: light.7b61e1d1_color_strip
         rgb_color:
           - 255
           - 255
@@ -22,7 +22,7 @@
       to: "armed_away"
   action:
     - data:
-        entity_id: light.aqara_hub_fed8
+        entity_id: light.7b61e1d1_color_strip
       service: light.turn_off
 
 - id: "1580662281262"
@@ -34,7 +34,7 @@
   action:
     - data:
         brightness: 255
-        entity_id: light.aqara_hub_fed8
+        entity_id: light.7b61e1d1_color_strip
         rgb_color:
           - 255
           - 255
@@ -50,7 +50,7 @@
   action:
     - data:
         brightness: 255
-        entity_id: light.aqara_hub_fed8
+        entity_id: light.7b61e1d1_color_strip
         rgb_color:
           - 255
           - 0
@@ -65,5 +65,5 @@
       to: "disarmed"
   action:
     - data:
-        entity_id: light.aqara_hub_fed8
+        entity_id: light.7b61e1d1_color_strip
       service: light.turn_off

@@ -18,25 +18,25 @@
   payload_on: '{"warning":{"duration":120,"mode":"emergency","strobe":true}}'
   command_topic: "zigbeer/0x000d6f0014f82b49/set"
   retain: true
-- platform: template
-  switches:
-    43e64ad8_air_cool:
-      value_template: "{{ is_state('binary_sensor.93ad2a47_climate_cool', 'on') }}"
-      turn_on:
-        service: script.turn_on
-        data:
-          entity_id: script.b11f96a0_cool
-      turn_off:
-        service: script.turn_on
-        data:
-          entity_id: script.b11f96a0_disable
-    43e64ad8_air_heat:
-      value_template: "{{ is_state('binary_sensor.93ad2a47_climate_heat', 'on') }}"
-      turn_on:
-        service: script.turn_on
-        data:
-          entity_id: script.b11f96a0_heat
-      turn_off:
-        service: script.turn_on
-        data:
-          entity_id: script.b11f96a0_disable
+#- platform: template
+#  switches:
+#    43e64ad8_air_cool:
+#      value_template: "{{ is_state('binary_sensor.93ad2a47_climate_cool', 'on') }}"
+#      turn_on:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_cool
+#      turn_off:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_disable
+#    43e64ad8_air_heat:
+#      value_template: "{{ is_state('binary_sensor.93ad2a47_climate_heat', 'on') }}"
+#      turn_on:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_heat
+#      turn_off:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_disable
