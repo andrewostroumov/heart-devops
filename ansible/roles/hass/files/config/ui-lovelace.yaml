@@ -1,13 +1,5 @@
 views: !include_dir_list dashboards/default
 
-resources:
-  - url: /local/components/air-purifier/card.js
-    type: module
-#  - url: /local/components/button-card/button-card.js
-#    type: module
-#  - url: /local/plugins/custom-header/custom-header.js
-#    type: module
-
 #custom_header:
 #  compact_mode: true
 #  background: var(--app-header-background-color)

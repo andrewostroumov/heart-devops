@@ -1,5 +1,5 @@
-- id: "1580662282001"
-  alias: "Watch available devices"
+- id: "1000000000300"
+  alias: Watch available devices
   initial_state: false
   mode: queued
   trigger:

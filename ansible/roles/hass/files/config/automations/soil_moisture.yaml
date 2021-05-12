@@ -1,5 +1,5 @@
 - id: "1000000000100"
-  alias: "Watch soil moisture"
+  alias: Watch soil moisture
   mode: queued
   trigger:
     - platform: numeric_state

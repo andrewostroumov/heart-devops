@@ -1,54 +1,45 @@
-- id: "1587144286734"
-  alias: Humidifier Bedroom High
-  description: High
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.fb0dd915_humidity
-      below: 35
-      for: 00:05:00
-  condition:
-    - condition: state
-      entity_id: fan.050ecc97_humidifier
-      state: "on"
-    - condition: template
-      value_template: "{{ state_attr('fan.050ecc97_humidifier', 'no_water') is false }}"
-    - condition: template
-      value_template: "{{ state_attr('fan.050ecc97_humidifier', 'water_tank_detached') is false }}"
-  action:
-    - service: fan.set_speed
-      data:
-        entity_id: fan.050ecc97_humidifier
-        speed: high
-
-- id: "1587144286735"
+- id: "1000000000500"
   alias: Humidifier Bedroom Low
-  description: ""
+  mode: single
+  max_exceeded: silent
   trigger:
     - platform: numeric_state
       entity_id: sensor.fb0dd915_humidity
-      above: 50
+      below: 55
       for: 00:05:00
   condition:
     - condition: state
-      entity_id: fan.050ecc97_humidifier
-      state: "on"
+      entity_id: fan.f2fac8f1_humidifier
+      state: "off"
     - condition: template
-      value_template: "{{ state_attr('fan.050ecc97_humidifier', 'no_water') is false }}"
+      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'no_water') is false }}"
     - condition: template
-      value_template: "{{ state_attr('fan.050ecc97_humidifier', 'water_tank_detached') is false }}"
+      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'water_tank_detached') is false }}"
   action:
-    - service: fan.set_speed
+    - service: xiaomi_miio_airpurifier.fan_set_buzzer_off
       data:
-        entity_id: fan.050ecc97_humidifier
-        speed: low
+        entity_id: fan.f2fac8f1_humidifier
+    - service: fan.turn_on
+      data:
+        entity_id: fan.f2fac8f1_humidifier
+    - service: fan.set_preset_mode
+      data:
+        entity_id: fan.f2fac8f1_humidifier
+        preset_mode: medium
+    - service: mqtt.publish
+      data:
+        payload: active
+        retain: true
+        topic: hass/automation/fan/5958a8ec
 
-- id: "1587144286834"
-  alias: Humidifier Living Room High
-  description: High
+- id: "1000000000501"
+  alias: Humidifier Bedroom High
+  mode: single
+  max_exceeded: silent
   trigger:
     - platform: numeric_state
-      entity_id: sensor.0e8b9f4c_humidity
-      below: 35
+      entity_id: sensor.fb0dd915_humidity
+      above: 55
       for: 00:05:00
   condition:
     - condition: state
@@ -59,29 +50,11 @@
     - condition: template
       value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'water_tank_detached') is false }}"
   action:
-    - service: fan.set_speed
+    - service: fan.turn_off
       data:
         entity_id: fan.f2fac8f1_humidifier
-        speed: high
-
-- id: "1587144286835"
-  alias: Humidifier Living Room Low
-  description: ""
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.0e8b9f4c_humidity
-      above: 50
-      for: 00:05:00
-  condition:
-    - condition: state
-      entity_id: fan.f2fac8f1_humidifier
-      state: "on"
-    - condition: template
-      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'no_water') is false }}"
-    - condition: template
-      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'water_tank_detached') is false }}"
-  action:
-    - service: fan.set_speed
+    - service: mqtt.publish
       data:
-        entity_id: fan.f2fac8f1_humidifier
-        speed: low
+        payload: inactive
+        retain: true
+        topic: hass/automation/fan/5958a8ec

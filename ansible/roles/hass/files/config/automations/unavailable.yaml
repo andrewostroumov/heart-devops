@@ -1,5 +1,5 @@
-- id: "1580662282000"
-  alias: "Watch unavailable devices"
+- id: "1000000000200"
+  alias: Watch unavailable devices
   mode: queued
   trigger:
     - platform: state

@@ -1,5 +1,5 @@
-  - id: "1000000000200"
-  alias: "Watch battery level"
+- id: "1000000000400"
+  alias: Watch battery level
   mode: queued
   trigger:
     - platform: numeric_state
