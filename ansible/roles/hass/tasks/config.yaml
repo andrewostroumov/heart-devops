@@ -52,6 +52,16 @@
 #    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
 #    force: true
 
+- name: "make bar-card dir"
+  file:
+    dest: "/etc/docker/hass/www/components/bar-card "
+    state: "directory"
+
+- name: "fetch bar-card card"
+  get_url:
+    url: "https://github.com/custom-cards/bar-card/releases/download/3.2.0/bar-card.js"
+    dest: "/etc/docker/hass/www/components/bar-card"
+
 - name: "clone xiaomi_airpurifier component"
   git:
     repo: "git@github.com:syssi/xiaomi_airpurifier.git"

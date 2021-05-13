@@ -10,12 +10,12 @@
 
 - name: "copy traefik secure key"
   copy:
-    src: "../.secrets/ca/traefik/live.key"
+    src: "../.secrets/ca/traefik/new/live.key"
     dest: "/etc/docker/traefik/secure/"
     mode: "600"
 
 - name: "copy traefik secure certificate"
   copy:
-    src: "../.secrets/ca/traefik/live.crt"
+    src: "../.secrets/ca/traefik/new/live.crt"
     dest: "/etc/docker/traefik/secure/"
     mode: "644"

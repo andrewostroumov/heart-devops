@@ -1,5 +1,7 @@
 - url: /local/components/air-purifier/card.js
   type: module
+- url: /local/components/bar-card/bar-card.js
+  type: module
 #    - url: /local/components/button-card/button-card.js
 #      type: module
 #    - url: /local/plugins/custom-header/custom-header.js
