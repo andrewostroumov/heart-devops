@@ -1,0 +1,8 @@
+- name: "apt install ca-certificates apt-transport-https iptables-persistent"
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - apt-transport-https
+      - iptables-persistent
+    state: latest
+    update_cache: yes

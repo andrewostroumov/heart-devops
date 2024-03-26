@@ -1,0 +1,64 @@
+- id: wall_dev_1_action_single_right
+  alias: wall_dev_1_action_single_right
+  trigger:
+    - platform: state
+      entity_id: sensor.wall_dev_1_action
+      to: single_right
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.led_dev_1
+        brightness: 255
+        kelvin: 3500
+
+- id: wall_bed_2_action_single_right
+  alias: wall_bed_2_action_single_right
+  trigger:
+    - platform: state
+      entity_id: sensor.wall_bed_2_action
+      to: single_right
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.led_bed_1
+        brightness: 255
+        kelvin: 3500
+
+- id: wall_enter_2_action_single_right
+  alias: wall_enter_2_action_single_right
+  trigger:
+    - platform: state
+      entity_id: sensor.wall_enter_2_action
+      to: single_right
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.led_enter_1
+        brightness: 255
+        kelvin: 3500
+
+- id: wall_live_1_action_single_right
+  alias: wall_live_1_action_single_right
+  trigger:
+    - platform: state
+      entity_id: sensor.wall_live_1_action
+      to: single_right
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.led_live_1
+        brightness: 255
+        kelvin: 3500
+
+- id: wall_kit_1_action_single_left
+  alias: wall_kit_1_action_single_left
+  trigger:
+    - platform: state
+      entity_id: sensor.wall_kit_1_action
+      to: single_left
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.led_kit_1
+        brightness: 32
+        kelvin: 3500

@@ -1,0 +1,69 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run klipper container"
+  docker_container:
+    image: "mkuf/klipper:latest"
+    name: "klipper"
+    restart_policy: "unless-stopped"
+    privileged: true
+    recreate: true
+    detach: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/dev:/dev"
+      - "/opt/docker/klipper/run:/opt/printer_data/run"
+      - "/opt/docker/klipper/gcodes:/opt/printer_data/gcodes"
+      - "/opt/docker/klipper/config:/opt/printer_data/config"
+      - "/opt/docker/klipper/out:/opt/klipper/out"
+
+- name: "run klipper container mcu"
+  docker_container:
+    image: "mkuf/klipper:latest-mcu"
+    name: "klipper-mcu"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    tty: true
+    working_dir: "/opt/klipper"
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/klipper/out:/opt/klipper/out"
+
+- name: "run moonraker container"
+  docker_container:
+    image: "mkuf/moonraker:latest"
+    name: "moonraker"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/klipper/run:/opt/printer_data/run"
+      - "/opt/docker/klipper/gcodes:/opt/printer_data/gcodes"
+      - "/opt/docker/moonraker/database:/opt/printer_data/database"
+      - "/opt/docker/moonraker/config:/opt/printer_data/config"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.moonraker.rule: "Host(`moonraker.ieee5387.space`)"
+      traefik.http.services.moonraker.loadbalancer.server.port: "7125"
+
+- name: "run mainsail container"
+  docker_container:
+    image: "ghcr.io/mainsail-crew/mainsail:latest"
+    name: "mainsail"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/mainsail/config.json:/usr/share/nginx/html/config.json"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.mainsail.rule: "Host(`mainsail.ieee5387.space`)"
+      traefik.http.services.mainsail.loadbalancer.server.port: "80"

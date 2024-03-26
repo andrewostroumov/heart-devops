@@ -1,0 +1,63 @@
+#- id: "1587144286634"
+#  alias: Purifier MAX Speed
+#  description: ""
+#  trigger:
+#    - above: "30"
+#      entity_id: sensor.fb47da6e_aqi
+#      for: 00:00:30
+#      platform: numeric_state
+#  condition:
+#    - condition: state
+#      entity_id: fan.fb47da6e_purifier
+#      state: "on"
+#    - condition: state
+#      entity_id: binary_sensor.3e565972_automation_purifier
+#      state: "off"
+#    - condition: state
+#      entity_id: sun.sun
+#      state: "above_horizon"
+#  action:
+#    - data:
+#        entity_id: fan.fb47da6e_purifier
+#        speed: favorite
+#      service: fan.set_speed
+#    - data:
+#        entity_id: fan.fb47da6e_purifier
+#        level: 17
+#      service: fan.xiaomi_miio_set_favorite_level
+#    - data:
+#        payload: active
+#        qos: 0
+#        retain: true
+#        topic: hass/automation/purifier/3e565972
+#      service: mqtt.publish
+#- id: "1587145945339"
+#  alias: Purifier MIN Speed
+#  description: ""
+#  trigger:
+#    - below: "15"
+#      entity_id: sensor.fb47da6e_aqi
+#      for: 00:00:30
+#      platform: numeric_state
+#  condition:
+#    - condition: state
+#      entity_id: fan.fb47da6e_purifier
+#      state: "on"
+#    - condition: state
+#      entity_id: binary_sensor.3e565972_automation_purifier
+#      state: "on"
+#  action:
+#    - data:
+#        entity_id: fan.fb47da6e_purifier
+#        speed: favorite
+#      service: fan.set_speed
+#    - data:
+#        entity_id: fan.fb47da6e_purifier
+#        level: 8
+#      service: fan.xiaomi_miio_set_favorite_level
+#    - data:
+#        payload: inactive
+#        qos: 0
+#        retain: true
+#        topic: hass/automation/purifier/3e565972
+#      service: mqtt.publish

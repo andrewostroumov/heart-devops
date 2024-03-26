@@ -1,0 +1,25 @@
+- name: "apt install ca-certificates apt-transport-https"
+  ansible.builtin.apt:
+    name:
+      - ca-certificates
+      - apt-transport-https
+    state: latest
+    update_cache: yes
+
+- name: "apt tor package repository"
+  ansible.builtin.shell: |
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/tor-archive-keyring.gpg] https://deb.torproject.org/torproject.org $(lsb_release -c | awk '{print $2}') main" | tee /etc/apt/sources.list.d/tor.list && \
+    echo "deb-src [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/tor-archive-keyring.gpg] https://deb.torproject.org/torproject.org $(lsb_release -c | awk '{print $2}') main" | tee -a /etc/apt/sources.list.d/tor.list
+
+    wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | \
+    gpg --dearmor | tee /usr/share/keyrings/tor-archive-keyring.gpg > /dev/null
+  args:
+    executable: /bin/bash
+
+- name: "apt install tor deb.torproject.org-keyring"
+  ansible.builtin.apt:
+    name:
+      - tor
+      - deb.torproject.org-keyring
+    state: latest
+    update_cache: yes

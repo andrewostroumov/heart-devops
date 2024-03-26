@@ -1,0 +1,21 @@
+- id: airfresh_live_1_flow_on
+  alias: airfresh_live_1_flow_on
+  trigger:
+    - platform: state
+      entity_id: fan.airfresh_live_1
+      to: "on"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.sonoff_1001051b16
+
+- id: airfresh_live_1_flow_off
+  alias: airfresh_live_1_flow_off
+  trigger:
+    - platform: state
+      entity_id: fan.airfresh_live_1
+      to: "off"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.sonoff_1001051b16

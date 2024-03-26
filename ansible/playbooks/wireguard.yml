@@ -1,0 +1,10 @@
+- name: DigitalOcean WireGuard
+  hosts:
+    - digitalocean.wireguard
+  gather_facts: false
+  become: true
+  roles:
+    - wireguard
+    - snowflake
+    - obfs4-bridge
+    - tor-relay

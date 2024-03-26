@@ -1,0 +1,60 @@
+#- id: "0x007facde12d4ad5c"
+#  alias: Humidifier Bedroom Low
+#  mode: single
+#  max_exceeded: silent
+#  trigger:
+#    - platform: numeric_state
+#      entity_id: sensor.fb0dd915_humidity
+#      below: 55
+#      for: 00:05:00
+#  condition:
+#    - condition: state
+#      entity_id: fan.f2fac8f1_humidifier
+#      state: "off"
+#    - condition: template
+#      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'no_water') is false }}"
+#    - condition: template
+#      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'water_tank_detached') is false }}"
+#  action:
+#    - service: xiaomi_miio_airpurifier.fan_set_buzzer_off
+#      data:
+#        entity_id: fan.f2fac8f1_humidifier
+#    - service: fan.turn_on
+#      data:
+#        entity_id: fan.f2fac8f1_humidifier
+#    - service: fan.set_preset_mode
+#      data:
+#        entity_id: fan.f2fac8f1_humidifier
+#        preset_mode: medium
+#    - service: mqtt.publish
+#      data:
+#        payload: active
+#        retain: true
+#        topic: hass/automation/fan/5958a8ec
+#
+#- id: "1000000000501"
+#  alias: Humidifier Bedroom High
+#  mode: single
+#  max_exceeded: silent
+#  trigger:
+#    - platform: numeric_state
+#      entity_id: sensor.fb0dd915_humidity
+#      above: 55
+#      for: 00:05:00
+#  condition:
+#    - condition: state
+#      entity_id: fan.f2fac8f1_humidifier
+#      state: "on"
+#    - condition: template
+#      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'no_water') is false }}"
+#    - condition: template
+#      value_template: "{{ state_attr('fan.f2fac8f1_humidifier', 'water_tank_detached') is false }}"
+#  action:
+#    - service: fan.turn_off
+#      data:
+#        entity_id: fan.f2fac8f1_humidifier
+#    - service: mqtt.publish
+#      data:
+#        payload: inactive
+#        retain: true
+#        topic: hass/automation/fan/5958a8ec

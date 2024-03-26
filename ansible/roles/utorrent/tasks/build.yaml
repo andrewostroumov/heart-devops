@@ -1,0 +1,19 @@
+- name: "fetch docker-utorrent"
+  unarchive:
+    src: "https://github.com/ekho/docker-utorrent/archive/refs/heads/master.zip"
+    dest: "/tmp"
+    remote_src: true
+
+- name: "copy build.sh config"
+  copy:
+    src: "files/build.sh"
+    dest: "/tmp/docker-utorrent-master/build.sh"
+    mode: "0755"
+
+- name: "build docker image"
+  raw: "cd /tmp/docker-utorrent-master && ./build.sh"
+
+- name: "remove docker-utorrent-master dir"
+  file:
+    dest: "/tmp/docker-utorrent-master"
+    state: "absent"

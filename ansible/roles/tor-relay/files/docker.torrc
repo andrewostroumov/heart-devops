@@ -1,0 +1,24 @@
+VirtualAddrNetworkIPv4 10.192.0.0/16
+AutomapHostsOnResolve 1
+
+SocksPort 0.0.0.0:9050 IsolateClientAddr IsolateClientProtocol IsolateDestPort IsolateDestAddr
+SocksPolicy accept 10.20.0.0/16
+
+DNSPort 0.0.0.0:5353
+
+ControlPort 9051
+ControlSocket /run/tor/control GroupWritable RelaxDirModeCheck
+ControlSocketsGroupWritable 1
+
+CookieAuthentication 1
+CookieAuthFileGroupReadable 1
+CookieAuthFile /run/tor/control.authcookie
+
+ExitRelay 0
+ExitPolicy reject *:*
+
+Log notice stdout
+DataDirectory /var/lib/tor
+
+LogMessageDomains 1
+HardwareAccel 1

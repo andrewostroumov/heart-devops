@@ -1,0 +1,32 @@
+- name: "make utorrent dir"
+  file:
+    path: "/opt/docker/utorrent"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make utorrent autoload dir"
+  file:
+    path: "/opt/docker/utorrent/autoload"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make utorrent settings dir"
+  file:
+    path: "/opt/docker/utorrent/settings"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make utorrent torrents dir"
+  file:
+    path: "/opt/docker/utorrent/torrents"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "copy utorrent config"
+  copy:
+    src: "files/utserver.conf"
+    dest: "/opt/docker/utorrent/settings/utserver.conf"

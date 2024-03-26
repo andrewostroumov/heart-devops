@@ -1,0 +1,23 @@
+- name: "fetch hivemq-community-edition"
+  unarchive:
+    src: "https://github.com/hivemq/hivemq-community-edition/archive/refs/heads/master.zip"
+    dest: "/tmp"
+    remote_src: true
+
+- name: "apt install default-jre"
+  apt:
+    name: "default-jre"
+
+- name: "copy build.sh config"
+  copy:
+    src: "files/build.sh"
+    dest: "/tmp/hivemq-community-edition-master/docker/build.sh"
+    mode: "0755"
+
+- name: "build docker image"
+  raw: "cd /tmp/hivemq-community-edition-master && docker/build.sh"
+
+- name: "remove hivemq-community-edition-master dir"
+  file:
+    dest: "/tmp/hivemq-community-edition-master"
+    state: "absent"

@@ -1,0 +1,34 @@
+- name: "create device dir"
+  file:
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}"
+    state: "directory"
+
+- name: "copy kerberos config"
+  copy:
+    src: "files/config/"
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}/config"
+
+- name: "copy kerberos webconfig"
+  copy:
+    src: "files/webconfig/"
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}/webconfig"
+
+- name: "copy kerberos capture.xml"
+  template:
+    src: "templates/config/capture.xml.j2"
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}/config/capture.xml"
+
+- name: "copy kerberos io.xml"
+  template:
+    src: "templates/config/io.xml.j2"
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}/config/io.xml"
+
+- name: "copy kerberos stream.xml"
+  template:
+    src: "templates/config/stream.xml.j2"
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}/config/stream.xml"
+
+- name: "copy kerberos kerberos.php"
+  template:
+    src: "templates/webconfig/kerberos.php.j2"
+    dest: "/etc/docker/kerberos/{{ kios_device_addr }}/webconfig/kerberos.php"

@@ -1,0 +1,55 @@
+- name: "create shinobi network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run mariadb container"
+  docker_container:
+    image: "mariadb:10.6-focal"
+    name: "mariadb"
+    restart_policy: "unless-stopped"
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/mariadb:/var/lib/mysql"
+    env:
+      MARIADB_DATABASE: "{{ shinobi_db_name }}"
+      MARIADB_ROOT_PASSWORD: "{{ shinobi_db_password }}"
+
+- name: "run shinobi container"
+  docker_container:
+    image: "shinobi:build"
+    name: "shinobi"
+    restart_policy: "unless-stopped"
+    detach: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    ports:
+      - "17000:8080"
+    volumes:
+      - "/dev/shm/shinobi/streams:/dev/shm/streams"
+      - "/opt/docker/shinobi/config:/config"
+      - "/opt/docker/shinobi/plugins:/home/Shinobi/plugins"
+      - "/mnt/data/shinobi/videos:/home/Shinobi/videos"
+      - "/etc/localtime:/etc/localtime:ro"
+    env:
+      DB_DISABLE_INCLUDED: "true"
+      DB_DATABASE: "{{ shinobi_db_name }}"
+
+- name: "run shinobi-tensorflow container"
+  docker_container:
+    image: "shinobisystems/shinobi-tensorflow"
+    name: "shinobi-tensorflow"
+    restart_policy: "unless-stopped"
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/shinobi/plugins/tensorflow:/config"
+    env:
+      PLUGIN_HOST: "shinobi"
+      PLUGIN_PORT: "8080"
+      PLUGIN_KEY: "{{ shinobi_plugin_tensorflow_key }}"
+      PLUGIN_MODE: "client"

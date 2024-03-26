@@ -1,0 +1,12 @@
+title: Outside
+path: outside
+badges:
+  - entity: sun.sun
+  - entity: sensor.air_out_1_temperature
+    name: Air Temperature
+  - entity: sensor.air_out_1_humidity
+    name: Air Humidity
+  - entity: sensor.air_out_1_pressure
+    name: Air Pressure
+  - entity: sensor.air_out_1_battery
+    name: Air Battery

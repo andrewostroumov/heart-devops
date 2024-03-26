@@ -1,0 +1,19 @@
+- name: "fetch shinobi"
+  unarchive:
+    src: "https://gitlab.com/Shinobi-Systems/Shinobi/-/archive/master/Shinobi-master.zip"
+    dest: "/tmp"
+    remote_src: true
+
+- name: "copy build.sh config"
+  copy:
+    src: "files/build.sh"
+    dest: "/tmp/Shinobi-master/build.sh"
+    mode: "0755"
+
+- name: "build docker image"
+  raw: "cd /tmp/Shinobi-master && ./build.sh"
+
+- name: "remove shinobi dir"
+  file:
+    dest: "/tmp/Shinobi-master"
+    state: "absent"

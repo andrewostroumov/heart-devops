@@ -1,0 +1,83 @@
+- id: "1580662281200"
+  alias: "Arm Away"
+  trigger:
+    - entity_id: sensor.0x04cf8cdf3c79818a_action
+      platform: state
+      to: "button_5_triple"
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.f36e737f
+        code: !secret alarm_f36e737f_code
+
+- id: "1580662281299"
+  alias: "Disarm Home"
+  trigger:
+    - entity_id: sensor.0x04cf8cdf3c79818a_action
+      platform: state
+      to: "button_6_triple"
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.f36e737f
+        code: !secret alarm_f36e737f_code
+
+- id: "1580662281241"
+  alias: "Alarm trigger"
+  trigger:
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
+      platform: state
+      to: "on"
+    - entity_id: binary_sensor.0x00158d00044b1132_occupancy
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.f36e737f
+      state: armed_away
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.f36e737f
+
+- id: "1580662281252"
+  alias: "Process pending alarm"
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.f36e737f
+      to: "pending"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "The alarm pending"
+        title: "Pending!"
+
+- id: "1580662281251"
+  alias: "Process triggered alarm"
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.f36e737f
+      to: "triggered"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "The alarm has been triggered"
+        title: "Alarm!"
+    - service: switch.turn_on
+      data:
+        entity_id: switch.295943c3_siren
+
+- id: "1580662281253"
+  alias: "Process disarmed alarm"
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.f36e737f
+      from: "triggered"
+      to: "disarmed"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "The alarm has been disarmed after triggered"
+        title: "Disarmed!"
+    - service: switch.turn_off
+      data:
+        entity_id: switch.295943c3_siren

@@ -1,0 +1,51 @@
+- id: sense_co2_pollute_notify
+  alias: sense_co2_pollute_notify
+  mode: queued
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.sense_bed_1_co2
+        - sensor.sense_dev_1_co2
+        - sensor.sense_srv_1_co2
+      above: 1000
+      for: 00:05:00
+  action:
+    - service: notify.heart_live_tg
+      data:
+        title: "Carbon dioxide pollution 🧟‍♀️"
+        message: >
+          {{ trigger.entity_id | replace("_", "\\_") }} *{{ trigger.to_state.state }}ppm*
+    - service: notify.mobile_devices
+      data:
+        title: "Carbon dioxide pollution 🧟‍♀️"
+        message: >
+          {{ trigger.entity_id }} *{{ trigger.to_state.state }}ppm*
+        data:
+          tag: >
+            carbon-dioxide-pollution-{{ state_attr(trigger.entity_id, "friendly_name") | replace("_", "-") }}
+          push:
+            interruption-level: time-sensitive
+
+- id: sense_co2_pure_notify
+  alias: sense_co2_pure_notify
+  mode: queued
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.sense_bed_1_co2
+        - sensor.sense_dev_1_co2
+        - sensor.sense_srv_1_co2
+      below: 600
+      for: 00:05:00
+  action:
+    - service: notify.heart_live_tg
+      data:
+        title: "Carbon dioxide purification 🧞‍♂️"
+        message: >
+          {{ trigger.entity_id | replace("_", "\\_") }} *{{ trigger.to_state.state }}ppm*
+    - service: notify.mobile_devices
+      data:
+        message: "clear_notification"
+        data:
+          tag: >
+            carbon-dioxide-pollution-{{ state_attr(trigger.entity_id, "friendly_name") | replace("_", "-") }}

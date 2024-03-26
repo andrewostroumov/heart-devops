@@ -1,0 +1,70 @@
+- name: "make hass dir"
+  file:
+    dest: "/opt/docker/hass"
+    state: "directory"
+
+- name: "synchronize hass files"
+  synchronize:
+    archive: no
+    recursive: yes
+    checksum: yes
+    src: "files/config/"
+    dest: "/opt/docker/hass"
+
+#- name: "copy hass components"
+#  copy:
+#    src: "files/components/"
+#    dest: "/opt/docker/hass/www/components/"
+#
+#- name: "copy hass plugins"
+#  copy:
+#    src: "files/plugins/"
+#    dest: "/opt/docker/hass/www/plugins/"
+
+- name: "make bar-card dir"
+  file:
+    dest: "/opt/docker/hass/www/components/bar-card "
+    state: "directory"
+
+- name: "fetch bar-card"
+  get_url:
+    url: "https://github.com/custom-cards/bar-card/releases/download/3.2.0/bar-card.js"
+    dest: "/opt/docker/hass/www/components/bar-card"
+
+- name: "make purifier-card dir"
+  file:
+    dest: "/opt/docker/hass/www/components/purifier-card"
+    state: "directory"
+
+- name: "fetch purifier-card"
+  get_url:
+    url: "https://github.com/denysdovhan/purifier-card/releases/download/v2.0.0/purifier-card.js"
+    dest: "/opt/docker/hass/www/components/purifier-card"
+
+- name: "clone xiaomi_airpurifier component"
+  git:
+    repo: "git@github.com:syssi/xiaomi_airpurifier.git"
+    version: "0.6.13"
+    dest: "/opt/docker/hass/repo/xiaomi_airpurifier"
+    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+    force: true
+
+- name: "move xiaomi_airpurifier custom components folder"
+  copy:
+    src: "/opt/docker/hass/repo/xiaomi_airpurifier/custom_components/xiaomi_miio_airpurifier"
+    dest: "/opt/docker/hass/custom_components"
+    remote_src: true
+
+- name: "clone SonoffLAN component"
+  git:
+    repo: "git@github.com:AlexxIT/SonoffLAN.git"
+    version: "v2.4.6"
+    dest: "/opt/docker/hass/repo/SonoffLAN"
+    key_file: "{{ ansible_dir }}/.ssh/id_rsa"
+    force: true
+
+- name: "move SonoffLAN custom components folder"
+  copy:
+    src: "/opt/docker/hass/repo/SonoffLAN/custom_components/sonoff"
+    dest: "/opt/docker/hass/custom_components"
+    remote_src: true

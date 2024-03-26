@@ -1,0 +1,5 @@
+- platform: xiaomi_miio
+  name: 9783ccd4_bulb
+  host: !secret light_9783ccd4_bulb_host
+  token: !secret light_9783ccd4_bulb_token
+  model: philips.light.bulb

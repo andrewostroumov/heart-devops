@@ -1,0 +1,5 @@
+- platform: mitemp_bt
+  name: 10037c21_mi
+  mac: !secret sensor_10037c21_mi_mac
+  force_update: true
+  timeout: 30

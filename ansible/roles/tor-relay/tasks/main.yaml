@@ -1,0 +1,6 @@
+- import_tasks: apt.yaml
+  tags: apt
+- import_tasks: docker.yaml
+  tags: docker
+- import_tasks: service.yaml
+  tags: service

@@ -1,0 +1,11 @@
+- name: Khadas VIM3
+  hosts:
+    - heart.vim3
+  gather_facts: false
+  become: true
+  roles:
+    - chatgpt-telegram-bot
+    - traefik-labels
+    - transmission
+    - plex
+    - klipper

@@ -1,0 +1,133 @@
+homeassistant: true
+permit_join: false
+frontend:
+  port: 8080
+mqtt:
+  base_topic: {{ zigbee_base_topic }}
+  server: {{ zigbee_mqtt_server }}
+  client_id: {{ zigbee_client_id }}
+  user: '!secret mqtt_user'
+  password: '!secret mqtt_password'
+  reject_unauthorized: false
+  include_device_information: true
+  keepalive: 60
+  version: 4
+serial:
+  port: {{ zigbee_serial_port }}
+  disable_led: false
+advanced:
+  pan_id: {{ zigbee_pan_id }}
+  channel: {{ zigbee_channel }}
+  cache_state: true
+  log_level: debug
+  log_output:
+    - console
+  baudrate: 115200
+  rtscts: true
+  network_key: '!secret zigbee_network_key'
+  last_seen: ISO_8601
+  elapsed: true
+  homeassistant_discovery_topic: homeassistant
+  homeassistant_status_topic: hass/status
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+availability:
+  active:
+    timeout: 10
+  passive:
+    timeout: 1500
+experimental:
+  transmit_power: 20
+device_options:
+  legacy: false
+external_converters:
+  - vima_lock.js
+devices:
+  '0x00158d0005871150':
+    friendly_name: wall_bed_2
+  '0x00158d0005d0c889':
+    friendly_name: wall_bed_1
+  '0x00158d0005415beb':
+    friendly_name: socket_kit_1
+  '0x00158d0006516231':
+    friendly_name: wall_enter_1
+  '0xbc33acfffefe318c':
+    friendly_name: energy_enter_1
+  '0x00158d0005c11d89':
+    friendly_name: wall_enter_2
+  '0x00158d000586911f':
+    friendly_name: wall_kit_1
+  '0x00158d00065163aa':
+    friendly_name: wall_bed_3
+  '0x00158d000650d6ed':
+    friendly_name: wall_dev_1
+  '0x00158d000408398a':
+    friendly_name: socket_dev_1
+  '0x00158d00046155d0':
+    friendly_name: socket_dev_2
+  '0x00158d000428cdd4':
+    friendly_name: socket_dev_3
+  '0x842e14fffefdad21':
+    friendly_name: thermostat_dev_1
+  '0x5c0272fffec4eec7':
+    friendly_name: valve_live_1
+  '0x5c0272fffec36252':
+    friendly_name: valve_bed_1
+  '0x60a423fffe040e7f':
+    friendly_name: led_bed_1
+  '0x60a423fffe0427a2':
+    friendly_name: led_dev_1
+  '0x804b50fffeefbdb6':
+    friendly_name: dimmer_dev_1
+  '0x60a423fffe041cd1':
+    friendly_name: led_live_1
+  '0x60a423fffe04202c':
+    friendly_name: led_enter_1
+  '0xec1bbdfffe871f0b':
+    friendly_name: air_dev_1
+  '0x00124b002142e19c':
+    friendly_name: sense_dev_1
+  '0x00124b001fb4b9bf':
+    friendly_name: sense_bed_1
+  '0x00158d0004855eef':
+    friendly_name: smoke_enter_1
+  '0x84fd27fffe65d436':
+    friendly_name: pipe_bath_1
+  '0x00158d000461554e':
+    friendly_name: socket_dev_4
+  '0x00158d00047b37e9':
+    friendly_name: water_bath_1
+  '0x00158d0004843b1c':
+    friendly_name: water_kit_1
+  '0x04cf8cdf3c75a326':
+    friendly_name: plug_dev_1
+  '0x00158d000410b370':
+    friendly_name: air_srv_1
+  '0x00158d0006516236':
+    friendly_name: wall_live_1
+  '0x04cd15fffe379b73':
+    friendly_name: thermostat_bath_1
+  '0x84fd27fffec23a9b':
+    friendly_name: led_kit_1
+  '0xec1bbdfffe79b635':
+    friendly_name: lock_enter_1
+  '0x00124b0022607638':
+    friendly_name: '0x00124b0022607638'
+  '0x00124b0022609bd0':
+    friendly_name: '0x00124b0022609bd0'
+  '0x00124b0022607700':
+    friendly_name: '0x00124b0022607700'
+  '0x00124b0022608e8d':
+    friendly_name: flow_live_1
+  '0x00124b002260792a':
+    friendly_name: flow_live_2
+  '0x00124b001fb4bad0':
+    friendly_name: sense_srv_1
+  '0x00158d00073a7779':
+    friendly_name: air_out_1
+  '0x00158d00073a2fa5':
+    friendly_name: air_dev_2
+  '0x00158d00073a7946':
+    friendly_name: air_live_1
+  '0x00158d0006ebd9ee':
+    friendly_name: air_bed_1

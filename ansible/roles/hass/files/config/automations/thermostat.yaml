@@ -1,0 +1,73 @@
+- id: thermostat_bath_1_warmup
+  alias: thermostat_bath_1_warmup
+  trigger:
+    - platform: time
+      at: "07:00:00"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.thermostat_bath_1
+        hvac_mode: heat
+        temperature: 28
+
+- id: thermostat_bath_1_cooldown
+  alias: thermostat_bath_1_cooldown
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.thermostat_bath_1
+        hvac_mode: heat
+        temperature: 20
+
+- id: thermostat_dev_1_warmup
+  alias: thermostat_dev_1_warmup
+  trigger:
+    - platform: state
+      entity_id: button.thermostat_dev_1_warmup
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.thermostat_dev_1
+        hvac_mode: heat
+        temperature: 25
+
+- id: meta_thermostat_dev_1_warmup
+  alias: meta_thermostat_dev_1_warmup
+  trigger:
+    - platform: state
+      entity_id: button.thermostat_dev_1_warmup
+  action:
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.meta_thermostat_dev_1
+        preset_mode: none
+
+- id: thermostat_dev_1_cooldown
+  alias: thermostat_dev_1_cooldown
+  trigger:
+    - platform: time
+      at: "20:00:00"
+    - platform: state
+      entity_id: button.thermostat_dev_1_cooldown
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.thermostat_dev_1
+        hvac_mode: heat
+        temperature: 15
+
+- id: meta_thermostat_dev_1_cooldown
+  alias: meta_thermostat_dev_1_cooldown
+  trigger:
+    - platform: time
+      at: "20:00:00"
+    - platform: state
+      entity_id: button.thermostat_dev_1_cooldown
+  action:
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.meta_thermostat_dev_1
+        preset_mode: away

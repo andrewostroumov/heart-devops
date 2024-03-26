@@ -1,0 +1,22 @@
+VirtualAddrNetworkIPv4 10.192.0.0/16
+AutomapHostsOnResolve 1
+
+TransPort 0.0.0.0:9040 IsolateClientAddr IsolateClientProtocol IsolateDestPort IsolateDestAddr
+DNSPort 0.0.0.0:5353
+
+SocksPort 0.0.0.0:9050 IsolateClientAddr IsolateClientProtocol IsolateDestPort IsolateDestAddr
+SocksPolicy accept 10.0.0.0/16
+
+ControlPort 9051
+HashedControlPassword 16:91073D9B07206896606872D24D121523F25E7F1AF86E3C8334A0CA24C2
+
+ExitRelay 0
+ExitPolicy reject *:*
+
+Log notice file /var/log/tor/log
+Log notice stdout
+
+DataDirectory /var/lib/tor
+
+LogMessageDomains 1
+HardwareAccel 1

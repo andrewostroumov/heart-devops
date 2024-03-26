@@ -1,0 +1,20 @@
+- name: "make plex dir"
+  file:
+    path: "/opt/docker/plex"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make plex library dir"
+  file:
+    path: "/plex/library"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make plex media dir"
+  file:
+    path: "/plex/media"
+    state: "directory"
+    owner: 1000
+    group: 1000

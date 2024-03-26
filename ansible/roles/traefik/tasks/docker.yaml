@@ -1,0 +1,21 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run traefik container"
+  docker_container:
+    image: "traefik:v2.9"
+    name: "traefik"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes_from:
+      - "acme.sh"
+    volumes:
+      - "/opt/docker/traefik:/etc/traefik"
+    ports:
+      - "80:80"
+      - "443:443"

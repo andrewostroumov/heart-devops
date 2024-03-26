@@ -1,0 +1,13 @@
+devices:
+  !secret yeelight_7b61e1d1_color_strip_host:
+    name: 7b61e1d1_color_strip
+    save_on_change: true
+    model: strip1
+  !secret yeelight_32ebdcd1_color_bulb_host:
+    name: 32ebdcd1_color_bulb
+    save_on_change: true
+    model: color1
+  !secret yeelight_33b24d31_color_bulb_host:
+    name: 33b24d31_color_bulb
+    save_on_change: true
+    model: color1

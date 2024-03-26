@@ -1,0 +1,9 @@
+- name: "create postgres dir"
+  file:
+    dest: "/etc/docker/postgres"
+    state: "directory"
+
+- name: "copy postgres config"
+  copy:
+    src: "files/postgresql.conf"
+    dest: "/etc/docker/postgres/postgresql.conf"

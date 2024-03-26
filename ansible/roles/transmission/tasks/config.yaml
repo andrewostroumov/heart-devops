@@ -1,0 +1,25 @@
+- name: "make transmission dir"
+  file:
+    path: "/opt/docker/transmission"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make transmission config dir"
+  file:
+    path: "/opt/docker/transmission/config"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make transmission media dir"
+  file:
+    path: "/plex/media"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "copy transmission settings"
+  copy:
+    src: "files/config/settings.json"
+    dest: "/opt/docker/transmission/config/settings.json"

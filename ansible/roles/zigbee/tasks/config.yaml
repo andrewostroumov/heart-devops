@@ -1,0 +1,19 @@
+- name: "make zigbee dir"
+  file:
+    dest: "/opt/docker/zigbee"
+    state: "directory"
+
+- name: "copy converters"
+  copy:
+    src: "files/converters/"
+    dest: "/opt/docker/zigbee"
+
+- name: "copy zigbee bridge files"
+  template:
+    src: "templates/bridge/configuration.j2"
+    dest: "/opt/docker/zigbee/configuration.yaml"
+
+- name: "copy zigbee secret file"
+  copy:
+    src: "files/secret/{{ inventory_hostname }}.yaml"
+    dest: "/opt/docker/zigbee/secret.yaml"

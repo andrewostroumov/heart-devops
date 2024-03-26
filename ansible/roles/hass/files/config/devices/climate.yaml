@@ -1,0 +1,27 @@
+- platform: generic_thermostat
+  name: meta_thermostat_dev_1
+  heater: switch.plug_dev_1
+  target_sensor: sensor.air_dev_2_temperature
+  min_temp: 5
+  max_temp: 30
+  away_temp: 15
+  target_temp: 22
+  cold_tolerance: 0.3
+  hot_tolerance: 0.1
+  initial_hvac_mode: "heat"
+  keep_alive:
+    minutes: 30
+
+- platform: generic_thermostat
+  name: meta_humidistat_bath_1
+  heater: switch.sonoff_1001050cce
+  target_sensor: sensor.air_bath_1_humidity
+  min_temp: 40
+  max_temp: 80
+  target_temp: 50
+  ac_mode: true
+  cold_tolerance: 0.3
+  hot_tolerance: 0.3
+  initial_hvac_mode: "cool"
+  keep_alive:
+    minutes: 30

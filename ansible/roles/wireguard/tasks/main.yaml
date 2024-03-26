@@ -1,0 +1,4 @@
+- import_tasks: apt.yaml
+  tags: apt
+- import_tasks: iptables.yaml
+  tags: iptables

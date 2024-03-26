@@ -1,0 +1,27 @@
+- id: water_leak_notify
+  alias: water_leak_notify
+  mode: queued
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.water_kit_1_water_leak
+        - binary_sensor.water_bath_1_water_leak
+      to: "on"
+  action:
+    - service: notify.heart_live_tg
+      data:
+        title: "Water 🌊"
+        message: >
+          {{ trigger.entity_id | replace("_", "\\_") }} *water leak*
+    - service: notify.mobile_devices
+      data:
+        title: "Water 🌊"
+        message: >
+          {{ trigger.entity_id | replace("_", "\\_") }} *water leak*
+        data:
+          tag: >
+            water-leak-{{ state_attr(trigger.entity_id, "friendly_name") | replace("_", "-") }}
+          push:
+            interruption-level: critical
+            sound:
+              name: US-EN-Alexa-Water-Detected-Generic.wav

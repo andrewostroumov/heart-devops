@@ -1,0 +1,26 @@
+- name: "copy nginx config"
+  copy:
+    src: "files/conf.d/"
+    dest: "/etc/docker/nginx/conf.d/"
+
+- name: "copy nginx htpasswd"
+  copy:
+    src: "files/htpasswd/"
+    dest: "/etc/docker/nginx/htpasswd/"
+
+- name: "copy server key"
+  copy:
+    src: "../.secrets/ca/nginx/server.key"
+    dest: "/etc/docker/nginx/ssl/"
+    mode: "600"
+
+- name: "copy server certificate"
+  copy:
+    src: "../.secrets/ca/nginx/server.crt"
+    dest: "/etc/docker/nginx/ssl/"
+    mode: "644"
+
+- name: "copy espressif files"
+  copy:
+    src: "files/espressif/"
+    dest: "/etc/docker/nginx/espressif/"

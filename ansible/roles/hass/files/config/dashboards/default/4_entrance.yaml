@@ -1,0 +1,16 @@
+title: Entrance
+path: entrance
+badges:
+  - entity: binary_sensor.0x00158d00044b1132_occupancy
+    name: Motion Sensor
+  - entity: sensor.0x00158d00044b1132_illuminance
+    name: Motion Illuminance
+  - entity: sensor.0x00158d00044b1132_battery
+    name: Motion Battery
+cards:
+  - type: entities
+    title: Light & Switch
+    show_header_toggle: false
+    entities:
+      - entity: switch.295943c3_siren
+        name: Siren Alarm

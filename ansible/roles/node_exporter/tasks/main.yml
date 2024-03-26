@@ -1,0 +1,50 @@
+- name: download node exporter build
+  unarchive:
+    src: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.{{ os_name }}-{{ os_arch }}.tar.gz"
+    dest: /tmp
+    remote_src: true
+
+- name: copy node exporter to bin
+  copy:
+    src: "/tmp/node_exporter-{{ node_exporter_version }}.{{ os_name }}-{{ os_arch }}/node_exporter"
+    dest: /usr/local/bin/node_exporter
+    mode: 0744
+    remote_src: true
+    owner: root
+    group: root
+
+- name: remove node exporter archive
+  file:
+    path: "/tmp/node_exporter-{{ node_exporter_version }}.{{ os_name }}-{{ os_arch }}.tar.gz"
+    state: absent
+
+- name: remove node exporter folder
+  file:
+    path: "/tmp/node_exporter-{{ node_exporter_version }}.{{ os_name }}-{{ os_arch }}"
+    state: absent
+
+- name: download smartmon.sh
+  get_url:
+    url: "https://raw.githubusercontent.com/olegeech-me/S.M.A.R.T-disk-monitoring-for-Prometheus/master/smartmon.sh"
+    dest: /usr/local/bin/smartmon.sh
+    mode: 0755
+
+- name: schedule smartmon.sh
+  cron:
+    name: "Run smartmon.sh prometheus exporter"
+    minute: "*/1"
+    job: "PATH=$PATH:/usr/local/bin:/usr/local/sbin smartmon.sh > /var/lib/node_exporter/textfile_collector/smart_metrics.prom"
+
+- name: add node exporter service
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+    owner: root
+    group: root
+
+- name: restart node exporter service
+  systemd:
+    name: node_exporter
+    state: restarted
+    daemon_reload: true
+    enabled: true

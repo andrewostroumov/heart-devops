@@ -1,0 +1,23 @@
+- name: "acme.sh register-account"
+  docker_container:
+    image: "neilpang/acme.sh"
+    name: "acme.sh.register-account"
+    command: "--register-account -m andrew.ostroumov@gmail.com"
+    detach: false
+    auto_remove: true
+    volumes_from:
+      - "acme.sh"
+    env:
+      DO_API_KEY: "{{ acme_do_api_key }}"
+
+- name: "acme.sh issue"
+  docker_container:
+    image: "neilpang/acme.sh"
+    name: "acme.sh.issue"
+    command: "--issue --force --dns dns_dgon -d ieee4175.space -d '*.ieee4175.space'"
+    detach: false
+    auto_remove: true
+    volumes_from:
+      - "acme.sh"
+    env:
+      DO_API_KEY: "{{ acme_do_api_key }}"

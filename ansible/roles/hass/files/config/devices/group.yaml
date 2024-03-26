@@ -1,0 +1,6 @@
+lv_color_all:
+  entities:
+    - light.32ebdcd1_color_bulb
+    - light.7b61e1d1_color_strip
+    - light.8e5ab312_bulb
+    - switch.7edae7d6_plug

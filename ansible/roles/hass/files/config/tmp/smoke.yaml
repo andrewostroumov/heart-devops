@@ -1,0 +1,12 @@
+- id: "1580662281290"
+  alias: "Process smoke detection"
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0004855eef_smoke
+      platform: state
+      to: "on"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        message: "Smoke has been detected"
+        title: "Smoke 💨"

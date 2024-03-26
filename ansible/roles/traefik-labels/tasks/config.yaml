@@ -1,0 +1,20 @@
+- name: "make traefik dir"
+  file:
+    path: "/opt/docker/traefik"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make traefik digestauth dir"
+  file:
+    path: "/opt/docker/traefik/digestauth"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "copy traefik digestauth"
+  copy:
+    src: "files/digestauth/users.passwd"
+    dest: "/opt/docker/traefik/digestauth/users.passwd"
+    owner: 1000
+    group: 1000

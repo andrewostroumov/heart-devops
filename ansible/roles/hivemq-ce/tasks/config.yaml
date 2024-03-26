@@ -1,0 +1,36 @@
+- name: "make hivemq dir"
+  file:
+    dest: "/opt/docker/hivemq"
+    state: "directory"
+
+- name: "make hivemq/extensions dir"
+  file:
+    dest: "/opt/docker/hivemq/extensions"
+    state: "directory"
+
+- name: "copy hivemq config"
+  copy:
+    src: "files/config.xml"
+    dest: "/opt/docker/hivemq/config.xml"
+
+- name: "fetch hivemq-heartbeat-extension"
+  unarchive:
+    src: "https://www.hivemq.com/releases/extensions/hivemq-heartbeat-extension-1.0.2.zip"
+    dest: "/opt/docker/hivemq/extensions"
+    remote_src: true
+
+- name: "fetch hivemq-file-rbac-extension"
+  unarchive:
+    src: "https://www.hivemq.com/releases/extensions/hivemq-file-rbac-extension-4.4.0.zip"
+    dest: "/opt/docker/hivemq/extensions"
+    remote_src: true
+
+- name: "copy hivemq-heartbeat-extension config"
+  copy:
+    src: "files/hivemq-heartbeat-extension/extension-config.xml"
+    dest: "/opt/docker/hivemq/extensions/hivemq-heartbeat-extension/extension-config.xml"
+
+- name: "copy hivemq-file-rbac-extension credentials"
+  copy:
+    src: "files/hivemq-file-rbac-extension/credentials.xml"
+    dest: "/opt/docker/hivemq/extensions/hivemq-file-rbac-extension/credentials.xml"

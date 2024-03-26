@@ -1,0 +1,15 @@
+- sensor:
+  - name: airpurifier_dev_1_temperature
+    state: "{{ state_attr('fan.airpurifier_dev_1', 'temperature') }}"
+    device_class: temperature
+    state_class: measurement
+    unit_of_measurement: "°C"
+  - name: airpurifier_dev_1_humidity
+    state: "{{ state_attr('fan.airpurifier_dev_1', 'humidity') }}"
+    device_class: humidity
+    state_class: measurement
+    unit_of_measurement: "%"
+  - name: airpurifier_dev_1_aqi
+    state: "{{ state_attr('fan.airpurifier_dev_1', 'aqi') }}"
+    device_class: aqi
+    state_class: measurement

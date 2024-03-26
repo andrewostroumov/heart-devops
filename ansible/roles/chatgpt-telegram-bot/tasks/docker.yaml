@@ -1,0 +1,32 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run chatgpt-telegram-bot container"
+  docker_container:
+    image: "n3d1117/chatgpt-telegram-bot:latest"
+    name: "chatgpt-telegram-bot"
+    restart_policy: "unless-stopped"
+    detach: true
+    tty: true
+    interactive: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    env:
+      OPENAI_API_KEY: "{{ openai_api_key }}"
+      TELEGRAM_BOT_TOKEN: "{{ telegram_bot_token }}"
+      ADMIN_USER_IDS: "{{ admin_user_ids }}"
+      ALLOWED_TELEGRAM_USER_IDS: "{{ allowed_telegram_user_ids }}"
+      SPOTIFY_CLIENT_ID: "{{ spotify_client_id }}"
+      SPOTIFY_CLIENT_SECRET: "{{ spotify_client_secret }}"
+      SPOTIFY_REDIRECT_URI: "{{ spotify_redirect_uri }}"
+      OPENAI_MODEL: "gpt-4-1106-preview"
+      IMAGE_FORMAT: "photo"
+      IMAGE_MODEL: "dall-e-3"
+      IMAGE_QUALITY: "standard"
+      IMAGE_STYLE: "vivid"
+      IMAGE_SIZE: "1024x1024"
+      TTS_VOICE: "alloy"
+      TTS_MODEL: "tts-1-hd"
+      PLUGINS: "weather,crypto"
+      SHOW_PLUGINS_USED: "true"

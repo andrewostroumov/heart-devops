@@ -1,0 +1,10 @@
+- name: "copy torrc config"
+  copy:
+    src: "files/service.torrc"
+    dest: "/etc/tor/torrc"
+
+- name: "restart and enable tor service"
+  ansible.builtin.systemd_service:
+    name: tor
+    state: restarted
+    enabled: true

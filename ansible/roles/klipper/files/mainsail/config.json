@@ -1,0 +1,9 @@
+{
+  "instancesDB": "json",
+  "instances": [
+    {
+      "hostname": "moonraker.ieee5387.space",
+      "port": 80
+    }
+  ]
+}

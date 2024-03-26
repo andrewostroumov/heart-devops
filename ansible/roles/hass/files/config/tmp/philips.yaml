@@ -1,0 +1,52 @@
+- id: "1580657732511"
+  alias: Turn on philips light when motion is detected
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
+      platform: state
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: light.8e5ab312_bulb
+      state: "off"
+    - condition: state
+      entity_id: binary_sensor.e2153f77_automation_light
+      state: "off"
+  action:
+    - data:
+        brightness: >
+          {% if is_state('sun.sun', 'below_horizon') %}
+            31
+          {% else %}
+            255
+          {% endif %}
+        entity_id: light.8e5ab312_bulb
+        kelvin: 4500
+      service: light.turn_on
+    - data:
+        payload: active
+        retain: true
+        topic: hass/automation/light/e2153f77
+      service: mqtt.publish
+
+- id: "1580657732512"
+  alias: Turn off philips light when motion is clear
+  description: ""
+  trigger:
+    - entity_id: binary_sensor.0x00158d0003f36469_occupancy
+      for: 00:05:00
+      platform: state
+      to: "off"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.e2153f77_automation_light
+      state: "on"
+  action:
+    - data:
+        entity_id: light.8e5ab312_bulb
+      service: light.turn_off
+    - data:
+        payload: inactive
+        retain: true
+        topic: hass/automation/light/e2153f77
+      service: mqtt.publish

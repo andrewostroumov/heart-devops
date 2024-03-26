@@ -1,0 +1,24 @@
+title: Bedroom
+path: bedroom
+badges:
+  - entity: sensor.sense_bed_1_co2
+    name: Air CO2
+  - entity: sensor.air_bed_1_temperature
+    name: Air Temperature
+  - entity: sensor.air_bed_1_humidity
+    name: Air Humidity
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Light & Switch
+        show_header_toggle: false
+        entities:
+          - entity: light.33b24d31_color_bulb
+            name: Yeelight Dev
+          - entity: switch.0x04cf8cdf3c75a785
+            name: Aqara Dev
+          - entity: switch.1d42d23a_plug
+            name: Unicorn Plug
+          - entity: fan.f2fac8f1_humidifier
+            name: Humidifier

@@ -1,0 +1,22 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run postgres container"
+  docker_container:
+    image: "postgres:13"
+    name: "postgres"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "/etc/docker/postgres/postgresql.conf:/etc/postgresql/postgresql.conf"
+#      - "/etc/docker/postgres/data:/var/lib/postgresql/data"
+      - "/mnt/ext/docker/postgres/data:/var/lib/postgresql/data"
+    env:
+      POSTGRES_PASSWORD: "{{ postgres_password }}"

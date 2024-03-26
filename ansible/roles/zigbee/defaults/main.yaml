@@ -1,0 +1,3 @@
+zigbee_pan_id: 0x1a62
+zigbee_channel: 25
+zigbee_serial_port: "/dev/ttyACM0"

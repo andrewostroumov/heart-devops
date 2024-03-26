@@ -1,0 +1,19 @@
+- name: "fetch chatgpt-telegram-bot"
+  ansible.builtin.unarchive:
+    src: "https://github.com/n3d1117/chatgpt-telegram-bot/archive/refs/heads/main.zip"
+    dest: "/tmp"
+    remote_src: true
+
+- name: "build chatgpt-telegram-bot image"
+  community.docker.docker_image:
+    build:
+      path: "/tmp/chatgpt-telegram-bot-main"
+    name: "n3d1117/chatgpt-telegram-bot:latest"
+    source: build
+    force_source: true
+    force_tag: true
+
+- name: "remove chatgpt-telegram-bot-main dir"
+  ansible.builtin.file:
+    dest: "/tmp/chatgpt-telegram-bot-main"
+    state: "absent"

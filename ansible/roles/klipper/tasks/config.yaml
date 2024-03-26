@@ -1,0 +1,92 @@
+- name: "make klipper dir"
+  file:
+    path: "/opt/docker/klipper"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make klipper run dir"
+  file:
+    path: "/opt/docker/klipper/run"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make klipper gcodes dir"
+  file:
+    path: "/opt/docker/klipper/gcodes"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make klipper config dir"
+  file:
+    path: "/opt/docker/klipper/config"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make klipper out dir"
+  file:
+    path: "/opt/docker/klipper/out"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "synchronize klipper config"
+  synchronize:
+    archive: no
+    recursive: yes
+    checksum: yes
+    src: "files/klipper/"
+    dest: "/opt/docker/klipper/config"
+
+- name: "change ownership klipper config"
+  file:
+    path: /opt/docker/klipper/config
+    state: directory
+    recurse: yes
+    owner: 1000
+    group: 1000
+
+- name: "make moonraker dir"
+  file:
+    path: "/opt/docker/moonraker"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make moonraker database dir"
+  file:
+    path: "/opt/docker/moonraker/database"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "make moonraker config dir"
+  file:
+    path: "/opt/docker/moonraker/config"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "copy moonraker config"
+  copy:
+    src: "files/moonraker/moonraker.conf"
+    dest: "/opt/docker/moonraker/config/moonraker.conf"
+    owner: 1000
+    group: 1000
+
+- name: "make mainsail dir"
+  file:
+    path: "/opt/docker/mainsail"
+    state: "directory"
+    owner: 1000
+    group: 1000
+
+- name: "copy mainsail config"
+  copy:
+    src: "files/mainsail/config.json"
+    dest: "/opt/docker/mainsail/config.json"
+    owner: 1000
+    group: 1000

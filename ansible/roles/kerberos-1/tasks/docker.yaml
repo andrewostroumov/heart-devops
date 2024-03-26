@@ -1,0 +1,21 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run kerberos container"
+  docker_container:
+    image: "kerberos/kerberos"
+    name: "kerberos-1"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    ports:
+      - "10000:8889"
+    volumes:
+      - "/mnt/data/kerberos/{{ kios_device_addr }}/capture:/etc/opt/kerberosio/capture"
+      - "/etc/docker/kerberos/{{ kios_device_addr }}/config:/etc/opt/kerberosio/config"
+      - "/etc/docker/kerberos/{{ kios_device_addr }}/logs:/etc/opt/kerberosio/logs"
+      - "/etc/docker/kerberos/{{ kios_device_addr }}/webconfig:/var/www/web/config"

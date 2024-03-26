@@ -1,0 +1,8 @@
+- name: thermostat_dev_1_warmup
+  platform: mqtt
+  device_class: update
+  command_topic: "hass/thermostat_dev_1_warmup/set"
+- name: thermostat_dev_1_cooldown
+  platform: mqtt
+  device_class: update
+  command_topic: "hass/thermostat_dev_1_cooldown/set"

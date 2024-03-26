@@ -1,0 +1,14 @@
+- name: Heart Docker
+  hosts:
+    - heart.xeon
+  gather_facts: false
+  become: true
+  roles:
+#    - prometheus
+#    - postgres
+#    - utorrent
+#    - nginx
+#    - filebeat
+#    - hivemq-ce
+#    - shinobi
+#    - speedtest

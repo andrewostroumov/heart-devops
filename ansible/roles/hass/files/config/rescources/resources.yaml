@@ -1,0 +1,4 @@
+- url: /local/components/purifier-card/purifier-card.js
+  type: module
+- url: /local/components/bar-card/bar-card.js
+  type: module

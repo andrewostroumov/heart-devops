@@ -1,0 +1,93 @@
+{
+  "version": "1.0.3",
+  "application": "holo.app",
+  "effects": [
+    {
+      "name": "random",
+      "bits": 1,
+      "states": []
+    },
+    {
+      "name": "strobe white",
+      "bits": 0,
+      "states": [
+        {
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "brightness": 255,
+          "fade": 0,
+          "delay": 50
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 0,
+          "delay": 500
+        }
+      ]
+    },
+    {
+      "name": "strobe yellow",
+      "bits": 0,
+      "states": [
+        {
+          "red": 255,
+          "green": 255,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 200,
+          "delay": 50
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 0,
+          "delay": 500
+        }
+      ]
+    },
+    {
+      "name": "heart beat",
+      "bits": 0,
+      "states": [
+        {
+          "red": 255,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 100,
+          "delay": 50
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 50,
+          "delay": 50
+        },
+        {
+          "red": 255,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 100,
+          "delay": 50
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 50,
+          "delay": 500
+        }
+      ]
+    }
+  ]
+}

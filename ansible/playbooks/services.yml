@@ -1,0 +1,9 @@
+- name: Heart Xeon Services
+  hosts:
+    - heart.xeon
+    - heart.nano3
+    - heart.vim3
+  gather_facts: false
+  become: true
+  roles:
+    - node_exporter

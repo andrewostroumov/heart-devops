@@ -1,0 +1,36 @@
+- name: "make tor-relay dir"
+  file:
+    path: "/opt/docker/tor-relay"
+    state: "directory"
+
+- name: "copy torrc config"
+  copy:
+    src: "files/docker.torrc"
+    dest: "/opt/docker/tor-relay/torrc"
+
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "create tor-relay volume"
+  community.docker.docker_volume:
+    name: tor-relay
+
+- name: "run tor-relay container"
+  docker_container:
+    image: "andrewostroumov/tor-relay:0.4.8.10-ubuntu22.04"
+    name: "tor-relay"
+    restart_policy: "unless-stopped"
+    restart: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    ports:
+      - "10.20.8.1:9050:9050"
+      - "10.20.30.1:9050:9050"
+      - "10.20.8.1:53:5353/udp"
+      - "10.20.30.1:53:5353/udp"
+    volumes:
+      - "tor-relay:/var/lib/tor"
+      - "/opt/docker/tor-relay/torrc:/etc/tor/torrc:ro"

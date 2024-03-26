@@ -1,0 +1,19 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run acme.sh container"
+  docker_container:
+    image: "neilpang/acme.sh"
+    name: "acme.sh"
+    command: "daemon"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/acme.sh:/acme.sh"
+    env:
+      DO_API_KEY: "{{ acme_do_api_key }}"

@@ -1,0 +1,8 @@
+- platform: manual
+  name: f36e737f
+  code: !secret alarm_f36e737f_code
+  delay_time: 30
+  arming_time: 60
+  trigger_time: 120
+  disarmed:
+    trigger_time: 0

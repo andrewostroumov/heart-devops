@@ -1,0 +1,15 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run snowflake-proxy container"
+  docker_container:
+    image: "thetorproject/snowflake-proxy:v2.8.1"
+    name: "snowflake"
+    command: "-ephemeral-ports-range 30000:60000"
+    restart_policy: "unless-stopped"
+    restart: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"

@@ -1,0 +1,32 @@
+title: Living room
+path: living_room
+badges:
+  - entity: sensor.sense_bed_1_co2
+    name: Air CO2
+  - entity: sensor.air_live_1_temperature
+    name: Air Temperature
+  - entity: sensor.air_live_1_humidity
+    name: Air Humidity
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: thermostat
+            entity: climate.0x5c0272fffec36252
+            name: Battery 1
+          - type: thermostat
+            entity: climate.0x5c0272fffec4eec7
+            name: Battery 2
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            title: Light & Switch
+            show_header_toggle: false
+            entities:
+              - entity: light.7b61e1d1_color_strip
+                name: Yeelight Color Strip
+              - entity: switch.7edae7d6_plug
+                name: Gem Light
+              - entity: fan.050ecc97_humidifier
+                name: Humidifier

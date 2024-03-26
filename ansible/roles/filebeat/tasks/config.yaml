@@ -1,0 +1,4 @@
+- name: "copy filebeat config"
+  copy:
+    src: "files/filebeat.yml"
+    dest: "/etc/docker/filebeat/"

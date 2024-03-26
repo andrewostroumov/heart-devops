@@ -1,0 +1,9 @@
+- name: NanoPi NEO3
+  hosts:
+    - heart.nano3
+  gather_facts: false
+  become: true
+  roles:
+    - zigbee
+#    - traefik
+#    - acme.sh

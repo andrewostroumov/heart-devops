@@ -1,0 +1,58 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.inputs:
+  - type: syslog
+    format: auto
+    protocol.udp:
+      host: "0.0.0.0:8081"
+  - type: container
+    format: docker
+    paths:
+      - /var/lib/docker/containers/*/*.log
+  - type: udp
+    max_message_size: 10KiB
+    host: "0.0.0.0:8080"
+
+processors:
+  - add_docker_metadata:
+      when.equals:
+        input.type: "container"
+      host: "unix:///var/run/docker.sock"
+  - decode_json_fields:
+      when.equals:
+        input.type: "udp"
+      fields: "message"
+      max_depth: 3
+  - dissect:
+      tokenizer: "%{log.package},%{log.level} %{log.message}"
+      field: "message"
+      target_prefix: ""
+      when.equals:
+        input.type: "syslog"
+
+output.elasticsearch:
+  hosts: "es:9200"
+  indices:
+    - index: "docker-containers"
+      when.equals:
+        input.type: "container"
+    - index: "mikrotik"
+      when.equals:
+        input.type: "syslog"
+    - index: "diameter-events"
+      when:
+        and:
+          - equals:
+              input.type: "udp"
+          - equals:
+              message.app: "goameter"
+    - index: "wireless-events"
+      when:
+        and:
+          - equals:
+              input.type: "udp"
+          - equals:
+              message.app: "wireless-processor"

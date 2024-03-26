@@ -1,0 +1,9 @@
+- name: "copy traefik config"
+  copy:
+    src: "files/traefik.yaml"
+    dest: "/opt/docker/traefik/"
+
+- name: "copy traefik dynamic config"
+  copy:
+    src: "files/dynamic/"
+    dest: "/opt/docker/traefik/dynamic/"

@@ -1,0 +1,103 @@
+title: Dashboard
+path: dashboard
+badges:
+  - entity: sensor.energy_enter_1_power
+    name: Total Power
+  - entity: sensor.air_out_1_temperature
+    name: Out Temperature
+
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.0e8b9f4c_temperature
+            name: "Living Room Temperature"
+            min: 15
+            max: 30
+            severity:
+              green: 15
+              yellow: 25
+              red: 30
+          - type: gauge
+            entity: sensor.0e8b9f4c_humidity
+            name: "Living Room Humidity"
+            min: 20
+            max: 75
+            severity:
+              green: 50
+              yellow: 35
+              red: 20
+          - type: gauge
+            entity: sensor.0e8b9f4c_co2
+            name: "Living Room CO2"
+            min: 400
+            max: 1200
+            severity:
+              green: 400
+              yeelow: 800
+              red: 1000
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.fb0dd915_temperature
+            name: "Bedroom Temperature"
+            min: 15
+            max: 30
+            severity:
+              green: 15
+              yellow: 25
+              red: 30
+          - type: gauge
+            entity: sensor.fb0dd915_humidity
+            name: "Bedroom Humidity"
+            min: 20
+            max: 75
+            severity:
+              green: 50
+              yellow: 35
+              red: 20
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.fb0dd915_co2
+            name: "Bedroom CO2"
+            min: 400
+            max: 1200
+            severity:
+              green: 400
+              yeelow: 800
+              red: 1000
+          - type: gauge
+            entity: sensor.fb47da6e_aqi
+            name: "Bedroom AQI 2.5"
+            min: 0
+            max: 150
+            severity:
+              green: 0
+              yeelow: 40
+              red: 80
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.0x00158d0004216ea2_temperature
+            name: "Outside Temperature"
+            graph: line
+          - type: sensor
+            entity: sensor.0x00158d0004216ea2_humidity
+            name: "Outside Humidity"
+            graph: line
+  - type: vertical-stack
+    cards:
+      - type: iframe
+        url: "https://embed.windy.com/embed2.html?lat=50.403&lon=30.505&zoom=8&level=surface&overlay=cosc&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=50.454&detailLon=30.525&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
+      - type: picture-glance
+        entities: []
+        camera_image: camera.cctv_enter_1
+      - type: alarm-panel
+        entity: alarm_control_panel.f36e737f
+        name: Security
+        states:
+          - arm_away
+          - arm_night

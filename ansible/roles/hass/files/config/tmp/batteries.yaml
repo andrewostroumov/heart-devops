@@ -1,0 +1,29 @@
+#- id: "1000000000400"
+#  alias: Watch battery level
+#  mode: queued
+#  trigger:
+#    - platform: numeric_state
+#      entity_id:
+#        - sensor.0x000d6f0014f82b49_battery
+#        - sensor.0x00124b0022607638_battery
+#        - sensor.0x00124b0022607700_battery
+#        - sensor.0x00124b002260792a_battery
+#        - sensor.0x00124b0022608e8d_battery
+#        - sensor.0x00124b0022609bd0_battery
+#        - sensor.0x00158d0003f36469_battery
+#        - sensor.0x00158d000410b370_battery
+#        - sensor.0x00158d0004216ea2_battery
+#        - sensor.0x00158d00044b1132_battery
+#        - sensor.0x00158d00047b37e9_battery
+#        - sensor.0x00158d0004843b1c_battery
+#        - sensor.0x00158d0004855eef_battery
+#        - sensor.0x04cf8cdf3c79818a_battery
+#        - sensor.0xec1bbdfffe871f0b_battery
+#        - sensor.10037c21_mi_battery
+#      below: 30
+#  action:
+#    - service: notify.heart_security_tg
+#      data:
+#        title: "Battery level 🔋"
+#        message: >
+#          {{ trigger.entity_id | replace("_", "\\_") }} battery level {{ trigger.to_state.state }}%

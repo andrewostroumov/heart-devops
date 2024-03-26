@@ -1,0 +1,16 @@
+- sensor:
+  - name: switch_din_vacation_power
+    state: "{{ state_attr('switch.sonoff_1000fd07d4', 'power') }}"
+    device_class: "power"
+    state_class: "measurement"
+    unit_of_measurement: "W"
+  - name: switch_din_sockets_power
+    state: "{{ state_attr('switch.sonoff_1000fd04ee', 'power') }}"
+    device_class: "power"
+    state_class: "measurement"
+    unit_of_measurement: "W"
+  - name: switch_din_server_power
+    state: "{{ state_attr('switch.sonoff_1000fd0849', 'power') }}"
+    device_class: "power"
+    state_class: "measurement"
+    unit_of_measurement: "W"

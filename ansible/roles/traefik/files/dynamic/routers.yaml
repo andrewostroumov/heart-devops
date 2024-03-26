@@ -1,0 +1,34 @@
+http:
+  routers:
+    traefik-router:
+      rule: "Host(`router.ieee4175.space`)"
+      service: "traefik-router"
+      tls: {}
+    hass:
+      rule: "Host(`hass.ieee4175.space`)"
+      service: "hass"
+      tls: {}
+    grafana:
+      rule: "Host(`grafana.ieee4175.space`)"
+      service: "grafana"
+      tls: {}
+    utorrent:
+      rule: "Host(`utorrent.ieee4175.space`)"
+      service: "utorrent"
+      tls: {}
+    kibana:
+      rule: "Host(`kibana.ieee4175.space`)"
+      service: "kibana"
+      tls: {}
+    plex:
+      rule: "Host(`plex.ieee4175.space`)"
+      service: "plex"
+      tls: {}
+    zigbee:
+      rule: "Host(`zigbee.ieee4175.space`)"
+      service: "zigbee"
+      tls: {}
+    shinobi:
+      rule: "Host(`shinobi.ieee4175.space`)"
+      service: "shinobi"
+      tls: {}

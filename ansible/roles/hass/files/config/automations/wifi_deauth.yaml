@@ -1,0 +1,33 @@
+- id: esp_bssid_1_publish
+  alias: esp_bssid_1_publish
+  trigger:
+    - platform: state
+      entity_id: input_text.esp_bssid_1
+  condition:
+    - condition: template
+      value_template: >
+        {{ states(trigger.entity_id) is match state_attr(trigger.entity_id, 'pattern')}}
+  action:
+    - service: mqtt.publish
+      data:
+        topic: espressif/0x970ae635b9a1df86/set
+        retain: true
+        payload: >
+          {"state":"ON","timeout":5,"method":"combine_all","bssid":"{{ trigger.to_state.state }}"}
+
+- id: esp_bssid_2_publish
+  alias: esp_bssid_1_publish
+  trigger:
+    - platform: state
+      entity_id: input_text.esp_bssid_2
+  condition:
+    - condition: template
+      value_template: >
+        {{ states(trigger.entity_id) is match state_attr(trigger.entity_id, 'pattern')}}
+  action:
+    - service: mqtt.publish
+      data:
+        topic: espressif/0xf0f4c97ff01297c6/set
+        retain: true
+        payload: >
+          {"state":"ON","timeout":5,"method":"combine_all","bssid":"{{ trigger.to_state.state }}"}

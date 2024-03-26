@@ -1,0 +1,81 @@
+- platform: mqtt
+  name: "0e8b9f4c Temperature"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: "°C"
+  value_template: "{{ value_json.temperature }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c Humidity"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.humidity }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c Pressure"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: "hPa"
+  value_template: "{{ value_json.pressure }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c Resistance"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/esp_air/fc176b49029e5f3b/attributes"
+  force_update: true
+  unit_of_measurement: "Ohm"
+  value_template: "{{ value_json.gas }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c Quality"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.iaq }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c Quality Accuracy"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.iaq_accuracy }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c Quality Index"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/iaq"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.iaq_index }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c CO2"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/co2"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: "ppm"
+  value_template: "{{ value_json.co2 }}"
+  expire_after: 60
+- platform: mqtt
+  name: "0e8b9f4c CO2 Index"
+  state_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/state/co2"
+  availability_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/status"
+  json_attributes_topic: "discovery/sensor/espressif/1bc3d3e312bf47a8/attributes"
+  force_update: true
+  unit_of_measurement: ""
+  value_template: "{{ value_json.co2_index }}"
+  expire_after: 60

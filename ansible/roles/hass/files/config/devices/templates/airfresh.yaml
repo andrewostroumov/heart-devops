@@ -1,0 +1,10 @@
+- sensor:
+  - name: airfresh_live_1_aqi
+    state: "{{ state_attr('fan.airfresh_live_1', 'aqi') }}"
+    device_class: aqi
+    state_class: measurement
+  - name: airfresh_live_1_co2
+    state: "{{ state_attr('fan.airfresh_live_1', 'co2') }}"
+    device_class: carbon_dioxide
+    state_class: measurement
+    unit_of_measurement: "ppm"

@@ -1,0 +1,29 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run utorrent container"
+  docker_container:
+    image: "ekho/utorrent:build"
+    name: "utorrent"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/utorrent/data:/data"
+      - "/opt/docker/utorrent/autoload:/utorrent/autoload"
+      - "/opt/docker/utorrent/settings:/utorrent/settings"
+      - "/opt/docker/utorrent/torrents:/utorrent/torrents"
+    ports:
+      - "6881:6881"
+      - "6881:6881/udp"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.utorrent.rule: "Host(`utorrent.ieee5387.space`)"
+      traefik.http.services.utorrent.loadbalancer.server.port: "8080"
+    env:
+      webui: "ng"
+      UID: "1000"
+      GID: "1000"

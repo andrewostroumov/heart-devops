@@ -1,0 +1,19 @@
+- name: "make shinobi dir"
+  file:
+    dest: "/opt/docker/shinobi"
+    state: "directory"
+
+- name: "make shinobi config dir"
+  file:
+    dest: "/opt/docker/shinobi/config"
+    state: "directory"
+
+- name: "copy shinobi config"
+  template:
+    src: "templates/config/conf.json.j2"
+    dest: "/opt/docker/shinobi/config/conf.json"
+
+- name: "copy shinobi tensorflow config"
+  template:
+    src: "templates/config/plugins/tensorflow.json.j2"
+    dest: "/opt/docker/shinobi/plugins/tensorflow/conf.json"

@@ -1,0 +1,5 @@
+- platform: group
+  name: br_color_all
+  entities:
+    - light.9783ccd4_bulb
+    - light.8e5ab312_bulb

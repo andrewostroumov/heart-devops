@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node_exporter --web.listen-address=":9101" --collector.tcpstat --collector.textfile.directory /var/lib/node_exporter/textfile_collector
+
+[Install]
+WantedBy=multi-user.target

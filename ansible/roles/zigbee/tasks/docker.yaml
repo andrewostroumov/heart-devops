@@ -1,0 +1,21 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run zigbee bridge container"
+  docker_container:
+    image: "koenkk/zigbee2mqtt:1.22.2"
+    name: "zigbee-bridge"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    devices:
+      - "{{ zigbee_serial_port }}:{{ zigbee_serial_port }}"
+    ports:
+      - "12000:8080"
+    volumes:
+      - "/opt/docker/zigbee:/app/data"
+      - "/etc/timezone:/etc/timezone:ro"

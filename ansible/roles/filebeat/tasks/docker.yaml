@@ -1,0 +1,33 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+#- name: "run filebeat setup"
+#  docker_container:
+#    image: "docker.elastic.co/beats/filebeat:7.2.1"
+#    name: "filebeat-setup"
+#    detach: false
+#    pull: true
+#    command: "setup -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts=[\"es:9200\"]"
+#    networks:
+#      - name: "{{ docker_bridge_name }}"
+
+- name: "run filebeat container"
+  docker_container:
+    image: "docker.elastic.co/beats/filebeat:7.2.1"
+    name: "filebeat"
+    command: "filebeat -e -strict.perms=false"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    user: root
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    ports:
+      - "8089:8080/udp"
+      - "8090:8081/udp"
+    volumes:
+      - "/etc/docker/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

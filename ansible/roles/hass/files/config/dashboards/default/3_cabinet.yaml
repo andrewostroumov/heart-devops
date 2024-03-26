@@ -1,0 +1,120 @@
+title: Cabinet
+path: cabinet
+badges:
+  - entity: sensor.sense_dev_1_co2
+    name: Air CO2
+  - entity: sensor.air_dev_2_temperature
+    name: Air Temperature
+  - entity: sensor.air_dev_2_humidity
+    name: Air Humidity
+  - entity: sensor.airpurifier_dev_1_aqi
+    name: Air AQI
+  - entity: switch.0x970ae635b9a1df86
+    name: WiFi Deauth White
+  - entity: switch.0xf0f4c97ff01297c6
+    name: WiFi Deauth Black
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: switch.wall_dev_1_right
+                name: Ceiling Light
+              - entity: light.led_dev_1
+                name: Ceiling Led
+              - entity: light.dimmer_dev_1
+                name: Vorona
+              - entity: light.wled
+                name: Kulik
+              - entity: light.wled_2
+                name: Unicorn
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: switch.socket_dev_1
+                name: Socket 1
+              - entity: switch.socket_dev_2
+                name: Socket 2
+              - entity: switch.socket_dev_3
+                name: Socket 3
+              - entity: switch.socket_dev_4
+                name: Socket 4
+              - entity: switch.plug_dev_1
+                name: Warmer 2kW
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: button.thermostat_dev_1_warmup
+                name: Dev Warmup
+              - entity: button.thermostat_dev_1_cooldown
+                name: Dev Cooldown
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: input_text.esp_bssid_1
+                name: WiFi Deauth White
+              - entity: input_text.esp_bssid_2
+                name: WiFi Deauth Black
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: thermostat
+            entity: climate.thermostat_dev_1
+            name: Warm Floor
+          - type: thermostat
+            entity: climate.meta_thermostat_dev_1
+            name: Wall Heater
+      - type: custom:purifier-card
+        entity: fan.airpurifier_dev_1
+        stats:
+          - attribute: filter_life_remaining
+            unit: '%'
+            subtitle: Filter Remaining
+          - attribute: motor_speed
+            unit: RPM
+            subtitle: Motor Speed
+        shortcuts:
+          - name: Silent
+            icon: 'mdi:weather-night'
+            preset_mode: Silent
+          - name: 25%
+            icon: 'mdi:circle-slice-2'
+            preset_mode: favorite
+            service: xiaomi_miio_airpurifier.fan_set_favorite_level
+            service_data:
+              level: 4
+          - name: 50%
+            icon: 'mdi:circle-slice-4'
+            preset_mode: favorite
+            service: xiaomi_miio_airpurifier.fan_set_favorite_level
+            service_data:
+              level: 8
+          - name: 75%
+            icon: 'mdi:circle-slice-6'
+            preset_mode: favorite
+            service: xiaomi_miio_airpurifier.fan_set_favorite_level
+            service_data:
+              level: 12
+          - name: 100%
+            icon: 'mdi:circle-slice-8'
+            preset_mode: favorite
+            service: xiaomi_miio_airpurifier.fan_set_favorite_level
+            service_data:
+              level: 16
+          - name: Auto
+            icon: 'mdi:brightness-auto'
+            preset_mode: Auto
+        show_name: true
+        show_state: true
+        show_toolbar: true
+        compact_view: false

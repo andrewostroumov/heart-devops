@@ -1,0 +1,16 @@
+title: Kitchen
+path: kitchen
+badges:
+  - entity: binary_sensor.0x00158d0004843b1c_water_leak
+    name: Water Leak
+cards:
+  - type: entities
+    title: Light & Switch
+    show_header_toggle: false
+    entities:
+      - entity: light.32ebdcd1_color_bulb
+        name: Yeelight Cooking
+#      - entity: light.0x00124b002113a5b2_light_cct
+#        name: Gledopto Lights CCT
+#      - entity: light.0x00124b002113a5b2_light_rgb
+#        name: Gledopto Lights RGB

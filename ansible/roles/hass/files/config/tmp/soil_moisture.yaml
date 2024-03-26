@@ -1,0 +1,18 @@
+#- id: "1000000000100"
+#  alias: Watch soil moisture
+#  mode: queued
+#  trigger:
+#    - platform: numeric_state
+#      entity_id:
+#        - sensor.0x00124b0022607638_soil_moisture
+#        - sensor.0x00124b0022607700_soil_moisture
+#        - sensor.0x00124b002260792a_soil_moisture
+#        - sensor.0x00124b0022608e8d_soil_moisture
+#        - sensor.0x00124b0022609bd0_soil_moisture
+#      below: 30
+#  action:
+#    - service: notify.heart_security_tg
+#      data:
+#        title: "Dry moisture 🍄"
+#        message: >
+#          {{ trigger.entity_id | replace("_", "\\_") }} soil moisture {{ trigger.to_state.state }}%

@@ -1,0 +1,8 @@
+esp_bssid_1:
+  name: ESP BSSID 1
+  pattern: ^(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$
+  icon: "mdi:wifi-sync"
+esp_bssid_2:
+  name: ESP BSSID 2
+  pattern: ^(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$
+  icon: "mdi:wifi-sync"

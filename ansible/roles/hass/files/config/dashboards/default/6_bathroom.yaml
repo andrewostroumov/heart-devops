@@ -1,0 +1,15 @@
+title: Bathroom
+path: bathroom
+badges:
+  - entity: sensor.air_bath_1_temperature
+    name: Air Temperature
+  - entity: sensor.air_bath_1_humidity
+    name: Air Humidity
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: thermostat
+            entity: climate.meta_humidistat_bath_1
+            name: Fan Spin

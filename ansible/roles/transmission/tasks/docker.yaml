@@ -1,0 +1,28 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run transmission container"
+  docker_container:
+    image: "lscr.io/linuxserver/transmission:latest"
+    name: "transmission"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    pull: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/transmission/config:/config"
+      - "/plex/media:/downloads/complete"
+      - "/etc/timezone:/etc/timezone:ro"
+    ports:
+      - "51413:51413"
+      - "51413:51413/udp"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.transmission.rule: "Host(`transmission.ieee5387.space`)"
+      traefik.http.services.transmission.loadbalancer.server.port: "9091"
+    env:
+      PUID: "1000"
+      PGID: "1000"

@@ -1,0 +1,49 @@
+#- platform: xiaomi_miio
+#  host: !secret switch_1d42d23a_plug_host
+#  token: !secret switch_1d42d23a_plug_token
+#  name: 1d42d23a_plug
+#  model: chuangmi.plug.m1
+#
+#- platform: xiaomi_miio
+#  host: !secret switch_7edae7d6_plug_host
+#  token: !secret switch_7edae7d6_plug_token
+#  name: 7edae7d6_plug
+#  model: chuangmi.plug.m1
+#
+#- platform: mqtt
+#  name: 295943c3_siren
+#  state_topic: "zigbeer/0x000d6f0014f82b49/set"
+#  availability_topic: "zigbeer/0x000d6f0014f82b49/availability"
+#  payload_off: '{"warning":{"duration":0,"mode":"stop","strobe":false}}'
+#  payload_on: '{"warning":{"duration":120,"mode":"emergency","strobe":true}}'
+#  command_topic: "zigbeer/0x000d6f0014f82b49/set"
+#  retain: true
+
+- platform: mqtt
+  name: 0x007facde12d4ad5c_switch
+  state_topic: "hass/automations/0x007facde12d4ad5c"
+  command_topic: "hass/automations/0x007facde12d4ad5c"
+  retain: true
+
+#- platform: template
+#  switches:
+#    43e64ad8_air_cool:
+#      value_template: "{{ is_state('binary_sensor.93ad2a47_climate_cool', 'on') }}"
+#      turn_on:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_cool
+#      turn_off:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_disable
+#    43e64ad8_air_heat:
+#      value_template: "{{ is_state('binary_sensor.93ad2a47_climate_heat', 'on') }}"
+#      turn_on:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_heat
+#      turn_off:
+#        service: script.turn_on
+#        data:
+#          entity_id: script.b11f96a0_disable

@@ -1,0 +1,23 @@
+- name: "create iot network"
+  docker_network:
+    name: "{{ docker_bridge_name }}"
+
+- name: "run hivemq-ce container"
+  docker_container:
+    image: "hivemq/hivemq-ce:build"
+    name: "hivemq-ce"
+    restart_policy: "unless-stopped"
+    recreate: true
+    detach: true
+    networks:
+      - name: "{{ docker_bridge_name }}"
+    volumes:
+      - "/opt/docker/hivemq/config.xml:/opt/hivemq/conf/config.xml"
+      - "/opt/docker/hivemq/extensions:/opt/hivemq/extensions"
+      - "/opt/docker/hivemq/data:/opt/hivemq/data"
+      - "/opt/docker/hivemq/log:/opt/hivemq/log"
+    ports:
+      - "1883:1883"
+      - "9595:9090"
+    env:
+      HIVEMQ_LOG_LEVEL: "INFO"

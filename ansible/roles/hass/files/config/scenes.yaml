@@ -1,0 +1,37 @@
+#- name: Movies
+#  entities:
+#    switch.7edae7d6_plug:
+#      state: off
+#    light.7b61e1dc_color_strip:
+#      state: on
+#      brightness: 255
+#      rgb_color:
+#        - 0
+#        - 255
+#        - 255
+#    light.32ebdcdd_color_bulb:
+#      state: on
+#      effect: LSD
+#    light.33b24d3c_color_bulb:
+#      state: on
+#      brightness: 255
+#      rgb_color:
+#        - 255
+#        - 255
+#        - 0
+#- name: Reading
+#  entities:
+#    switch.7edae7d6_plug:
+#      state: off
+#    light.7b61e1d1_color_strip:
+#      state: on
+#      brightness: 255
+#      color_temp: 255
+#    light.32ebdcd1_color_bulb:
+#      state: on
+#      brightness: 255
+#      color_temp: 255
+#    light.33b24d31_color_bulb:
+#      state: on
+#      brightness: 255
+#      color_temp: 255

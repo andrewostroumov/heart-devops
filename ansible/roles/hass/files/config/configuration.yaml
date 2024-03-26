@@ -1,0 +1,51 @@
+default_config:
+mobile_app:
+
+lovelace:
+  mode: yaml
+  resources: !include rescources/resources.yaml
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.10.13
+
+#discovery:
+#  ignore:
+#    - yeelight
+
+automation: !include_dir_merge_list automations
+#script: !include scripts.yaml
+#frontend: !include frontend.yaml
+notify: !include notify.yaml
+#scene: !include scenes.yaml
+telegram_bot: !include telegram.yaml
+#zone: !include zone.yaml
+
+#light: !include_dir_merge_list devices/lights
+sensor: !include_dir_merge_list devices/sensors
+template: !include_dir_merge_list devices/templates
+#remote: !include devices/remote.yaml
+fan: !include devices/fan.yaml
+switch: !include devices/switch.yaml
+#yeelight: !include devices/yeelight.yaml
+#binary_sensor: !include devices/binary_sensor.yaml
+#device_tracker: !include devices/device_tracker.yaml
+alarm_control_panel: !include devices/alarm.yaml
+climate: !include devices/climate.yaml
+#group: !include devices/group.yaml
+input_text: !include devices/input_text.yaml
+button: !include devices/button.yaml
+
+#recorder: !include services/recorder.yaml
+mqtt: !include services/mqtt.yaml
+#influxdb: !include services/influxdb.yaml
+
+stream:
+camera: !include devices/camera.yaml
+
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+  mode: local
+  reload: always

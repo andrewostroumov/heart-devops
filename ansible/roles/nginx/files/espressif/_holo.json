@@ -1,0 +1,93 @@
+{
+  "version": "1.0.1",
+  "application": "holo.app",
+  "effects": [
+    {
+      "name": "police",
+      "bits": 0,
+      "states": [
+        {
+          "red": 255,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 500,
+          "delay": 500
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 255,
+          "brightness": 255,
+          "fade": 500,
+          "delay": 500
+        }
+      ]
+    },
+    {
+      "name": "rgb",
+      "bits": 0,
+      "states": [
+        {
+          "red": 255,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 500,
+          "delay": 500
+        },
+        {
+          "red": 255,
+          "green": 255,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 500,
+          "delay": 500
+        },
+        {
+          "red": 0,
+          "green": 255,
+          "blue": 255,
+          "brightness": 255,
+          "fade": 500,
+          "delay": 500
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 255,
+          "brightness": 255,
+          "fade": 500,
+          "delay": 500
+        }
+      ]
+    },
+    {
+      "name": "random",
+      "bits": 1,
+      "states": []
+    },
+    {
+      "name": "strobe",
+      "bits": 0,
+      "states": [
+        {
+          "red": 255,
+          "green": 255,
+          "blue": 255,
+          "brightness": 255,
+          "fade": 0,
+          "delay": 50
+        },
+        {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "brightness": 255,
+          "fade": 0,
+          "delay": 500
+        }
+      ]
+    }
+  ]
+}

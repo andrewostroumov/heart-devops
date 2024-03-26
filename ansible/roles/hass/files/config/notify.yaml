@@ -1,0 +1,11 @@
+- name: heart_live_tg
+  platform: telegram
+  chat_id: -1001432152182
+- name: heart_security_tg
+  platform: telegram
+  chat_id: -365491887
+
+- name: mobile_devices
+  platform: group
+  services:
+    - service: mobile_app_andrews_iphone

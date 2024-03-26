@@ -1,0 +1,68 @@
+- id: "1000000000300"
+  alias: Watch available devices
+  initial_state: false
+  mode: queued
+  trigger:
+    - platform: state
+      entity_id:
+        # Xiaomi Air
+        - sensor.10037c21_mi_temperature
+        - sensor.10037c21_mi_humidity
+        # Dev Air
+        - sensor.0xec1bbdfffe871f0b_temperature
+        - sensor.0xec1bbdfffe871f0b_humidity
+        # Living room Air
+        - sensor.0e8b9f4c_temperature
+        - sensor.0e8b9f4c_humidity
+        - sensor.0e8b9f4c_co2
+        # Bedroom Air
+        - sensor.fb0dd915_temperature
+        - sensor.fb0dd915_humidity
+        - sensor.fb0dd915_co
+        - sensor.fb0dd915_co2
+        # Bathroom Air
+        - sensor.0x00158d0004216ea2_temperature
+        - sensor.0x00158d0004216ea2_humidity
+        # Outside Air
+        - sensor.0x00158d000410b370_temperature
+        - sensor.0x00158d000410b370_humidity
+        # Entrance Motion
+        - binary_sensor.0x00158d0003f36469_occupancy
+        # Kitchen Motion
+        - binary_sensor.0x00158d00044b1132_occupancy
+        # Kitchen Water Leak
+        - binary_sensor.0x00158d0004843b1c_water_leak
+        # Bathroom Water Leak
+        - binary_sensor.0x00158d00047b37e9_water_leak
+        # Dev Light
+        - light.0xd74d40c9abfc8a14
+        # Sofa Color Strip
+        - light.7b61e1d1_color_strip
+        # Floor Color Bulb
+        - light.32ebdcd1_color_bulb
+        # Philips Lights
+        - light.9783ccd4_bulb
+        - light.8e5ab312_bulb
+        # Yeelight Color Bulb
+        - light.33b24d31_color_bulb
+        # Gledopto Lights
+        - light.0x00124b002113a5b2_light_cct
+        - light.0x00124b002113a5b2_light_rgb
+        # Aqara Dev
+        - switch.0x04cf8cdf3c75a785_switch
+        # Aqara Boiler
+        - switch.0x04cf8cdf3c75a326
+        # Siren
+        - switch.295943c3_siren
+        # Unicorn
+        - switch.1d42d23a_plug
+        # Purifier
+        - fan.fb47da6e_purifier
+      from: "unavailable"
+      for: "00:05:00"
+  action:
+    - service: notify.heart_security_tg
+      data:
+        title: "Available ⭐️"
+        message: >
+          {{ trigger.entity_id | replace("_", "\\_") }} available

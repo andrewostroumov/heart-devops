@@ -1,0 +1,5 @@
+- platform: xiaomi_miio
+  name: 8e5ab312_bulb
+  host: !secret light_8e5ab312_bulb_host
+  token: !secret light_8e5ab312_bulb_token
+  model: philips.light.bulb

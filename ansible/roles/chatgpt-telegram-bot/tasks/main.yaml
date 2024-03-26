@@ -1,0 +1,4 @@
+- import_tasks: build.yaml
+  tags: build
+- import_tasks: docker.yaml
+  tags: docker

@@ -1,0 +1,18 @@
+{
+  "port": 8080,
+  "db": {
+    "host": "{{ shinobi_db_host }}",
+    "user": "{{ shinobi_db_user }}",
+    "password": "{{ shinobi_db_password }}",
+    "database": "{{ shinobi_db_name }}",
+    "port": 3306
+  },
+  "cron": {
+    "key": "{{ shinobi_cron_key }}"
+  },
+  "pluginKeys": {
+    "Tensorflow": "{{ shinobi_plugin_tensorflow_key }}"
+  },
+  "passwordType": "sha256",
+  "telegramBot": true
+}

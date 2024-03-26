@@ -1,0 +1,23 @@
+- platform: xiaomi_miio_airpurifier
+  name: airpurifier_dev_1
+  host: !secret airpurifier_dev_1_host
+  token: !secret airpurifier_dev_1_token
+  model: zhimi.airpurifier.v7
+
+- platform: xiaomi_miio_airpurifier
+  name: airfresh_live_1
+  host: !secret airfresh_live_1_host
+  token: !secret airfresh_live_1_token
+  model: zhimi.airfresh.va2
+
+- platform: xiaomi_miio_airpurifier
+  name: humidifier_live_1
+  host: !secret humidifier_live_1_host
+  token: !secret humidifier_live_1_token
+  model: deerma.humidifier.jsq
+
+- platform: xiaomi_miio_airpurifier
+  name: humidifier_bed_1
+  host: !secret humidifier_bed_1_host
+  token: !secret humidifier_bed_1_token
+  model: deerma.humidifier.jsq

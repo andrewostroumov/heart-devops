@@ -1,0 +1,4 @@
+tls:
+  certificates:
+    - certFile: /acme.sh/ieee4175.space/fullchain.cer
+      keyFile: /acme.sh/ieee4175.space/ieee4175.space.key
